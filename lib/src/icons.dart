@@ -419,6 +419,7 @@ class FluentIcons {
     0xe71d,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData all_apps_mirrored = IconData(
@@ -797,6 +798,7 @@ class FluentIcons {
     0xe72b,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData back_to_window = IconData(
@@ -2189,6 +2191,7 @@ class FluentIcons {
     0xe9d5,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData check_list_check = IconData(
@@ -4295,6 +4298,7 @@ class FluentIcons {
     0xe70f,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData edit_contact = IconData(
@@ -10451,6 +10455,7 @@ class FluentIcons {
     0xe721,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData search_and_apps = IconData(
@@ -10565,6 +10570,7 @@ class FluentIcons {
     0xe724,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData send_mirrored = IconData(
@@ -11087,6 +11093,7 @@ class FluentIcons {
     0xe9d0,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true
   );
 
   static const IconData sort_lines_ascending = IconData(
