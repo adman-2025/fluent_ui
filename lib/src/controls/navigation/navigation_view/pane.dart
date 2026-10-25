@@ -838,10 +838,15 @@ class _TopNavigationPaneState extends State<_TopNavigationPane> {
             Expanded(
               child: DynamicOverflow(
                 overflowWidgetAlignment: MainAxisAlignment.start,
-                overflowWidget: FlyoutTarget(
-                  key: overflowKey,
-                  controller: overflowController,
-                  child: widget.pane.buildTopOverflowButton(openOverflowFlyout),
+                overflowWidget: ExcludeFocus(
+                  excluding: hiddenPaneItems.isEmpty,
+                  child: FlyoutTarget(
+                    key: overflowKey,
+                    controller: overflowController,
+                    child: widget.pane.buildTopOverflowButton(
+                      openOverflowFlyout,
+                    ),
+                  ),
                 ),
                 overflowChangedCallback: (hiddenItems) {
                   setState(() {
@@ -861,9 +866,14 @@ class _TopNavigationPaneState extends State<_TopNavigationPane> {
                 },
                 children: _localItemHold.map((index) {
                   final item = widget.pane.items[index];
-                  return SizedBox(
-                    height: height,
-                    child: _buildItem(item, height),
+                  return ExcludeFocus(
+                    excluding: hiddenPaneItems.contains(
+                      _localItemHold.indexOf(index),
+                    ),
+                    child: SizedBox(
+                      height: height,
+                      child: _buildItem(item, height),
+                    ),
                   );
                 }).toList(),
               ),
