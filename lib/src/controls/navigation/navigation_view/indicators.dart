@@ -119,18 +119,6 @@ class EndNavigationIndicator extends NavigationIndicator {
   });
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-      ColorProperty(
-        'unselectedColor',
-        unselectedColor,
-        defaultValue: Colors.transparent,
-      ),
-    );
-  }
-
-  @override
   NavigationIndicatorState<EndNavigationIndicator> createState() =>
       _EndNavigationIndicatorState();
 }
@@ -221,15 +209,6 @@ class StickyNavigationIndicator extends NavigationIndicator {
   ///
   /// Defaults to 3.0px to match WinUI3 NavigationView standard.
   final double indicatorSize;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DoubleProperty('topPadding', topPadding, defaultValue: 12.0))
-      ..add(DoubleProperty('leftPadding', leftPadding, defaultValue: 10.0))
-      ..add(DoubleProperty('indicatorSize', indicatorSize, defaultValue: 3.0));
-  }
 
   @override
   NavigationIndicatorState<StickyNavigationIndicator> createState() =>
@@ -401,9 +380,8 @@ class _StickyNavigationIndicatorState
 
     final fluentTheme = FluentTheme.of(context);
     final densityAdjustment = fluentTheme.visualDensity.baseSizeAdjustment.dy;
-    final paneItemMinHeight = clampDouble(
-      kPaneItemMinHeight + densityAdjustment,
-      0,
+    final paneItemMinHeight = (kPaneItemMinHeight + densityAdjustment).clamp(
+      0.0,
       double.infinity,
     );
 
@@ -477,11 +455,8 @@ class _StickyNavigationIndicatorState
                     final expandProgress = expandAnimation.value;
                     final tileHeight = constraints.maxHeight;
                     final distanceToBottom = tileHeight - widget.leftPadding;
-                    topPadding = clampDouble(
-                      distanceToBottom * (1.0 - expandProgress),
-                      widget.leftPadding,
-                      distanceToBottom,
-                    );
+                    topPadding = (distanceToBottom * (1.0 - expandProgress))
+                        .clamp(widget.leftPadding, distanceToBottom);
                   }
 
                   return Padding(

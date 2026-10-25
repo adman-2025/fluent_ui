@@ -6,20 +6,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 
-/// Describes how hours are formatted.
-enum HourFormat {
-  /// Zero-padded two-digit 24-hour format ranging from "00" to "23".
-  // ignore: constant_identifier_names
-  HH,
-
-  /// Non-padded variable-length 24-hour format ranging from "0" to "23".
-  H,
-
-  /// Non-padded variable-length hour in day period format ranging from "1" to
-  /// "12".
-  h,
-}
-
 String _formatHour(int hour, String locale) {
   return DateFormat.H(locale).format(
     DateTime(
@@ -166,6 +152,7 @@ class TimePicker extends StatefulWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
+      ..add(DiagnosticsProperty<DateTime>('selected', selected, ifNull: 'now'))
       ..add(
         EnumProperty<HourFormat>(
           'hourFormat',
@@ -174,7 +161,7 @@ class TimePicker extends StatefulWidget {
         ),
       )
       ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>(
+        DiagnosticsProperty(
           'contentPadding',
           contentPadding,
           defaultValue: kPickerContentPadding,
@@ -196,9 +183,7 @@ class TimePicker extends StatefulWidget {
           defaultValue: kPickerPopupHeight,
         ),
       )
-      ..add(IntProperty('minuteIncrement', minuteIncrement, defaultValue: 1))
-      ..add(DiagnosticsProperty<TextStyle>('headerStyle', headerStyle))
-      ..add(DiagnosticsProperty<Locale>('locale', locale));
+      ..add(IntProperty('minuteIncrement', minuteIncrement, defaultValue: 1));
   }
 }
 
@@ -333,11 +318,9 @@ class TimePickerState extends State<TimePicker>
               duration: theme.fastAnimationDuration,
               curve: theme.animationCurve,
               constraints: BoxConstraints(
-                minHeight: clampDouble(
-                  kPickerHeight + theme.visualDensity.baseSizeAdjustment.dy,
-                  0,
-                  double.infinity,
-                ),
+                minHeight:
+                    (kPickerHeight + theme.visualDensity.baseSizeAdjustment.dy)
+                        .clamp(0.0, double.infinity),
               ),
               decoration: kPickerDecorationBuilder(context, states),
               child: DefaultTextStyle.merge(

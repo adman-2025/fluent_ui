@@ -227,6 +227,9 @@ TabView(
   },
   onReorder: (oldIndex, newIndex) {
     setState(() {
+      if (oldIndex < newIndex) {
+        newIndex -= 1;
+      }
       final item = tabs!.removeAt(oldIndex);
       tabs!.insert(newIndex, item);
 
@@ -257,13 +260,17 @@ TabView(
               },
               onReorder: (oldIndex, newIndex) {
                 setState(() {
+                  var reorderIndex = newIndex;
+                  if (oldIndex < reorderIndex) {
+                    reorderIndex -= 1;
+                  }
                   final item = tabs!.removeAt(oldIndex);
-                  tabs!.insert(newIndex, item);
+                  tabs!.insert(reorderIndex, item);
 
-                  if (currentIndex == newIndex) {
+                  if (currentIndex == reorderIndex) {
                     currentIndex = oldIndex;
                   } else if (currentIndex == oldIndex) {
-                    currentIndex = newIndex;
+                    currentIndex = reorderIndex;
                   }
                 });
               },
@@ -275,7 +282,6 @@ TabView(
             ),
           ),
         ),
-        subtitle(content: const Text('Custom tabs and secondary tap gestures')),
         CodeSnippetCard(
           codeSnippet: '''
 class MyCustomTab extends Tab {

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart' show Icons;
 
 /// A builder function for creating an [InfoBar] within a popup.
 ///
@@ -396,9 +397,8 @@ class InfoBar extends StatelessWidget {
     }();
     return Container(
       constraints: BoxConstraints(
-        minHeight: clampDouble(
-          48 + theme.visualDensity.baseSizeAdjustment.dy,
-          0,
+        minHeight: (48 + theme.visualDensity.baseSizeAdjustment.dy).clamp(
+          0.0,
           double.infinity,
         ),
       ),
@@ -413,7 +413,7 @@ class InfoBar extends StatelessWidget {
           if (icon != null)
             Padding(
               padding: const EdgeInsetsDirectional.only(end: 14),
-              child: WindowsIcon(icon, color: style.iconColor?.call(severity)),
+              child: Icon(icon, color: style.iconColor?.call(severity)),
             ),
           if (isLong)
             Flexible(
@@ -526,12 +526,6 @@ class InfoBarTheme extends InheritedTheme {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<InfoBarThemeData>('data', data));
-  }
-
-  @override
   bool updateShouldNotify(InfoBarTheme oldWidget) => data != oldWidget.data;
 }
 
@@ -610,13 +604,13 @@ class InfoBarThemeData with Diagnosticable {
       icon: (severity) {
         switch (severity) {
           case InfoBarSeverity.info:
-            return WindowsIcons.info_solid;
+            return FluentIcons.info_solid;
           case InfoBarSeverity.warning:
             return FluentIcons.critical_error_solid;
           case InfoBarSeverity.success:
-            return WindowsIcons.completed_solid;
+            return Icons.check_circle;
           case InfoBarSeverity.error:
-            return WindowsIcons.status_error_full;
+            return Icons.cancel;
         }
       },
       iconColor: (severity) {
@@ -721,7 +715,6 @@ class InfoBarThemeData with Diagnosticable {
       )
       ..add(ObjectFlagProperty.has('decoration', decoration))
       ..add(ObjectFlagProperty.has('iconColor', iconColor))
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry?>('padding', padding))
       ..add(
         DiagnosticsProperty<ButtonStyle>(
           'actionStyle',

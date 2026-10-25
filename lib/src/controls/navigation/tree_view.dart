@@ -808,14 +808,6 @@ class TreeViewController with ChangeNotifier, Diagnosticable {
           ifTrue: 'attached',
           ifFalse: 'detached',
         ),
-      )
-      ..add(
-        FlagProperty(
-          'isAttachedStateMounted',
-          value: _state?.mounted ?? false,
-          ifTrue: 'attached state mounted',
-          ifFalse: 'no mounted attached state',
-        ),
       );
   }
 
@@ -1159,12 +1151,6 @@ class TreeViewState extends State<TreeView> with AutomaticKeepAliveClientMixin {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(IntProperty('visibleItemCount', _items.length));
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
     assert(debugCheckHasDirectionality(context));
@@ -1448,14 +1434,12 @@ class _TreeViewItem extends StatelessWidget {
                 // Indentation and selection indicator for single selection mode.
                 Container(
                   constraints: BoxConstraints(
-                    minHeight: clampDouble(
-                      (selectionMode == TreeViewSelectionMode.multiple
-                              ? 28.0
-                              : 26.0) +
-                          theme.visualDensity.baseSizeAdjustment.dy,
-                      0,
-                      double.infinity,
-                    ),
+                    minHeight:
+                        ((selectionMode == TreeViewSelectionMode.multiple
+                                    ? 28.0
+                                    : 26.0) +
+                                theme.visualDensity.baseSizeAdjustment.dy)
+                            .clamp(0.0, double.infinity),
                   ),
                   padding: EdgeInsetsDirectional.only(
                     start: selectionMode == TreeViewSelectionMode.multiple

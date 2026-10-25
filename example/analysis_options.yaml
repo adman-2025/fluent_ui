@@ -5,8 +5,6 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - build/**
-    - android/**
-    - ios/**
     - web/**
     - windows/**
     - macos/**

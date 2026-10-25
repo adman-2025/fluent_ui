@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// The padding used on the content of [DatePicker] and [TimePicker]
@@ -108,12 +107,6 @@ class YesNoPickerControl extends StatelessWidget {
   final VoidCallback? onCancel;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(ObjectFlagProperty.has('onCancel', onCancel));
-  }
-
-  @override
   Widget build(BuildContext context) {
     assert(debugCheckHasFluentTheme(context));
 
@@ -189,14 +182,6 @@ class PickerNavigatorIndicator extends StatelessWidget {
   ///
   /// If null, no backward button is shown
   final VoidCallback onBackward;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('onBackward', onBackward))
-      ..add(ObjectFlagProperty.has('onForward', onForward));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -355,12 +340,6 @@ class Picker extends StatefulWidget {
 
   @override
   State<Picker> createState() => PickerState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DoubleProperty('pickerHeight', pickerHeight));
-  }
 }
 
 /// The state for a [Picker] widget.
@@ -416,7 +395,7 @@ class PickerState extends State<Picker> {
             y = 0;
           }
 
-          y = clampDouble(y, 0, rootHeight);
+          y = y.clamp(0.0, rootHeight);
 
           final theme = FluentTheme.of(context);
 
@@ -442,32 +421,21 @@ class PickerState extends State<Picker> {
                 width: width.toDouble(),
                 child: FadeTransition(
                   opacity: primary,
-                  child: Acrylic(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4),
-                      side: BorderSide(
-                        color: theme.resources.surfaceStrokeColorFlyout,
-                        width: 0.6,
+                  child: Container(
+                    height: widget.pickerHeight,
+                    width: box.size.width,
+                    decoration: ShapeDecoration(
+                      color: theme.menuColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        side: BorderSide(
+                          color: theme.resources.surfaceStrokeColorFlyout,
+                          width: 0.6,
+                        ),
                       ),
                     ),
-                    child: Container(
-                      height: widget.pickerHeight,
-                      width: box.size.width,
-                      decoration: ShapeDecoration(
-                        color: theme.menuColor.withValues(
-                          alpha: kMenuColorOpacity,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                          side: BorderSide(
-                            color: theme.resources.surfaceStrokeColorFlyout,
-                            width: 0.6,
-                          ),
-                        ),
-                      ),
-                      child: MediaQuery.withNoTextScaling(
-                        child: widget.pickerContent(context),
-                      ),
+                    child: MediaQuery.withNoTextScaling(
+                      child: widget.pickerContent(context),
                     ),
                   ),
                 ),
@@ -511,14 +479,6 @@ class PickerDialog extends StatelessWidget {
 
   /// Called when the user dismisses the dialog.
   final VoidCallback onDismiss;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('onSelect', onSelect))
-      ..add(ObjectFlagProperty.has('onDismiss', onDismiss));
-  }
 
   /// Creates a picker dialog.
   const PickerDialog({

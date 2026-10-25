@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 typedef InfoBadgeSeverity = InfoBarSeverity;
 
@@ -73,16 +72,6 @@ class InfoBadge extends StatelessWidget {
 
   /// The severity of the badge.
   final InfoBadgeSeverity severity;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('source', source))
-      ..add(ColorProperty('color', color))
-      ..add(ColorProperty('foregroundColor', foregroundColor))
-      ..add(EnumProperty<InfoBadgeSeverity>('severity', severity));
-  }
 
   @override
   Widget build(BuildContext context) {

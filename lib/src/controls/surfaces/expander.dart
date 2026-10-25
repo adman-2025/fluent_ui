@@ -227,20 +227,6 @@ class Expander extends StatefulWidget {
           defaultValue: false,
         ),
       )
-      ..add(
-        FlagProperty(
-          'enabled',
-          value: enabled,
-          defaultValue: true,
-          ifFalse: 'disabled',
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<WidgetStateColor>(
-          'headerBackgroundColor',
-          headerBackgroundColor,
-        ),
-      )
       ..add(ColorProperty('contentBackgroundColor', contentBackgroundColor))
       ..add(
         DiagnosticsProperty<EdgeInsetsGeometry>(
@@ -333,9 +319,8 @@ class ExpanderState extends State<Expander>
         builder: (context, states) {
           return Container(
             constraints: BoxConstraints(
-              minHeight: clampDouble(
-                42 + theme.visualDensity.baseSizeAdjustment.dy,
-                0,
+              minHeight: (42 + theme.visualDensity.baseSizeAdjustment.dy).clamp(
+                0.0,
                 double.infinity,
               ),
             ),

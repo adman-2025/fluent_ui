@@ -1,6 +1,11 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
-import 'package:material_ui/material_ui.dart' as m;
+import 'package:flutter/cupertino.dart' show CupertinoScrollbar;
+import 'package:flutter/material.dart' as m;
+import 'package:flutter_localizations/flutter_localizations.dart'
+    show
+        GlobalCupertinoLocalizations,
+        GlobalMaterialLocalizations,
+        GlobalWidgetsLocalizations;
 
 /// An application that uses Windows design.
 ///
@@ -358,47 +363,6 @@ class FluentApp extends StatefulWidget {
   final ScrollBehavior scrollBehavior;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty<FluentThemeData>('theme', theme))
-      ..add(DiagnosticsProperty<FluentThemeData>('darkTheme', darkTheme))
-      ..add(
-        EnumProperty<ThemeMode>(
-          'themeMode',
-          themeMode,
-          defaultValue: ThemeMode.system,
-        ),
-      )
-      ..add(DiagnosticsProperty<Locale>('locale', locale))
-      ..add(IterableProperty<Locale>('supportedLocales', supportedLocales))
-      ..add(
-        FlagProperty(
-          'showPerformanceOverlay',
-          value: showPerformanceOverlay,
-          ifTrue: 'show performance overlay',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'showSemanticsDebugger',
-          value: showSemanticsDebugger,
-          ifTrue: 'show semantics debugger',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'debugShowCheckedModeBanner',
-          value: debugShowCheckedModeBanner,
-          ifTrue: 'show debug banner',
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<ScrollBehavior>('scrollBehavior', scrollBehavior),
-      );
-  }
-
-  @override
   State<FluentApp> createState() => _FluentAppState();
 }
 
@@ -430,7 +394,9 @@ class _FluentAppState extends State<FluentApp> {
       yield* localizationsDelegates;
     }
     yield FluentLocalizations.delegate;
-    yield* m.GlobalMaterialLocalizations.delegates;
+    yield GlobalMaterialLocalizations.delegate;
+    yield GlobalCupertinoLocalizations.delegate;
+    yield GlobalWidgetsLocalizations.delegate;
   }
 
   bool get _usesRouter =>
@@ -488,6 +454,7 @@ class _FluentAppState extends State<FluentApp> {
               brightness: themeData.brightness,
             ),
             primaryColorDark: themeData.accentColor.darker,
+            extensions: themeData.extensions.values,
             brightness: themeData.brightness,
             canvasColor: themeData.cardColor,
             shadowColor: themeData.shadowColor,
@@ -592,6 +559,9 @@ class _FluentAppState extends State<FluentApp> {
 /// See also:
 ///
 ///  * [ScrollBehavior], the default scrolling behavior extended by this class.
+/// By default we will use [CupertinoScrollbar] for iOS and macOS platforms
+/// for windows and Linux [Scrollbar]
+/// for Android and Fuchsia we will return the child
 class FluentScrollBehavior extends ScrollBehavior {
   /// Creates a FluentScrollBehavior that decorates [Scrollable]s with
   /// [Scrollbar]s based on the current platform and provided [ScrollableDetails].
@@ -611,10 +581,14 @@ class FluentScrollBehavior extends ScrollBehavior {
       case Axis.vertical:
         switch (getPlatform(context)) {
           case TargetPlatform.macOS:
+          case TargetPlatform.iOS:
+            return CupertinoScrollbar(
+              controller: details.controller,
+              child: child,
+            );
           case TargetPlatform.linux:
           case TargetPlatform.windows:
             return Scrollbar(controller: details.controller, child: child);
-          case TargetPlatform.iOS:
           case TargetPlatform.android:
           case TargetPlatform.fuchsia:
             return child;

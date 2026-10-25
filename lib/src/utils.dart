@@ -143,11 +143,7 @@ Offset horizontalPositionDependentBox({
   if (size.height - margin * 2.0 < childSize.height) {
     y = (size.height - childSize.height) / 2.0;
   } else {
-    final normalizedTargetY = clampDouble(
-      target.dy,
-      margin,
-      size.height - margin,
-    );
+    final normalizedTargetY = target.dy.clamp(margin, size.height - margin);
     final edge = margin + childSize.height / 2.0;
     if (normalizedTargetY < edge) {
       y = margin;

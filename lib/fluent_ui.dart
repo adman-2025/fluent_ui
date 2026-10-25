@@ -1,16 +1,36 @@
-export 'package:flutter/widgets.dart' hide TextBox;
-export 'package:material_ui/material_ui.dart'
+export 'package:flutter/material.dart'
     show
+        AdaptiveTextSelectionToolbar,
+        AnimatedIcon,
+        AnimatedIconData,
+        AnimatedIcons,
+        Brightness,
+        CircleAvatar,
+        DatePickerMode,
+        DateTimeRange,
+        DateUtils,
+        DefaultMaterialLocalizations,
+        Feedback,
+        FlutterLogo,
+        HourFormat,
         MaterialLocalizations,
+        ReorderableDragStartListener,
+        ReorderableListView,
+        SelectableDayPredicate,
         SelectableText,
         SelectionArea,
+        TextInputAction,
+        TextMagnifier,
         TextSelectionTheme,
         TextSelectionThemeData,
+        ThemeExtension,
         ThemeMode,
+        TooltipTriggerMode,
         TooltipVisibility,
         VisualDensity,
         kElevationToShadow,
         kThemeAnimationDuration;
+export 'package:flutter/widgets.dart' hide TextBox;
 export 'package:scroll_pos/scroll_pos.dart';
 
 export 'l10n/extension/fluent_localizations_extension.dart';

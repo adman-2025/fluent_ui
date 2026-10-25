@@ -255,12 +255,6 @@ class ScrollbarTheme extends InheritedTheme {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<ScrollbarThemeData>('data', data));
-  }
-
-  @override
   Widget wrap(BuildContext context, Widget child) {
     return ScrollbarTheme(data: data, child: child);
   }
@@ -541,12 +535,12 @@ class ScrollbarThemeData with Diagnosticable {
         ),
       )
       ..add(
-        DoubleProperty('crossAxisMargin', crossAxisMargin, defaultValue: 2.0),
+        DoubleProperty('crossAxisMargin', mainAxisMargin, defaultValue: 2.0),
       )
       ..add(
         DoubleProperty(
           'hoveringCrossAxisMargin',
-          hoveringCrossAxisMargin,
+          hoveringMainAxisMargin,
           defaultValue: 0.0,
         ),
       )

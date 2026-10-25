@@ -2,7 +2,6 @@ import 'dart:math' as math;
 import 'dart:ui' as dart;
 
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 import 'color_state.dart';
 
@@ -59,17 +58,6 @@ class ColorRingSpectrum extends StatefulWidget {
 
   @override
   State<ColorRingSpectrum> createState() => _ColorRingSpectrumState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('onColorChanged', onColorChanged))
-      ..add(IntProperty('minHue', minHue, defaultValue: 0))
-      ..add(IntProperty('maxHue', maxHue, defaultValue: 360))
-      ..add(IntProperty('minSaturation', minSaturation, defaultValue: 0))
-      ..add(IntProperty('maxSaturation', maxSaturation, defaultValue: 100));
-  }
 }
 
 class _ColorRingSpectrumState extends State<ColorRingSpectrum> {
@@ -218,17 +206,6 @@ class ColorBoxSpectrum extends StatefulWidget {
 
   @override
   State<ColorBoxSpectrum> createState() => _ColorBoxSpectrumState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('onColorChanged', onColorChanged))
-      ..add(IntProperty('minHue', minHue, defaultValue: 0))
-      ..add(IntProperty('maxHue', maxHue, defaultValue: 360))
-      ..add(IntProperty('minSaturation', minSaturation, defaultValue: 0))
-      ..add(IntProperty('maxSaturation', maxSaturation, defaultValue: 100));
-  }
 }
 
 class _ColorBoxSpectrumState extends State<ColorBoxSpectrum> {
@@ -296,8 +273,8 @@ class _ColorBoxSpectrumState extends State<ColorBoxSpectrum> {
     final height = size.height;
 
     // Clamp position within bounds
-    final x = clampDouble(position.dx, 0, width);
-    final y = clampDouble(position.dy, 0, height);
+    final x = position.dx.clamp(0, width);
+    final y = position.dy.clamp(0, height);
 
     // Calculate HSV values
     // Hue from left to right (minHue to maxHue)
@@ -484,16 +461,12 @@ class _RingSpectrumPainter extends CustomPainter {
 
     final labelWidth = textPainter.width + labelPadding.horizontal;
     final labelHeight = textPainter.height + labelPadding.vertical;
-    final labelX = clampDouble(
-      position.dx - labelWidth / 2,
-      0,
-      size.width - labelWidth,
-    );
-    var labelY = clampDouble(
-      position.dy - labelHeight - 30,
-      0,
-      size.height - labelHeight,
-    );
+    final labelX = (position.dx - labelWidth / 2)
+        .clamp(0, size.width - labelWidth)
+        .toDouble();
+    var labelY = (position.dy - labelHeight - 30)
+        .clamp(0, size.height - labelHeight)
+        .toDouble();
 
     // Check if label would overlap the indicator and adjust position
     final labelBottomY = labelY + labelHeight;
@@ -703,16 +676,12 @@ class _BoxSpectrumPainter extends CustomPainter {
 
     final labelWidth = textPainter.width + labelPadding.horizontal;
     final labelHeight = textPainter.height + labelPadding.vertical;
-    final labelX = clampDouble(
-      position.dx - labelWidth / 2,
-      0,
-      size.width - labelWidth,
-    );
-    var labelY = clampDouble(
-      position.dy - labelHeight - 30,
-      0,
-      size.height - labelHeight,
-    );
+    final labelX = (position.dx - labelWidth / 2)
+        .clamp(0, size.width - labelWidth)
+        .toDouble();
+    var labelY = (position.dy - labelHeight - 30)
+        .clamp(0, size.height - labelHeight)
+        .toDouble();
 
     // Check if label would overlap the indicator and adjust position
     final labelBottomY = labelY + labelHeight;

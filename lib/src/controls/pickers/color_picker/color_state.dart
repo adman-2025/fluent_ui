@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 part 'color_names.dart';
 
@@ -51,7 +50,7 @@ final class RgbComponents {
 }
 
 /// A stateful representation of a color in both RGB and HSV color spaces.
-class ColorState extends ChangeNotifier with Diagnosticable {
+class ColorState extends ChangeNotifier {
   // RGB components (0-1)
   late double _red; // 0–1
   late double _green; // 0–1
@@ -83,19 +82,6 @@ class ColorState extends ChangeNotifier with Diagnosticable {
 
   /// Gets the value/brightness (0–1).
   double get value => _value;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DoubleProperty('red', red))
-      ..add(DoubleProperty('green', green))
-      ..add(DoubleProperty('blue', blue))
-      ..add(DoubleProperty('alpha', alpha))
-      ..add(DoubleProperty('hue', hue))
-      ..add(DoubleProperty('saturation', saturation))
-      ..add(DoubleProperty('value', value));
-  }
 
   /// Constructs a [ColorState] with the given components.
   ///
@@ -134,14 +120,14 @@ class ColorState extends ChangeNotifier with Diagnosticable {
 
   /// Sets the saturation and updates the RGB values accordingly.
   void setSaturation(double newValue) {
-    _saturation = clampDouble(newValue, 0, 1);
+    _saturation = newValue.clamp(0, 1);
     _recalculateRGBFromHSV();
     notifyListeners();
   }
 
   /// Sets the value and updates the RGB values accordingly.
   void setValue(double newValue) {
-    _value = clampDouble(newValue, 0, 1);
+    _value = newValue.clamp(0, 1);
 
     if (_value == 0) {
       _red = 0;
@@ -159,28 +145,28 @@ class ColorState extends ChangeNotifier with Diagnosticable {
 
   /// Sets the red component and updates the HSV values accordingly.
   void setRed(double newValue) {
-    _red = clampDouble(newValue, 0, 1);
+    _red = newValue.clamp(0, 1);
     _recalculateHSVFromRGB();
     notifyListeners();
   }
 
   /// Sets the green component and updates the HSV values accordingly.
   void setGreen(double newValue) {
-    _green = clampDouble(newValue, 0, 1);
+    _green = newValue.clamp(0, 1);
     _recalculateHSVFromRGB();
     notifyListeners();
   }
 
   /// Sets the blue component and updates the HSV values accordingly.
   void setBlue(double newValue) {
-    _blue = clampDouble(newValue, 0, 1);
+    _blue = newValue.clamp(0, 1);
     _recalculateHSVFromRGB();
     notifyListeners();
   }
 
   /// Sets the alpha component (0–1).
   void setAlpha(double newValue) {
-    _alpha = clampDouble(newValue, 0, 1);
+    _alpha = newValue.clamp(0, 1);
     notifyListeners();
   }
 
@@ -300,13 +286,12 @@ class ColorState extends ChangeNotifier with Diagnosticable {
     );
 
     // Clamp values to allowed ranges
-    final clampedHue = clampDouble(_hue, minHue.toDouble(), maxHue.toDouble());
-    final clampedSaturation = clampDouble(
-      _saturation,
+    final clampedHue = _hue.clamp(minHue.toDouble(), maxHue.toDouble());
+    final clampedSaturation = _saturation.clamp(
       minSaturation / 100,
       maxSaturation / 100,
     );
-    final clampedValue = clampDouble(_value, minValue / 100, maxValue / 100);
+    final clampedValue = _value.clamp(minValue / 100, maxValue / 100);
 
     // Only update and recalculate if values actually changed
     if (clampedHue != _hue ||

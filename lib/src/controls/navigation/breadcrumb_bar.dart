@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
 /// The alignment of the chevron icon in the breadcrumb bar.
@@ -216,40 +215,6 @@ class BreadcrumbBar<T> extends StatefulWidget {
 
   @override
   State<BreadcrumbBar<T>> createState() => BreadcrumbBarState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(IntProperty('itemCount', items.length, defaultValue: 0))
-      ..add(
-        ObjectFlagProperty('onItemPressed', onItemPressed, ifNull: 'disabled'),
-      )
-      ..add(
-        FlagProperty(
-          'hasCustomOverflowButtonBuilder',
-          value: overflowButtonBuilder != _defaultOverflowButtonBuilder,
-          ifTrue: 'custom overflow button builder',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'hasCustomChevronIconBuilder',
-          value: chevronIconBuilder != _defaultChevronBuilder,
-          ifTrue: 'custom chevron icon builder',
-        ),
-      )
-      ..add(
-        DoubleProperty('chevronIconSize', chevronIconSize, defaultValue: 8.0),
-      )
-      ..add(
-        EnumProperty<ChevronAlignment>(
-          'chevronAlignment',
-          chevronAlignment,
-          defaultValue: ChevronAlignment.center,
-        ),
-      );
-  }
 }
 
 class BreadcrumbBarState<T> extends State<BreadcrumbBar<T>> {
@@ -291,27 +256,6 @@ class BreadcrumbBarState<T> extends State<BreadcrumbBar<T>> {
         );
       },
     );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(IntProperty('overflowedItemCount', overflowedIndexes.length))
-      ..add(
-        FlagProperty(
-          'isFlyoutControllerAttached',
-          value: flyoutController.isAttached,
-          ifFalse: 'flyout controller detached',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'isOverflowFlyoutOpen',
-          value: flyoutController.isOpen,
-          ifFalse: 'overflow flyout closed',
-        ),
-      );
   }
 
   @override
@@ -597,7 +541,7 @@ class RenderBreadcrumbBar<T> extends RenderBox
     onIndexOverflow(overflowedIndexes);
 
     size = Size(
-      clampDouble(maxExtent, constraints.maxWidth, constraints.maxWidth),
+      maxExtent.clamp(constraints.maxWidth, constraints.maxWidth),
       height,
     );
   }

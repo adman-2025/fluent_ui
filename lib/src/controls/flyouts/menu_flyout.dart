@@ -69,21 +69,6 @@ class MenuFlyout extends StatefulWidget {
 
   @override
   State<MenuFlyout> createState() => _MenuFlyoutState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(IntProperty('items', items.length, defaultValue: 0))
-      ..add(ColorProperty('color', color))
-      ..add(DiagnosticsProperty<ShapeBorder>('shape', shape))
-      ..add(
-        ColorProperty('shadowColor', shadowColor, defaultValue: Colors.black),
-      )
-      ..add(DoubleProperty('elevation', elevation, defaultValue: 8.0))
-      ..add(DiagnosticsProperty<BoxConstraints>('constraints', constraints))
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('itemMargin', itemMargin));
-  }
 }
 
 class _MenuFlyoutState extends State<MenuFlyout> {
@@ -124,7 +109,7 @@ class _MenuFlyoutState extends State<MenuFlyout> {
         shadowColor: widget.shadowColor,
         shape: widget.shape,
         padding: kDefaultMenuPadding,
-        useAcrylic: DisableAcrylic.of(context) == null,
+        useAcrylic: DisableAcrylic.of(context) != null,
         child: ScrollConfiguration(
           behavior: const _MenuScrollBehavior(),
           child: SingleChildScrollView(

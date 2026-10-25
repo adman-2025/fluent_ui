@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
 /// The title bar sits at the top of an app on the base layer. Its main purpose
@@ -132,75 +131,6 @@ class TitleBar extends StatelessWidget {
     }
 
     return calculatedHeight;
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-        FlagProperty(
-          'isBackButtonVisible',
-          value: isBackButtonVisible,
-          defaultValue: true,
-          ifFalse: 'back button hidden',
-        ),
-      )
-      ..add(
-        DiagnosticsProperty<bool>(
-          'isBackButtonEnabled',
-          isBackButtonEnabled,
-          ifNull: 'automatic',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'hasCustomBackButton',
-          value: backButton != null,
-          ifTrue: 'custom back button',
-        ),
-      )
-      ..add(
-        ObjectFlagProperty(
-          'onBackRequested',
-          onBackRequested,
-          ifNull: 'not provided',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'hasLeftHeader',
-          value: leftHeader != null,
-          ifTrue: 'left header',
-        ),
-      )
-      ..add(FlagProperty('hasIcon', value: icon != null, ifTrue: 'icon'))
-      ..add(FlagProperty('hasTitle', value: title != null, ifTrue: 'title'))
-      ..add(
-        FlagProperty(
-          'hasSubtitle',
-          value: subtitle != null,
-          ifTrue: 'subtitle',
-        ),
-      )
-      ..add(
-        FlagProperty('hasContent', value: content != null, ifTrue: 'content'),
-      )
-      ..add(
-        FlagProperty(
-          'hasEndHeader',
-          value: endHeader != null,
-          ifTrue: 'end header',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'hasCaptionControls',
-          value: captionControls != null,
-          ifTrue: 'caption controls',
-        ),
-      )
-      ..add(DoubleProperty('height', height));
   }
 
   @override
@@ -631,25 +561,6 @@ class _RenderTitleSubtitleOverflow extends RenderBox
       child = childAfter(child);
     }
   }
-
-  /// Skips hidden children when collecting semantics.
-  ///
-  /// Hidden children are never laid out (see [performLayout]). During a window
-  /// resize, a semantics walk can also run while a visible child is waiting for
-  /// its new constraints. Skipping both cases prevents Flutter from asserting
-  /// on `_needsLayout`.
-  @override
-  void visitChildrenForSemantics(RenderObjectVisitor visitor) {
-    var child = firstChild;
-    while (child != null) {
-      final childParentData =
-          child.parentData! as _TitleSubtitleOverflowParentData;
-      if (!childParentData.isHidden && !child.debugNeedsLayout) {
-        visitor(child);
-      }
-      child = childAfter(child);
-    }
-  }
 }
 
 /// The preferred position for the pane toggle button.
@@ -690,28 +601,12 @@ class PaneToggleButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-      FlagProperty(
-        'hasCustomOnPressed',
-        value: onPressed != null,
-        ifTrue: 'custom on pressed callback',
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     final view = NavigationView.dataOf(context);
-    final navigationView = NavigationView.of(context);
     final fluentTheme = FluentTheme.of(context);
-    final localizations = FluentLocalizations.of(context);
-    final paneItemHeight = clampDouble(
-      kPaneItemMinHeight + fluentTheme.visualDensity.baseSizeAdjustment.dy,
-      0,
-      double.infinity,
-    );
+    final paneItemHeight =
+        (kPaneItemMinHeight + fluentTheme.visualDensity.baseSizeAdjustment.dy)
+            .clamp(0.0, double.infinity);
 
     final width = view.pane?.size?.compactWidth ?? kCompactNavigationPaneWidth;
     return Container(
@@ -723,9 +618,7 @@ class PaneToggleButton extends StatelessWidget {
         maxHeight: paneItemHeight,
       ),
       child: Tooltip(
-        message: navigationView.isPaneOpen
-            ? localizations.closeNavigationTooltip
-            : localizations.openNavigationTooltip,
+        message: 'Toggle navigation',
         child: IconButton(
           icon: const Icon(WindowsIcons.global_nav_button),
           onPressed:
@@ -763,27 +656,6 @@ class PaneBackButton extends StatelessWidget {
   final Widget backIcon;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-        FlagProperty(
-          'enabled',
-          value: enabled,
-          defaultValue: true,
-          ifFalse: 'disabled',
-        ),
-      )
-      ..add(
-        FlagProperty(
-          'hasCustomOnPressed',
-          value: onPressed != null,
-          ifTrue: 'custom on pressed callback',
-        ),
-      );
-  }
-
-  @override
   Widget build(BuildContext context) {
     assert(debugCheckHasFluentLocalizations(context));
     final localizations = FluentLocalizations.of(context);
@@ -791,11 +663,9 @@ class PaneBackButton extends StatelessWidget {
     final viewData = NavigationView.dataOf(context);
     final canPop = viewData.canPop;
     final fluentTheme = FluentTheme.of(context);
-    final paneItemHeight = clampDouble(
-      kPaneItemMinHeight + fluentTheme.visualDensity.baseSizeAdjustment.dy,
-      0,
-      double.infinity,
-    );
+    final paneItemHeight =
+        (kPaneItemMinHeight + fluentTheme.visualDensity.baseSizeAdjustment.dy)
+            .clamp(0.0, double.infinity);
 
     final width =
         viewData.pane?.size?.compactWidth ?? kCompactNavigationPaneWidth;

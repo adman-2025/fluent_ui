@@ -132,16 +132,6 @@ class WindowsTextSelectionToolbar extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(IntProperty('buttonCount', buttonItems.length, defaultValue: 0))
-      ..add(
-        DiagnosticsProperty<TextSelectionToolbarAnchors>('anchors', anchors),
-      );
-  }
-
-  @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMediaQuery(context));
     assert(debugCheckHasFluentLocalizations(context));
@@ -421,8 +411,7 @@ class _WindowsTextSelectionControlsToolbarState
 
     assert(debugCheckHasMediaQuery(context));
     final midpointAnchor = Offset(
-      clampDouble(
-        widget.selectionMidpoint.dx - widget.globalEditableRegion.left,
+      (widget.selectionMidpoint.dx - widget.globalEditableRegion.left).clamp(
         MediaQuery.paddingOf(context).left,
         MediaQuery.widthOf(context) - MediaQuery.paddingOf(context).right,
       ),

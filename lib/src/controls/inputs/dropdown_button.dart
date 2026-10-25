@@ -228,7 +228,7 @@ class DropDownButton extends StatefulWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(IntProperty('itemCount', items.length))
+      ..add(IterableProperty<MenuFlyoutItemBase>('items', items))
       ..add(
         DoubleProperty(
           'verticalOffset',
@@ -238,15 +238,15 @@ class DropDownButton extends StatefulWidget {
       )
       ..add(
         FlagProperty(
-          'closeAfterClick',
+          'close after click',
           value: closeAfterClick,
-          defaultValue: true,
+          defaultValue: false,
           ifFalse: 'do not close after click',
         ),
       )
       ..add(EnumProperty<FlyoutPlacementMode>('placement', placement))
-      ..add(DiagnosticsProperty<ShapeBorder>('menuShape', menuShape))
-      ..add(ColorProperty('menuColor', menuColor));
+      ..add(DiagnosticsProperty<ShapeBorder>('menu shape', menuShape))
+      ..add(ColorProperty('menu color', menuColor));
   }
 }
 

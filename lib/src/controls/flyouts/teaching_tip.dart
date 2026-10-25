@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 /// The default constraints for a [TeachingTip].
 ///
@@ -238,16 +237,6 @@ class TeachingTip extends StatelessWidget {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(ObjectFlagProperty.has('leading', leading))
-      ..add(IntProperty('buttons', buttons?.length))
-      ..add(ObjectFlagProperty.has('mediaContent', mediaContent))
-      ..add(ObjectFlagProperty.has('onClose', onClose));
-  }
-
-  @override
   Widget build(BuildContext context) {
     assert(debugCheckHasFluentTheme(context));
     assert(debugCheckHasFluentLocalizations(context));
@@ -270,7 +259,7 @@ class TeachingTip extends StatelessWidget {
             arrowMainAxisWidth: verticalPadding,
           ),
           child: Container(
-            color: theme.menuColor.withValues(alpha: kMenuColorOpacity),
+            color: theme.menuColor,
             padding: EdgeInsets.only(
               top: switch (flyout.placementMode) {
                 FlyoutPlacementMode.bottomLeft ||

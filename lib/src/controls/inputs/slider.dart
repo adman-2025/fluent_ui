@@ -4,8 +4,8 @@ import 'dart:ui';
 
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart' as m;
 import 'package:flutter/rendering.dart';
-import 'package:material_ui/material_ui.dart' as m;
 
 /// A slider lets the user select from a range of values by moving a thumb
 /// control along a track.
@@ -667,12 +667,6 @@ class SliderTheme extends InheritedTheme {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<SliderThemeData>('data', data));
-  }
-
-  @override
   bool updateShouldNotify(SliderTheme oldWidget) => data != oldWidget.data;
 }
 
@@ -842,31 +836,8 @@ class SliderThemeData with Diagnosticable {
       ..add(DiagnosticsProperty('inactiveColor', inactiveColor))
       ..add(ColorProperty('labelBackgroundColor', labelBackgroundColor))
       ..add(ColorProperty('labelForegroundColor', labelForegroundColor))
-      ..add(
-        FlagProperty(
-          'useThumbBall',
-          value: useThumbBall,
-          ifTrue: 'thumb ball enabled',
-        ),
-      )
-      ..add(
-        ObjectFlagProperty<WidgetStateProperty<double?>?>.has(
-          'thumbRadius',
-          thumbRadius,
-        ),
-      )
-      ..add(
-        ObjectFlagProperty<WidgetStateProperty<double?>?>.has(
-          'trackHeight',
-          trackHeight,
-        ),
-      )
-      ..add(
-        ObjectFlagProperty<WidgetStateProperty<double?>?>.has(
-          'thumbBallInnerFactor',
-          thumbBallInnerFactor,
-        ),
-      );
+      ..add(DiagnosticsProperty('useThumbBall', useThumbBall))
+      ..add(DiagnosticsProperty('thumbBallInnerFactor', thumbBallInnerFactor));
   }
 }
 

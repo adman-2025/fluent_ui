@@ -719,12 +719,19 @@ class TextBox extends StatefulWidget {
     super.debugFillProperties(properties);
     properties
       ..add(
-        ObjectFlagProperty<TextEditingController?>.has(
+        DiagnosticsProperty<TextEditingController>(
           'controller',
           controller,
+          defaultValue: null,
         ),
       )
-      ..add(ObjectFlagProperty<FocusNode?>.has('focusNode', focusNode))
+      ..add(
+        DiagnosticsProperty<FocusNode>(
+          'focusNode',
+          focusNode,
+          defaultValue: null,
+        ),
+      )
       ..add(
         DiagnosticsProperty<WidgetStateProperty<BoxDecoration>>(
           'decoration',
@@ -744,7 +751,7 @@ class TextBox extends StatefulWidget {
           defaultValue: kTextBoxPadding,
         ),
       )
-      ..add(ObjectFlagProperty<String?>.has('placeholder', placeholder))
+      ..add(StringProperty('placeholder', placeholder))
       ..add(
         DiagnosticsProperty<TextStyle>('placeholderStyle', placeholderStyle),
       )
@@ -828,7 +835,7 @@ class TextBox extends StatefulWidget {
           defaultValue: null,
         ),
       )
-      ..add(DoubleProperty('cursorWidth', cursorWidth, defaultValue: 2.0))
+      ..add(DoubleProperty('cursorWidth', cursorWidth, defaultValue: 1.0))
       ..add(DoubleProperty('cursorHeight', cursorHeight, defaultValue: null))
       ..add(
         DiagnosticsProperty<Radius>(
@@ -923,6 +930,9 @@ class TextBox extends StatefulWidget {
         ),
       );
   }
+
+  static final TextMagnifierConfiguration _fluentMagnifierConfiguration =
+      TextMagnifier.adaptiveMagnifierConfiguration;
 }
 
 class _TextBoxState extends State<TextBox>
@@ -1366,7 +1376,7 @@ class _TextBoxState extends State<TextBox>
             expands: widget.expands,
             magnifierConfiguration:
                 widget.magnifierConfiguration ??
-                TextMagnifierConfiguration.disabled,
+                TextBox._fluentMagnifierConfiguration,
             // Only show the selection highlight when the text field is focused.
             selectionColor: _effectiveFocusNode.hasFocus
                 ? selectionColor
@@ -1599,11 +1609,9 @@ class _TextBoxState extends State<TextBox>
                   child: Container(
                     foregroundDecoration: foregroundDecoration,
                     constraints: BoxConstraints(
-                      minHeight: clampDouble(
-                        32 + themeData.visualDensity.baseSizeAdjustment.dy,
-                        0,
-                        double.infinity,
-                      ),
+                      minHeight:
+                          (32 + themeData.visualDensity.baseSizeAdjustment.dy)
+                              .clamp(0.0, double.infinity),
                     ),
                     child: _selectionGestureDetectorBuilder
                         .buildGestureDetector(

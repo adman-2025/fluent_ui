@@ -50,19 +50,6 @@ class CommandBarCard extends StatelessWidget {
   final Color? backgroundColor;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin))
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding))
-      ..add(
-        DiagnosticsProperty<BorderRadiusGeometry>('borderRadius', borderRadius),
-      )
-      ..add(ColorProperty('borderColor', borderColor))
-      ..add(ColorProperty('backgroundColor', backgroundColor));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Card(
       margin: margin,
@@ -227,66 +214,12 @@ class CommandBar extends StatefulWidget {
                : CrossAxisAlignment.center);
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(IterableProperty<CommandBarItem>('primaryItems', primaryItems))
-      ..add(
-        IterableProperty<CommandBarItem>(
-          'secondaryItems',
-          secondaryItems,
-          defaultValue: const [],
-        ),
-      )
-      ..add(
-        EnumProperty<CommandBarOverflowBehavior>(
-          'overflowBehavior',
-          overflowBehavior,
-          defaultValue: CommandBarOverflowBehavior.dynamicOverflow,
-        ),
-      )
-      ..add(DoubleProperty('compactBreakpointWidth', compactBreakpointWidth))
-      ..add(DiagnosticsProperty<bool>('isCompact', isCompact))
-      ..add(
-        EnumProperty<MainAxisAlignment>(
-          'mainAxisAlignment',
-          mainAxisAlignment,
-          defaultValue: MainAxisAlignment.start,
-        ),
-      )
-      ..add(
-        EnumProperty<CrossAxisAlignment>(
-          'crossAxisAlignment',
-          crossAxisAlignment,
-        ),
-      )
-      ..add(
-        EnumProperty<MainAxisAlignment>(
-          'overflowItemAlignment',
-          overflowItemAlignment,
-          defaultValue: MainAxisAlignment.end,
-        ),
-      )
-      ..add(
-        EnumProperty<Axis>(
-          'direction',
-          direction,
-          defaultValue: Axis.horizontal,
-        ),
-      );
-  }
-
-  @override
   State<CommandBar> createState() => CommandBarState();
 }
 
 class CommandBarState extends State<CommandBar> {
   /// The controller for the secondary menu popup.
-  ///
-  /// This remains available for source compatibility. CommandBar owns the
-  /// anchored menu lifecycle; it no longer pushes a flyout route.
   final secondaryFlyoutController = FlyoutController();
-  final _secondaryMenuController = MenuController();
   List<int> _dynamicallyHiddenPrimaryItems = [];
 
   /// The list of all secondary items, including the dynamically hidden primary
@@ -307,25 +240,52 @@ class CommandBarState extends State<CommandBar> {
   ///
   /// This function will return a future that will be completed when the action
   /// is completed.
-  void _closeSecondaryMenu() {
-    if (_secondaryMenuController.isOpen) {
-      _secondaryMenuController.close();
-    }
-    if (mounted) setState(() {});
-  }
-
   Future<void> toggleSecondaryMenu() async {
-    if (_secondaryMenuController.isOpen) {
-      _closeSecondaryMenu();
-    } else {
-      _secondaryMenuController.open();
+    if (secondaryFlyoutController.isOpen) {
+      secondaryFlyoutController.close<void>();
       if (mounted) setState(() {});
+      return;
     }
+
+    final future = secondaryFlyoutController.showFlyout<void>(
+      buildTarget: true,
+      autoModeConfiguration: FlyoutAutoConfiguration(
+        preferredMode:
+            (widget.direction == Axis.horizontal
+                    ? FlyoutPlacementMode.bottomRight
+                    : FlyoutPlacementMode.rightTop)
+                .resolve(Directionality.of(context)),
+      ),
+      additionalOffset: 0,
+      builder: (context) {
+        return FlyoutContent(
+          padding: kDefaultMenuPadding,
+          constraints: const BoxConstraints(maxWidth: 200),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: allSecondaryItems.map((item) {
+              return Padding(
+                padding: kDefaultMenuItemMargin,
+                child: item.build(
+                  context,
+                  CommandBarItemDisplayMode.inSecondary,
+                ),
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+    // Update immediately to show tooltip change
+    if (mounted) setState(() {});
+
+    await future;
+    // Update after flyout closes to restore visual state
+    if (mounted) setState(() {});
   }
 
   @override
   void dispose() {
-    _secondaryMenuController.close();
     secondaryFlyoutController.dispose();
     super.dispose();
   }
@@ -381,11 +341,10 @@ class CommandBarState extends State<CommandBar> {
       } else {
         overflowItem = CommandBarButton(
           onPressed: toggleSecondaryMenu,
-          tooltip: _secondaryMenuController.isOpen
+          tooltip: secondaryFlyoutController.isOpen
               ? FluentLocalizations.of(context).seeLess
               : FluentLocalizations.of(context).seeMore,
           icon: const WindowsIcon(WindowsIcons.more),
-          focusNode: FocusNode(skipTraversal: allSecondaryItems.isEmpty),
         );
       }
 
@@ -470,93 +429,22 @@ class CommandBarState extends State<CommandBar> {
     w = Container(
       padding: const EdgeInsetsDirectional.all(4),
       decoration: ShapeDecoration(
-        color: _secondaryMenuController.isOpen
-            ? theme.resources.layerOnAcrylicFillColorDefault
-            : theme.resources.controlFillColorTransparent,
+        color: secondaryFlyoutController.isOpen
+            ? theme.menuColor.withValues(alpha: kMenuColorOpacity)
+            : Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),
           side: BorderSide(
-            color: _secondaryMenuController.isOpen
-                ? theme.resources.cardStrokeColorDefaultSolid
-                : theme.resources.controlFillColorTransparent,
-            // Reserve the open-state border so opening the menu does not move
-            // neighboring controls.
+            color: secondaryFlyoutController.isOpen
+                ? theme.inactiveBackgroundColor
+                : Colors.transparent,
           ),
         ),
       ),
       child: w,
     );
 
-    return FlyoutTarget(
-      controller: secondaryFlyoutController,
-      child: RawMenuAnchor(
-        controller: _secondaryMenuController,
-        onClose: () {
-          if (mounted) setState(() {});
-        },
-        onOpenRequested: (position, showOverlay) => showOverlay(),
-        onCloseRequested: (hideOverlay) => hideOverlay(),
-        overlayBuilder: (context, info) {
-          return Stack(
-            children: [
-              Positioned.fill(
-                child: ModalBarrier(
-                  color: Colors.transparent,
-
-                  onDismiss: _closeSecondaryMenu,
-                ),
-              ),
-              CustomSingleChildLayout(
-                delegate: _CommandBarOverflowPositionDelegate(
-                  anchorRect: info.anchorRect,
-                  overlaySize: info.overlaySize,
-                  textDirection: Directionality.of(context),
-                ),
-                child: TapRegion(
-                  groupId: info.tapRegionGroupId,
-                  child: _CommandBarOverflowScope(
-                    close: _closeSecondaryMenu,
-                    child: FlyoutContent(
-                      color: theme.resources.layerOnAcrylicFillColorDefault,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        side: BorderSide(
-                          color: theme.resources.surfaceStrokeColorFlyout,
-                        ),
-                      ),
-                      constraints: const BoxConstraints(
-                        minWidth: 160,
-                        maxWidth: 480,
-                      ),
-                      child: SingleChildScrollView(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: 4,
-                          horizontal: 8,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: allSecondaryItems.map((item) {
-                            return Padding(
-                              padding: kDefaultMenuItemMargin,
-                              child: item.build(
-                                context,
-                                CommandBarItemDisplayMode.inSecondary,
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
-        builder: (context, controller, child) => child!,
-        child: w,
-      ),
-    );
+    return FlyoutTarget(controller: secondaryFlyoutController, child: w);
   }
 
   @override
@@ -702,66 +590,6 @@ class CommandBarItemInPrimary extends StatelessWidget {
   }
 }
 
-class _CommandBarOverflowPositionDelegate extends SingleChildLayoutDelegate {
-  const _CommandBarOverflowPositionDelegate({
-    required this.anchorRect,
-    required this.overlaySize,
-    required this.textDirection,
-  });
-
-  final Rect anchorRect;
-  final Size overlaySize;
-  final TextDirection textDirection;
-
-  @override
-  BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
-    return BoxConstraints.loose(
-      Size(clampDouble(overlaySize.width, 0, 320), overlaySize.height),
-    );
-  }
-
-  @override
-  Offset getPositionForChild(Size size, Size childSize) {
-    final spaceAbove = anchorRect.top;
-    final spaceBelow = overlaySize.height - anchorRect.bottom;
-    final openAbove = childSize.height > spaceBelow && spaceAbove > spaceBelow;
-    final top = openAbove
-        ? anchorRect.top - childSize.height
-        : anchorRect.bottom;
-    // Keep the presenter attached to the logical end of the overflow
-    // affordance, matching the native CommandBar overflow presenter.
-    final horizontal = textDirection == TextDirection.rtl
-        ? anchorRect.left
-        : anchorRect.right - childSize.width;
-    return Offset(
-      clampDouble(horizontal, 0, overlaySize.width - childSize.width),
-      clampDouble(top, 0, overlaySize.height - childSize.height),
-    );
-  }
-
-  @override
-  bool shouldRelayout(_CommandBarOverflowPositionDelegate oldDelegate) {
-    return anchorRect != oldDelegate.anchorRect ||
-        overlaySize != oldDelegate.overlaySize ||
-        textDirection != oldDelegate.textDirection;
-  }
-}
-
-class _CommandBarOverflowScope extends InheritedWidget {
-  const _CommandBarOverflowScope({required this.close, required super.child});
-
-  final VoidCallback close;
-
-  static _CommandBarOverflowScope? maybeOf(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<_CommandBarOverflowScope>();
-  }
-
-  @override
-  bool updateShouldNotify(_CommandBarOverflowScope oldWidget) =>
-      close != oldWidget.close;
-}
-
 /// Buttons are the most common control to put within a [CommandBar].
 /// They are composed of an (optional) icon and an (optional) label.
 class CommandBarButton extends CommandBarItem {
@@ -831,12 +659,6 @@ class CommandBarButton extends CommandBarItem {
           focusNode: focusNode,
           autofocus: autofocus,
           style: ButtonStyle(
-            foregroundColor: WidgetStateProperty.resolveWith((states) {
-              final theme = FluentTheme.of(context);
-              return states.contains(WidgetState.disabled)
-                  ? theme.resources.textFillColorDisabled
-                  : theme.resources.textFillColorPrimary;
-            }),
             backgroundColor: WidgetStateProperty.resolveWith((states) {
               final theme = FluentTheme.of(context);
               return ButtonThemeData.uncheckedInputColor(
@@ -864,41 +686,19 @@ class CommandBarButton extends CommandBarItem {
         }
         return button;
       case CommandBarItemDisplayMode.inSecondary:
-        final tooltipText = tooltip;
-        final close = _CommandBarOverflowScope.maybeOf(context)?.close;
-        final item = MenuFlyoutItem(
+        return MenuFlyoutItem(
           key: key,
-          onPressed: onPressed == null
-              ? null
-              : () {
-                  close?.call();
-                  onPressed?.call();
-                },
+          onPressed: onPressed,
           onLongPress: onLongPress,
           leading: icon,
           text: label ?? const SizedBox.shrink(),
-          trailing:
-              trailing ??
-              (tooltipText == null
-                  ? null
-                  : ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 140),
-                      child: Text(
-                        tooltipText,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: FluentTheme.of(
-                            context,
-                          ).resources.textFillColorSecondary,
-                        ),
-                      ),
-                    )),
-          closeAfterClick: closeAfterClick && close == null,
-        );
-        final built = item.build(context);
-        return tooltipText == null
-            ? built
-            : Tooltip(message: tooltipText, child: built);
+          trailing: () {
+            if (trailing != null) return trailing;
+            if (tooltip != null) return Text(tooltip!);
+            return null;
+          }(),
+          closeAfterClick: closeAfterClick,
+        ).build(context);
     }
   }
 }

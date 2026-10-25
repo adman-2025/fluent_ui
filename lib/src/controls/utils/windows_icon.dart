@@ -37,12 +37,6 @@ class WindowsIcon extends Icon {
   });
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<IconData>('fallbackIcon', fallbackIcon));
-  }
-
-  @override
   Widget build(BuildContext context) {
     final resolvedIcon = () {
       final isWindows =

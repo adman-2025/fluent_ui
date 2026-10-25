@@ -41,13 +41,10 @@ class EditableComboBox<T> extends ComboBox<T> {
     super.items,
     super.onChanged,
     super.onTap,
-    super.onOpen,
-    super.onClose,
     super.placeholder,
     super.selectedItemBuilder,
     super.style,
     super.value,
-    super.popupConstraints,
     this.textController,
     this.onTextChanged,
     this.inputFormatters,
@@ -95,19 +92,6 @@ class EditableComboBox<T> extends ComboBox<T> {
 
   /// {@macro flutter.widgets.editableText.inputFormatters}
   final List<TextInputFormatter>? inputFormatters;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-        ObjectFlagProperty<TextEditingController?>.has(
-          'textController',
-          textController,
-        ),
-      )
-      ..add(IntProperty('inputFormatterCount', inputFormatters?.length ?? 0));
-  }
 
   @override
   State<ComboBox<T>> createState() => _EditableComboboxState<T>();
@@ -183,45 +167,47 @@ class _EditableComboboxState<T> extends ComboBoxState<T> {
     assert(debugCheckHasFluentTheme(context));
     assert(debugCheckHasFluentLocalizations(context));
 
-    return OverlayPortal.overlayChildLayoutBuilder(
-      controller: _overlayController,
-      overlayChildBuilder: _buildPopup,
-      child: Focus(
-        onKeyEvent: (node, event) {
-          if (event is! KeyDownEvent && event is! KeyRepeatEvent) {
-            return KeyEventResult.ignored;
-          }
-          return _handleClosedKey(node, event);
-        },
-        child: TextBox(
-          style: widget.style,
-          focusNode: focusNode,
-          autofocus: widget.autofocus,
-          controller: controller,
-          expands: widget.isExpanded,
-          enabled: isEnabled,
-          unfocusedColor: Colors.transparent,
-          suffix: Builder(
-            builder: (context) {
-              return IconButton(
-                icon: IconTheme.merge(
-                  data: IconThemeData(
-                    color: _iconColor(context),
-                    size: widget.iconSize,
-                  ),
-                  child: widget.icon,
+    return Focus(
+      onKeyEvent: (node, event) {
+        if (event is! KeyDownEvent) {
+          return KeyEventResult.ignored;
+        }
+
+        if (event.logicalKey == LogicalKeyboardKey.arrowDown ||
+            event.logicalKey == LogicalKeyboardKey.arrowUp) {
+          openPopup();
+          return KeyEventResult.handled;
+        }
+        return KeyEventResult.ignored;
+      },
+      child: TextBox(
+        style: widget.style,
+        focusNode: focusNode,
+        autofocus: widget.autofocus,
+        controller: controller,
+        expands: widget.isExpanded,
+        enabled: isEnabled,
+        unfocusedColor: Colors.transparent,
+        suffix: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: IconTheme.merge(
+                data: IconThemeData(
+                  color: _iconColor(context),
+                  size: widget.iconSize,
                 ),
-                onPressed: openPopup,
-              );
-            },
-          ),
-          onSubmitted: (text) {
-            final newText = widget.onFieldSubmitted(text);
-            _setText(newText);
+                child: widget.icon,
+              ),
+              onPressed: openPopup,
+            );
           },
-          onChanged: widget.onTextChanged,
-          inputFormatters: widget.inputFormatters,
         ),
+        onSubmitted: (text) {
+          final newText = widget.onFieldSubmitted(text);
+          _setText(newText);
+        },
+        onChanged: widget.onTextChanged,
+        inputFormatters: widget.inputFormatters,
       ),
     );
   }
@@ -258,8 +244,6 @@ class ComboboxFormField<T> extends FormField<T> {
     Widget? placeholder,
     Widget? disabledPlaceholder,
     VoidCallback? onTap,
-    VoidCallback? onOpen,
-    VoidCallback? onClose,
     int elevation = 8,
     TextStyle? style,
     Widget icon = const WindowsIcon(WindowsIcons.chevron_down),
@@ -271,7 +255,6 @@ class ComboboxFormField<T> extends FormField<T> {
     FocusNode? focusNode,
     bool autofocus = false,
     Color? popupColor,
-    BoxConstraints? popupConstraints,
     super.onSaved,
     super.validator,
     super.autovalidateMode = AutovalidateMode.disabled,
@@ -304,8 +287,6 @@ class ComboboxFormField<T> extends FormField<T> {
                        disabledPlaceholder: disabledPlaceholder,
                        onChanged: onChanged == null ? null : state.didChange,
                        onTap: onTap,
-                       onOpen: onOpen,
-                       onClose: onClose,
                        elevation: elevation,
                        style: style,
                        icon: icon,
@@ -317,7 +298,6 @@ class ComboboxFormField<T> extends FormField<T> {
                        focusNode: focusNode,
                        autofocus: autofocus,
                        popupColor: popupColor,
-                       popupConstraints: popupConstraints,
                      ),
                    ),
                  );
@@ -384,8 +364,6 @@ class EditableComboboxFormField<T> extends FormField<T> {
     Widget? placeholder,
     Widget? disabledPlaceholder,
     VoidCallback? onTap,
-    VoidCallback? onOpen,
-    VoidCallback? onClose,
     int elevation = 8,
     TextStyle? style,
     Widget icon = const WindowsIcon(WindowsIcons.chevron_down),
@@ -397,7 +375,6 @@ class EditableComboboxFormField<T> extends FormField<T> {
     FocusNode? focusNode,
     bool autofocus = false,
     Color? popupColor,
-    BoxConstraints? popupConstraints,
     super.onSaved,
     super.validator,
     super.autovalidateMode = AutovalidateMode.disabled,
@@ -430,8 +407,6 @@ class EditableComboboxFormField<T> extends FormField<T> {
                        disabledPlaceholder: disabledPlaceholder,
                        onChanged: onChanged == null ? null : state.didChange,
                        onTap: onTap,
-                       onOpen: onOpen,
-                       onClose: onClose,
                        elevation: elevation,
                        style: style,
                        icon: icon,
@@ -443,7 +418,6 @@ class EditableComboboxFormField<T> extends FormField<T> {
                        focusNode: focusNode,
                        autofocus: autofocus,
                        popupColor: popupColor,
-                       popupConstraints: popupConstraints,
                        onFieldSubmitted: onFieldSubmitted,
                        inputFormatters: inputFormatters,
                      ),

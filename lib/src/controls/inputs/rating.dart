@@ -146,13 +146,6 @@ class RatingControl extends StatefulWidget {
       ..add(IntProperty('amount', amount, defaultValue: 5))
       ..add(DoubleProperty('rating', rating))
       ..add(
-        FlagProperty(
-          'interactive',
-          value: onChanged != null,
-          ifFalse: 'read-only',
-        ),
-      )
-      ..add(
         DiagnosticsProperty<Duration>('animationDuration', animationDuration),
       )
       ..add(DiagnosticsProperty<Curve>('animationCurve', animationCurve))
@@ -218,14 +211,14 @@ class _RatingControlState extends State<RatingControl> {
     void increase() {
       if (widget.rating == widget.amount) return;
       widget.onChanged?.call(
-        clampDouble(widget.rating + 1, 0, widget.amount.toDouble()),
+        (widget.rating + 1).clamp(0, widget.amount).toDouble(),
       );
     }
 
     void decrease() {
       if (widget.rating == 0) return;
       widget.onChanged?.call(
-        clampDouble(widget.rating - 1, 0, widget.amount.toDouble()),
+        (widget.rating - 1).clamp(0, widget.amount).toDouble(),
       );
     }
 
@@ -260,20 +253,19 @@ class _RatingControlState extends State<RatingControl> {
   /// downstream calculations can assume left-to-right ordering.
   double _adjustX(double x) {
     if (Directionality.of(context) == TextDirection.rtl) {
-      return clampDouble(_totalWidth - x, 0, _totalWidth);
+      return (_totalWidth - x).clamp(0.0, _totalWidth);
     }
     return x;
   }
 
   void _handleUpdate(double x) {
     final totalPerStar = widget.iconSize + widget.starSpacing;
-    final raw = clampDouble(
-      _adjustX(x) / totalPerStar,
-      0,
+    final raw = (_adjustX(x) / totalPerStar).clamp(
+      0.0,
       widget.amount.toDouble(),
     );
-    final snapped = raw.ceil().clamp(0, widget.amount);
-    widget.onChanged?.call(snapped.toDouble());
+    final snapped = raw.ceil().clamp(0, widget.amount).toDouble();
+    widget.onChanged?.call(snapped);
   }
 
   void _handleHoverUpdate(double x) {
@@ -342,7 +334,7 @@ class _RatingControlState extends State<RatingControl> {
                       final double r;
 
                       if (!isEnabled) {
-                        r = clampDouble(value - index, 0, 1);
+                        r = (value - index).clamp(0.0, 1.0);
                         starRatedColor =
                             widget.ratedIconColor ??
                             resources.textFillColorDisabled;
@@ -371,7 +363,7 @@ class _RatingControlState extends State<RatingControl> {
                         }
                       } else {
                         // Normal (non-hover) state
-                        r = clampDouble(value - index, 0, 1);
+                        r = (value - index).clamp(0.0, 1.0);
                         starRatedColor =
                             widget.ratedIconColor ??
                             accentColor; // SelectedForeground
@@ -492,18 +484,6 @@ class RatingIcon extends StatelessWidget {
 
   /// The size of the icon.
   final double? size;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(PercentProperty('rating', rating))
-      ..add(IconDataProperty('icon', icon))
-      ..add(IconDataProperty('unratedIcon', unratedIcon))
-      ..add(ColorProperty('ratedColor', ratedColor))
-      ..add(ColorProperty('unratedColor', unratedColor))
-      ..add(DoubleProperty('size', size));
-  }
 
   @override
   Widget build(BuildContext context) {

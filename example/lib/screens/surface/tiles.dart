@@ -1,7 +1,6 @@
 import 'package:example/widgets/code_snippet_card.dart';
 import 'package:example/widgets/page.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:material_ui/material_ui.dart' as m;
 
 class TilesPage extends StatefulWidget {
   const TilesPage({super.key});
@@ -24,8 +23,6 @@ class _TilesPageState extends State<TilesPage> with PageMixin {
   // third
   String thirdSelected = '';
   final thirdController = ScrollController();
-
-  late final List<String> reorderableContacts = contacts.take(6).toList();
 
   @override
   Widget build(final BuildContext context) {
@@ -54,7 +51,7 @@ ListView.builder(
       selected: selectedContact == contact,
       onSelectionChange: (v) => setState(() => selectedContact = contact),
     );
-  }
+  } 
 ),''',
           child: Container(
             height: 400,
@@ -108,7 +105,7 @@ ListView.builder(
         });
       },
     );
-  }
+  } 
 ),''',
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +125,7 @@ ListView.builder(
                   itemBuilder: (final context, final index) {
                     final contact = contacts[index];
                     return ListTile.selectable(
-                      leading: const m.CircleAvatar(radius: 15),
+                      leading: const CircleAvatar(radius: 15),
                       title: Text(contact),
                       subtitle: const Text('With a custom subtitle'),
                       trailing: Icon(shuffledIcons[index]),
@@ -178,7 +175,7 @@ ListView.builder(
       selected: selectedContact == contact,
       onSelectionChange: (v) => setState(() => selectedContact = contact),
     );
-  }
+  } 
 ),''',
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -223,55 +220,6 @@ ListView.builder(
                 ),
               ),
             ],
-          ),
-        ),
-        subtitle(content: const Text('Reorderable list')),
-        CodeSnippetCard(
-          codeSnippet: '''
-final contacts = <String>['Kendall', 'Collins', ...];
-
-ReorderableList(
-  itemCount: contacts.length,
-  onReorderItem: (oldIndex, newIndex) {
-    setState(() {
-      final contact = contacts.removeAt(oldIndex);
-      contacts.insert(newIndex, contact);
-    });
-  },
-  itemBuilder: (context, index) {
-    final contact = contacts[index];
-    return ReorderableDragStartListener(
-      key: ValueKey(contact),
-      index: index,
-      child: ListTile(title: Text(contact)),
-    );
-  },
-)''',
-          child: Container(
-            height: 300,
-            width: 350,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: theme.resources.surfaceStrokeColorDefault,
-              ),
-            ),
-            child: ReorderableList(
-              itemCount: reorderableContacts.length,
-              onReorderItem: (oldIndex, newIndex) {
-                setState(() {
-                  final contact = reorderableContacts.removeAt(oldIndex);
-                  reorderableContacts.insert(newIndex, contact);
-                });
-              },
-              itemBuilder: (context, index) {
-                final contact = reorderableContacts[index];
-                return ReorderableDragStartListener(
-                  key: ValueKey(contact),
-                  index: index,
-                  child: ListTile(title: Text(contact)),
-                );
-              },
-            ),
           ),
         ),
       ],

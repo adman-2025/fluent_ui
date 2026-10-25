@@ -3,4 +3,3 @@ bin/
 example/.fvm/
 example/build/
 example/.dart_tool/
-tool/

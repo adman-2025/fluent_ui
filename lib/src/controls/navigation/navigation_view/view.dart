@@ -1,7 +1,6 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 
 part 'body.dart';
 part 'indicators.dart';
@@ -41,7 +40,7 @@ typedef NavigationContentBuilder =
 /// int selectedIndex = 0;
 ///
 /// NavigationView(
-///   titleBar: const TitleBar(
+///   appBar: NavigationAppBar(
 ///     title: Text('My App'),
 ///   ),
 ///   pane: NavigationPane(
@@ -81,11 +80,9 @@ typedef NavigationContentBuilder =
 /// * Width 641-1007px: Compact mode (icons only)
 /// * Width <= 640px: Minimal mode (hamburger menu)
 ///
-/// ## Navigation and routing
+/// ## Router integration
 ///
-/// [NavigationView] manages navigation UI, selection, and optional local
-/// selection history. It does not replace Flutter's `Navigator`, `Router`, or
-/// routing packages. For router-owned content, use [paneBodyBuilder] to
+/// For apps using `go_router` or similar routers, use [paneBodyBuilder] to
 /// integrate with your routing system:
 ///
 /// {@tool snippet}
@@ -103,24 +100,10 @@ typedef NavigationContentBuilder =
 /// ```
 /// {@end-tool}
 ///
-/// ## Page state
-///
-/// Only the selected [PaneItem.body] is mounted by default. A stateful page can
-/// opt into retention with [AutomaticKeepAliveClientMixin], `super.build`, and
-/// `wantKeepAlive == true`. When [paneBodyBuilder] is supplied, that builder is
-/// responsible for body state management.
-///
-/// ## Local back history
-///
-/// Selection changes are recorded locally. Call
-/// `NavigationView.of(context).pop()` to select the previous pane item. This is
-/// separate from `Navigator.pop()`, which pops a Flutter route. An open compact
-/// or minimal pane is closed before local history is changed.
-///
 /// See also:
 ///
 ///  * [NavigationPane], the pane configuration for the navigation view
-///  * [TitleBar], a customizable window title bar
+///  * [NavigationAppBar], the app bar displayed at the top
 ///  * [PaneItem], an item in the navigation pane
 ///  * [TabView], for tab-based navigation
 ///  * <https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview>
@@ -252,7 +235,7 @@ class NavigationView extends StatefulWidget {
         DiagnosticsProperty(
           'clipBehavior',
           clipBehavior,
-          defaultValue: Clip.antiAlias,
+          defaultValue: Clip.hardEdge,
         ),
       )
       ..add(DiagnosticsProperty('contentShape', contentShape));
@@ -260,13 +243,6 @@ class NavigationView extends StatefulWidget {
 
   @override
   State<NavigationView> createState() => NavigationViewState();
-}
-
-class _NavigationHistoryEntry {
-  const _NavigationHistoryEntry({required this.key, required this.index});
-
-  final Key? key;
-  final int index;
 }
 
 class NavigationViewState extends State<NavigationView> {
@@ -302,7 +278,6 @@ class NavigationViewState extends State<NavigationView> {
   /// Always false if the current display mode is not minimal.
   bool get isMinimalPaneOpen => _minimalPaneOpen;
   set isMinimalPaneOpen(bool open) {
-    if (open && !(widget.pane?.toggleable ?? true)) return;
     if (_displayMode == PaneDisplayMode.minimal) {
       if (_minimalPaneOpen != open) {
         setState(() => _minimalPaneOpen = open);
@@ -334,7 +309,6 @@ class NavigationViewState extends State<NavigationView> {
   }
 
   set compactOverlayOpen(bool value) {
-    if (value && !(widget.pane?.toggleable ?? true)) return;
     if (value == _compactOverlayOpen) return;
     if ([
       PaneDisplayMode.expanded,
@@ -354,87 +328,17 @@ class NavigationViewState extends State<NavigationView> {
     _compactOverlayOpen = false;
   }
 
-  final List<_NavigationHistoryEntry> _history = [];
+  final List<int> _history = [];
   bool _isBackNavigation = false;
 
-  /// Whether the navigation pane is currently open.
-  ///
-  /// Expanded panes are always open. Top panes cannot be opened. Compact and
-  /// minimal modes report whether their overlay is open.
-  bool get isPaneOpen => switch (_displayMode) {
-    PaneDisplayMode.expanded => true,
-    PaneDisplayMode.compact => compactOverlayOpen,
-    PaneDisplayMode.minimal => isMinimalPaneOpen,
-    PaneDisplayMode.top || PaneDisplayMode.auto => false,
-  };
-
-  /// Opens the compact or minimal overlay pane.
-  ///
-  /// This does nothing when [NavigationPane.toggleable] is false, in expanded
-  /// mode (already open), or in top mode.
-  void openPane() {
-    if (!(widget.pane?.toggleable ?? true)) return;
-    switch (_displayMode) {
-      case PaneDisplayMode.compact:
-        compactOverlayOpen = true;
-      case PaneDisplayMode.minimal:
-        isMinimalPaneOpen = true;
-      case PaneDisplayMode.expanded:
-      case PaneDisplayMode.top:
-      case PaneDisplayMode.auto:
-        return;
-    }
-  }
-
-  /// Closes the compact or minimal overlay pane.
-  void closePane() {
-    switch (_displayMode) {
-      case PaneDisplayMode.compact:
-        compactOverlayOpen = false;
-      case PaneDisplayMode.minimal:
-        isMinimalPaneOpen = false;
-      case PaneDisplayMode.expanded:
-      case PaneDisplayMode.top:
-      case PaneDisplayMode.auto:
-        return;
-    }
-  }
-
-  int? _resolveHistoryEntry(_NavigationHistoryEntry entry) {
-    final pane = widget.pane;
-    if (pane == null) return null;
-    if (entry.key != null) {
-      final index = pane.effectiveItems.indexWhere(
-        (item) => item.key == entry.key,
-      );
-      if (!index.isNegative) return index;
-      return null;
-    }
-    return entry.index < pane.effectiveItems.length ? entry.index : null;
-  }
-
-  /// Pops the current item from the local selection history.
-  ///
-  /// An open compact or minimal overlay is closed before history is changed.
+  /// Pops the current item from the history.
   void pop() {
-    if (isPaneOpen &&
-        (_displayMode == PaneDisplayMode.compact ||
-            _displayMode == PaneDisplayMode.minimal)) {
-      closePane();
-      return;
-    }
+    if (_history.isEmpty) return;
     if (widget.pane?.onChanged == null) return;
 
-    while (_history.isNotEmpty) {
-      final previous = _resolveHistoryEntry(_history.last);
-      if (previous == null || previous == widget.pane?.selected) {
-        _history.removeLast();
-        continue;
-      }
-      _isBackNavigation = true;
-      widget.pane!.onChanged!(previous);
-      return;
-    }
+    final previous = _history.last;
+    _isBackNavigation = true;
+    widget.pane!.onChanged!(previous);
   }
 
   int _previousItemIndex = -1;
@@ -471,30 +375,13 @@ class NavigationViewState extends State<NavigationView> {
     }
 
     if (oldWidget.pane?.selected != widget.pane?.selected) {
-      final oldItems = oldWidget.pane?.effectiveItems ?? const <PaneItem>[];
-      final newItems = widget.pane?.effectiveItems ?? const <PaneItem>[];
-      final oldIndex = oldWidget.pane?.selected;
-      final newIndex = widget.pane?.selected;
-      final oldItem = oldIndex != null && oldIndex < oldItems.length
-          ? oldItems[oldIndex]
-          : null;
-      final newItem = newIndex != null && newIndex < newItems.length
-          ? newItems[newIndex]
-          : null;
-      final sameKeyedItem =
-          oldItem?.key != null && oldItem?.key == newItem?.key;
-
-      if (!sameKeyedItem) {
-        if (_isBackNavigation) {
-          _history.removeLast();
-          _isBackNavigation = false;
-        } else if (oldItem != null && oldIndex != null) {
-          _history.add(
-            _NavigationHistoryEntry(key: oldItem.key, index: oldIndex),
-          );
-        }
-        _updatePreviousItemIndex(oldIndex ?? -1);
+      if (_isBackNavigation) {
+        _history.removeLast();
+        _isBackNavigation = false;
+      } else if (oldWidget.pane?.selected != null) {
+        _history.add(oldWidget.pane!.selected!);
       }
+      _updatePreviousItemIndex(oldWidget.pane?.selected ?? -1);
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
         // We need to run this after the frame to ensure the [_selectedItemKey]
@@ -542,10 +429,7 @@ class NavigationViewState extends State<NavigationView> {
   ///
   /// If the display mode is not compact, this does nothing.
   void toggleCompactOpenMode() {
-    if (_displayMode != PaneDisplayMode.compact ||
-        !(widget.pane?.toggleable ?? true)) {
-      return;
-    }
+    if (_displayMode != PaneDisplayMode.compact) return;
     compactOverlayOpen = !compactOverlayOpen;
     widget.onDisplayModeChanged?.call(
       compactOverlayOpen ? PaneDisplayMode.expanded : PaneDisplayMode.compact,
@@ -559,10 +443,7 @@ class NavigationViewState extends State<NavigationView> {
   ///
   /// If the display mode is not minimal, this does nothing.
   void toggleMinimalPane() {
-    if (_displayMode != PaneDisplayMode.minimal ||
-        !(widget.pane?.toggleable ?? true)) {
-      return;
-    }
+    if (_displayMode != PaneDisplayMode.minimal) return;
     isMinimalPaneOpen = !isMinimalPaneOpen;
   }
 
@@ -575,7 +456,6 @@ class NavigationViewState extends State<NavigationView> {
   ///   * [toggleCompactOpenMode], to toggle the compact open mode
   ///   * [toggleMinimalPane], to toggle the minimal pane open mode
   void togglePane() {
-    if (!(widget.pane?.toggleable ?? true)) return;
     switch (_displayMode) {
       case PaneDisplayMode.compact:
       case PaneDisplayMode.expanded:
@@ -590,10 +470,7 @@ class NavigationViewState extends State<NavigationView> {
 
   /// The position of the toggle pane button.
   PaneToggleButtonPosition get toggleButtonPosition {
-    if (!(widget.pane?.toggleable ?? true) ||
-        widget.pane?.toggleButton == null) {
-      return PaneToggleButtonPosition.none;
-    }
+    if (widget.pane?.toggleButton == null) return PaneToggleButtonPosition.none;
     final preferredPosition =
         widget.pane?.toggleButtonPosition ??
         PaneToggleButtonPreferredPosition.auto;
@@ -649,48 +526,21 @@ class NavigationViewState extends State<NavigationView> {
   /// space.
   PaneDisplayMode get displayMode => _displayMode;
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    final paneOpen = switch (_displayMode) {
-      PaneDisplayMode.expanded => true,
-      PaneDisplayMode.compact => _compactOverlayOpen,
-      PaneDisplayMode.minimal => _minimalPaneOpen,
-      PaneDisplayMode.top || PaneDisplayMode.auto => false,
-    };
-    properties
-      ..add(EnumProperty('requestedDisplayMode', widget.pane?.displayMode))
-      ..add(EnumProperty('displayMode', displayMode))
-      ..add(FlagProperty('isPaneOpen', value: paneOpen, ifTrue: 'pane open'))
-      ..add(
-        FlagProperty(
-          'isTransitioning',
-          value: _isTransitioning,
-          ifTrue: 'transitioning',
-        ),
-      )
-      ..add(IntProperty('selectedIndex', widget.pane?.selected))
-      ..add(IntProperty('historyDepth', _history.length));
-  }
-
   /// The layout adapts based on available width:
   /// - Width >= 1008px: Open mode (expanded pane)
   /// - Width 641-1007px: Compact mode (icons only)
   /// - Width <= 640px: Minimal mode (hamburger menu)
   void _resolveDisplayMode(BoxConstraints constraints) {
-    final pane = widget.pane;
-    final paneDisplayMode = pane?.displayMode ?? PaneDisplayMode.auto;
+    final paneDisplayMode = widget.pane?.displayMode ?? PaneDisplayMode.auto;
 
     if (paneDisplayMode == PaneDisplayMode.auto) {
       var width = constraints.biggest.width;
       if (width.isInfinite) width = MediaQuery.widthOf(context);
 
       PaneDisplayMode autoDisplayMode;
-      if (width <=
-          (pane?.compactModeThresholdWidth ?? kCompactModeThresholdWidth)) {
+      if (width <= 640) {
         autoDisplayMode = PaneDisplayMode.minimal;
-      } else if (width >=
-          (pane?.expandedModeThresholdWidth ?? kExpandedModeThresholdWidth)) {
+      } else if (width >= 1008) {
         autoDisplayMode = PaneDisplayMode.expanded;
       } else {
         autoDisplayMode = PaneDisplayMode.compact;
@@ -740,13 +590,10 @@ class NavigationViewState extends State<NavigationView> {
         late Widget paneResult;
         if (widget.pane != null) {
           final pane = widget.pane!;
-          final selectedItem = pane.selected != null ? pane.selectedItem : null;
           final body = ClipRect(
             key: _contentKey,
             child: _NavigationBody(
-              itemKey: ValueKey<Object>(
-                selectedItem?.key ?? pane.selected ?? -1,
-              ),
+              itemKey: ValueKey(pane.selected ?? -1),
               transitionBuilder: widget.transitionBuilder,
               paneBodyBuilder: widget.paneBodyBuilder,
               animationCurve: theme.animationCurve,
@@ -877,31 +724,20 @@ class NavigationViewState extends State<NavigationView> {
           return const SizedBox.shrink();
         }
 
-        return CallbackShortcuts(
-          bindings: {
-            const SingleActivator(LogicalKeyboardKey.escape): () {
-              if (isPaneOpen &&
-                  (_displayMode == PaneDisplayMode.compact ||
-                      _displayMode == PaneDisplayMode.minimal)) {
-                closePane();
-              }
-            },
-          },
-          child: Mica(
-            backgroundColor: theme.backgroundColor,
-            child: NavigationViewContext(
-              displayMode: compactOverlayOpen
-                  ? PaneDisplayMode.expanded
-                  : _displayMode,
-              isMinimalPaneOpen: isMinimalPaneOpen,
-              isCompactOverlayOpen: compactOverlayOpen,
-              pane: widget.pane,
-              previousItemIndex: _previousItemIndex,
-              isTransitioning: _isTransitioning,
-              toggleButtonPosition: toggleButtonPosition,
-              canPop: _history.isNotEmpty,
-              child: paneResult,
-            ),
+        return Mica(
+          backgroundColor: theme.backgroundColor,
+          child: NavigationViewContext(
+            displayMode: compactOverlayOpen
+                ? PaneDisplayMode.expanded
+                : _displayMode,
+            isMinimalPaneOpen: isMinimalPaneOpen,
+            isCompactOverlayOpen: compactOverlayOpen,
+            pane: widget.pane,
+            previousItemIndex: _previousItemIndex,
+            isTransitioning: _isTransitioning,
+            toggleButtonPosition: toggleButtonPosition,
+            canPop: _history.isNotEmpty,
+            child: paneResult,
           ),
         );
       },
@@ -933,7 +769,6 @@ class NavigationViewState extends State<NavigationView> {
         _compactOverlayOpen;
 
     final openSize = pane.size?.openPaneWidth ?? kOpenNavigationPaneWidth;
-    final paneTopPadding = TitleBar.calculateHeight(context, widget.titleBar);
 
     final noOverlayRequired = constraints.maxWidth / 2.5 > openSize;
     final openedWithoutOverlay =
@@ -1027,7 +862,7 @@ class NavigationViewState extends State<NavigationView> {
                       margin: const EdgeInsetsDirectional.symmetric(
                         vertical: 1,
                       ),
-                      padding: EdgeInsetsDirectional.only(top: paneTopPadding),
+                      padding: const EdgeInsetsDirectional.only(top: 38),
                       child: _OpenNavigationPane(
                         theme: theme,
                         pane: pane,
@@ -1042,7 +877,7 @@ class NavigationViewState extends State<NavigationView> {
                   key: _overlayKey,
                   backgroundColor: theme.backgroundColor,
                   child: Padding(
-                    padding: EdgeInsetsDirectional.only(top: paneTopPadding),
+                    padding: const EdgeInsetsDirectional.only(top: 38),
                     child: _CompactNavigationPane(
                       pane: pane,
                       onOpenSearch: widget.onOpenSearch,
@@ -1069,12 +904,6 @@ class NavigationViewState extends State<NavigationView> {
     final localizations = FluentLocalizations.of(context);
 
     final openSize = pane.size?.openPaneWidth ?? kOpenNavigationPaneWidth;
-    final showPaneToggle =
-        toggleButtonPosition == PaneToggleButtonPosition.pane;
-    final titleBarHeight = TitleBar.calculateHeight(context, widget.titleBar);
-    final topOffset = titleBarHeight > (showPaneToggle ? 38.0 : 0.0)
-        ? titleBarHeight
-        : (showPaneToggle ? 38.0 : 0.0);
 
     return Stack(
       children: [
@@ -1082,11 +911,11 @@ class NavigationViewState extends State<NavigationView> {
           top: 0,
           start: 0,
           end: 0,
-          height: topOffset,
+          height: 38,
           child: ColoredBox(color: fluentTheme.scaffoldBackgroundColor),
         ),
         PositionedDirectional(
-          top: topOffset,
+          top: 38,
           start: 0,
           end: 0,
           bottom: 0,
@@ -1138,7 +967,7 @@ class NavigationViewState extends State<NavigationView> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.only(top: titleBarHeight),
+                  padding: const EdgeInsetsDirectional.only(top: 38 + 6),
                   child: _OpenNavigationPane(
                     theme: theme,
                     pane: pane,
@@ -1154,8 +983,6 @@ class NavigationViewState extends State<NavigationView> {
             ),
           ),
         ),
-        if (showPaneToggle && !isMinimalPaneOpen)
-          PositionedDirectional(top: 0, start: 0, child: pane.toggleButton!),
         ?widget.titleBar,
       ],
     );
@@ -1178,7 +1005,7 @@ class NavigationViewState extends State<NavigationView> {
           child: Acrylic(
             tint: tint ?? theme.overlayBackgroundColor,
             tintAlpha: tintAlpha ?? 0.9,
-            luminosityAlpha: luminosityAlpha,
+            luminosityAlpha: luminosityAlpha ?? 0.9,
             blurAmount: blurAmount ?? 50,
             shape: shape,
             child: child,

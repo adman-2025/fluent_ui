@@ -6,28 +6,6 @@ const double kCompactNavigationPaneWidth = 50;
 /// The width of the Open Navigation Pane
 const double kOpenNavigationPaneWidth = 320;
 
-/// The default maximum width for the minimal automatic display mode.
-const double kCompactModeThresholdWidth = 640;
-
-/// The default minimum width for the expanded automatic display mode.
-const double kExpandedModeThresholdWidth = 1008;
-
-/// Called when a pane item is invoked.
-typedef PaneItemInvokedCallback = void Function(PaneItemInvokedEventArgs args);
-
-/// Details about an invoked [PaneItem].
-@immutable
-class PaneItemInvokedEventArgs {
-  /// Creates pane item invocation details.
-  const PaneItemInvokedEventArgs({required this.item, required this.index});
-
-  /// The item that was invoked.
-  final PaneItem item;
-
-  /// The effective selectable index, or `null` for a non-selecting item.
-  final int? index;
-}
-
 /// You can use the PaneDisplayMode property to configure different
 /// navigation styles, or display modes, for the NavigationView
 ///
@@ -103,7 +81,6 @@ class NavigationPane with Diagnosticable {
     this.selected,
     this.onChanged,
     this.onItemPressed,
-    this.onItemInvoked,
     this.size,
     this.header,
     this.items = const [],
@@ -111,8 +88,6 @@ class NavigationPane with Diagnosticable {
     this.autoSuggestBox,
     this.autoSuggestBoxReplacement,
     this.displayMode = PaneDisplayMode.auto,
-    this.compactModeThresholdWidth = kCompactModeThresholdWidth,
-    this.expandedModeThresholdWidth = kExpandedModeThresholdWidth,
     this.toggleable = true,
     this.customPane,
     this.toggleButton = const PaneToggleButton(),
@@ -126,14 +101,6 @@ class NavigationPane with Diagnosticable {
   }) : assert(
          selected == null || !selected.isNegative,
          'The selected index must not be negative',
-       ),
-       assert(
-         compactModeThresholdWidth >= 0,
-         'compactModeThresholdWidth must not be negative',
-       ),
-       assert(
-         expandedModeThresholdWidth >= compactModeThresholdWidth,
-         'expandedModeThresholdWidth must be greater than or equal to compactModeThresholdWidth',
        ) {
     _buildHierarchy(items);
     _buildHierarchy(footerItems);
@@ -151,24 +118,7 @@ class NavigationPane with Diagnosticable {
   /// [PaneDisplayMode.auto] is used by default.
   final PaneDisplayMode displayMode;
 
-  /// The largest width that uses [PaneDisplayMode.minimal] in auto mode.
-  ///
-  /// A width greater than this value and less than
-  /// [expandedModeThresholdWidth] uses [PaneDisplayMode.compact]. Explicit
-  /// display modes ignore this value.
-  final double compactModeThresholdWidth;
-
-  /// The smallest width that uses [PaneDisplayMode.expanded] in auto mode.
-  ///
-  /// Explicit display modes ignore this value.
-  final double expandedModeThresholdWidth;
-
-  /// Whether the pane can be opened interactively.
-  ///
-  /// When false, the default toggle button and its layout slot are removed.
-  /// Compact mode remains compact and minimal mode remains closed.
-  /// This differs from [toggleButton] being null, which only hides the default
-  /// control and still allows programmatic pane opening.
+  /// Whether the pane can be toggled or not.
   ///
   /// This is used when the current display mod is [PaneDisplayMode.compact].
   /// If `false`, the pane will always be closed.
@@ -255,17 +205,8 @@ class NavigationPane with Diagnosticable {
   /// Called when the current index changes.
   final ValueChanged<int>? onChanged;
 
-  /// Called when a selectable item is pressed.
-  ///
-  /// Unlike earlier releases, this also fires when the selected item is
-  /// invoked again. Prefer [onItemInvoked] when the item is needed.
+  /// Called when an item is pressed.
   final ValueChanged<int>? onItemPressed;
-
-  /// Called whenever an enabled [PaneItem] is invoked.
-  ///
-  /// This is called before [onChanged]. Re-invoking the selected item calls
-  /// this callback without calling [onChanged] again.
-  final PaneItemInvokedCallback? onItemInvoked;
 
   /// The scroll controller used by the pane when [displayMode] is
   /// [PaneDisplayMode.compact] and [PaneDisplayMode.expanded].
@@ -357,23 +298,17 @@ class NavigationPane with Diagnosticable {
 
   bool canChangeTo(NavigationPaneItem item) {
     final index = effectiveIndexOf(item);
-    return item is PaneItem &&
-        item.selectsOnInvoked &&
-        !index.isNegative &&
-        index != selected;
+    if (index.isNegative) return false;
+
+    return index != selected;
   }
 
-  /// Invokes [item] and requests selection when appropriate.
+  /// Changes the selected item to [item].
   void changeTo(NavigationPaneItem item) {
-    if (item is! PaneItem || !item.enabled) return;
-
+    if (!canChangeTo(item)) return;
     final index = effectiveIndexOf(item);
-    final effectiveIndex = index.isNegative ? null : index;
-    onItemInvoked?.call(
-      PaneItemInvokedEventArgs(item: item, index: effectiveIndex),
-    );
-    if (effectiveIndex != null) onItemPressed?.call(effectiveIndex);
-    if (canChangeTo(item)) onChanged?.call(index);
+    if (!index.isNegative) onItemPressed?.call(index);
+    if (selected != index && !index.isNegative) onChanged?.call(index);
   }
 
   /// A list of all of the items displayed on this pane.
@@ -494,9 +429,6 @@ class NavigationPane with Diagnosticable {
     return other is NavigationPane &&
         other.key == key &&
         other.displayMode == displayMode &&
-        other.compactModeThresholdWidth == compactModeThresholdWidth &&
-        other.expandedModeThresholdWidth == expandedModeThresholdWidth &&
-        other.toggleable == toggleable &&
         other.customPane == customPane &&
         other.toggleButton == toggleButton &&
         other.size == size &&
@@ -508,7 +440,6 @@ class NavigationPane with Diagnosticable {
         other.selected == selected &&
         other.onChanged == onChanged &&
         other.onItemPressed == onItemPressed &&
-        other.onItemInvoked == onItemInvoked &&
         other.scrollController == scrollController &&
         other.indicator == indicator &&
         other.acrylicDisabled == acrylicDisabled;
@@ -518,9 +449,6 @@ class NavigationPane with Diagnosticable {
   int get hashCode {
     return key.hashCode ^
         displayMode.hashCode ^
-        compactModeThresholdWidth.hashCode ^
-        expandedModeThresholdWidth.hashCode ^
-        toggleable.hashCode ^
         customPane.hashCode ^
         toggleButton.hashCode ^
         size.hashCode ^
@@ -532,7 +460,6 @@ class NavigationPane with Diagnosticable {
         selected.hashCode ^
         onChanged.hashCode ^
         onItemPressed.hashCode ^
-        onItemInvoked.hashCode ^
         scrollController.hashCode ^
         indicator.hashCode ^
         acrylicDisabled.hashCode;
@@ -620,11 +547,7 @@ class NavigationPaneSize with Diagnosticable {
 
   /// Gets the width of the open pane with the constraints applied.
   double get openPaneWidth {
-    return clampDouble(
-      openWidth,
-      openMinWidth ?? 0,
-      openMaxWidth ?? double.infinity,
-    );
+    return openWidth.clamp(openMinWidth ?? 0, openMaxWidth ?? double.infinity);
   }
 
   @override
@@ -723,42 +646,12 @@ class NavigationPaneWidgetData {
 ///
 /// ```dart
 /// class CustomNavigationPane extends NavigationPaneWidget {
+///   CustomNavigationPane();
+///
 ///   @override
 ///   Widget build(BuildContext context, NavigationPaneWidgetData data) {
-///     return Row(
-///       children: [
-///         SizedBox(
-///           width: 80,
-///           child: ListView(
-///             controller: data.scrollController,
-///             children: [
-///               for (final item in data.pane.effectiveItems)
-///                 Button(
-///                   onPressed: () => data.pane.changeTo(item),
-///                   child: item.title ?? const SizedBox.shrink(),
-///                 ),
-///             ],
-///           ),
-///         ),
-///         Expanded(child: data.content),
-///       ],
-///     );
 ///   }
 /// }
-///
-/// NavigationView(
-///   pane: NavigationPane(
-///     customPane: CustomNavigationPane(),
-///     selected: 0,
-///     items: [
-///       PaneItem(
-///         icon: const Icon(FluentIcons.home),
-///         title: const Text('Home'),
-///         body: const Text('Home page'),
-///       ),
-///     ],
-///   ),
-/// );
 /// ```
 abstract class NavigationPaneWidget {
   /// Builds the custom navigation pane.
@@ -814,8 +707,12 @@ class _TopNavigationPaneState extends State<_TopNavigationPane> {
   }
 
   void _onPressed(PaneItem item) {
-    widget.pane.changeTo(item);
-    if (overflowController.isOpen) Navigator.of(context).pop();
+    if (widget.pane.canChangeTo(item)) {
+      widget.pane.changeTo(item);
+      if (overflowController.isOpen) {
+        Navigator.of(context).pop();
+      }
+    }
   }
 
   Widget _buildItem(NavigationPaneItem item, double height) {

@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 /// The size mode for an [IconButton].
 ///
@@ -98,12 +97,6 @@ class IconButton extends BaseButton {
   /// If null, this may be affected by a [SmallIconButton] in the tree, if any.
   /// If null and without a [SmallIconButton], defaults to large.
   final IconButtonMode? iconButtonMode;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(EnumProperty('iconButtonMode', iconButtonMode));
-  }
 
   @override
   ButtonStyle defaultStyleOf(BuildContext context) {

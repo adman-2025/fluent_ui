@@ -47,10 +47,9 @@ class ToggleButton extends StatelessWidget {
     super.debugFillProperties(properties);
     properties
       ..add(FlagProperty('checked', value: checked, ifFalse: 'unchecked'))
-      ..add(
-        FlagProperty('enabled', value: onChanged != null, ifFalse: 'disabled'),
-      )
+      ..add(ObjectFlagProperty('onChanged', onChanged, ifNull: 'disabled'))
       ..add(DiagnosticsProperty<ToggleButtonThemeData>('style', style))
+      ..add(StringProperty('semanticLabel', semanticLabel))
       ..add(ObjectFlagProperty<FocusNode>.has('focusNode', focusNode))
       ..add(
         FlagProperty('autofocus', value: autofocus, ifFalse: 'manual focus'),
@@ -131,12 +130,6 @@ class ToggleButtonTheme extends InheritedTheme {
   @override
   Widget wrap(BuildContext context, Widget child) {
     return ToggleButtonTheme(data: data, child: child);
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<ToggleButtonThemeData>('data', data));
   }
 
   @override

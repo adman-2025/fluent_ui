@@ -3,7 +3,6 @@ import 'package:fluent_ui/src/controls/pickers/pickers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
-import 'package:material_ui/material_ui.dart' as m;
 
 /// The duration of a complete year
 const kYearDuration = Duration(days: 365);
@@ -210,6 +209,7 @@ class DatePicker extends StatefulWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
+      ..add(DiagnosticsProperty<DateTime>('selected', selected, ifNull: 'now'))
       ..add(
         FlagProperty(
           'showMonth',
@@ -229,13 +229,7 @@ class DatePicker extends StatefulWidget {
       )
       ..add(DiagnosticsProperty<DateTime>('startDate', startDate))
       ..add(DiagnosticsProperty<DateTime>('endDate', endDate))
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry>(
-          'contentPadding',
-          contentPadding,
-          defaultValue: kPickerContentPadding,
-        ),
-      )
+      ..add(DiagnosticsProperty('contentPadding', contentPadding))
       ..add(ObjectFlagProperty.has('focusNode', focusNode))
       ..add(
         FlagProperty('autofocus', value: autofocus, ifFalse: 'manual focus'),
@@ -247,10 +241,8 @@ class DatePicker extends StatefulWidget {
           defaultValue: kPickerPopupHeight,
         ),
       )
-      ..add(DiagnosticsProperty<TextStyle>('headerStyle', headerStyle))
       ..add(DiagnosticsProperty<Locale>('locale', locale))
-      ..add(IterableProperty<DatePickerField>('fieldOrder', fieldOrder))
-      ..add(IterableProperty<int>('fieldFlex', fieldFlex));
+      ..add(IterableProperty<DatePickerField>('fieldOrder', fieldOrder));
   }
 }
 
@@ -459,11 +451,9 @@ class DatePickerState extends State<DatePicker> {
               duration: theme.fastAnimationDuration,
               curve: theme.animationCurve,
               constraints: BoxConstraints(
-                minHeight: clampDouble(
-                  kPickerHeight + theme.visualDensity.baseSizeAdjustment.dy,
-                  0,
-                  double.infinity,
-                ),
+                minHeight:
+                    (kPickerHeight + theme.visualDensity.baseSizeAdjustment.dy)
+                        .clamp(0.0, double.infinity),
               ),
               decoration: kPickerDecorationBuilder(context, states),
               child: DefaultTextStyle.merge(
@@ -546,7 +536,7 @@ class __DatePickerContentPopUpState extends State<_DatePickerContentPopUp> {
   int _getDaysInMonth([int? month, int? year]) {
     year ??= DateTime.now().year;
     month ??= DateTime.now().month;
-    return m.DateTimeRange(
+    return DateTimeRange(
       start: DateTime.utc(year, month),
       end: DateTime.utc(year, month + 1),
     ).duration.inDays;

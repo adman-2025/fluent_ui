@@ -324,7 +324,7 @@ class TooltipState extends State<Tooltip> with SingleTickerProviderStateMixin {
     assert(debugCheckHasDirectionality(context));
 
     final theme = FluentTheme.of(context);
-    final defaultTextStyle = theme.typography.body;
+    final defaultTextStyle = theme.typography.body!;
     final defaultDecoration = BoxDecoration(
       color: theme.menuColor,
       borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -432,12 +432,6 @@ class TooltipTheme extends InheritedTheme {
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<TooltipThemeData>('data', data));
-  }
-
-  @override
   Widget wrap(BuildContext context, Widget child) {
     return TooltipTheme(data: data, child: child);
   }
@@ -536,9 +530,8 @@ class TooltipThemeData with Diagnosticable {
   /// Creates the standard [TooltipThemeData] based on the given [theme].
   factory TooltipThemeData.standard(FluentThemeData theme) {
     return TooltipThemeData(
-      height: clampDouble(
-        32 + theme.visualDensity.baseSizeAdjustment.dy,
-        0,
+      height: (32 + theme.visualDensity.baseSizeAdjustment.dy).clamp(
+        0.0,
         double.infinity,
       ),
       verticalOffset: 24,
@@ -556,9 +549,7 @@ class TooltipThemeData with Diagnosticable {
       }(),
       showDuration: const Duration(milliseconds: 1500),
       waitDuration: const Duration(seconds: 1),
-      textStyle: theme.typography.caption?.copyWith(
-        color: theme.resources.textFillColorPrimary,
-      ),
+      textStyle: theme.typography.caption,
       decoration: () {
         final radius = BorderRadius.circular(4);
         final shadow = [
@@ -570,13 +561,13 @@ class TooltipThemeData with Diagnosticable {
         ];
         if (theme.brightness == Brightness.light) {
           return BoxDecoration(
-            color: theme.resources.systemFillColorSolidNeutralBackground,
+            color: Colors.white,
             borderRadius: radius,
             boxShadow: shadow,
           );
         } else {
           return BoxDecoration(
-            color: theme.resources.systemFillColorSolidNeutralBackground,
+            color: Colors.grey,
             borderRadius: radius,
             boxShadow: shadow,
           );
@@ -679,7 +670,7 @@ class _TooltipContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: FluentTheme.of(context).typography.body,
+      style: FluentTheme.of(context).typography.body!,
       child: Container(
         decoration: decoration,
         padding: padding,

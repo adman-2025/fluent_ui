@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 part 'tab.dart';
 
@@ -62,6 +63,8 @@ const double _kButtonWidth = 32;
 class TabView extends StatefulWidget {
   /// Creates a tab view.
   ///
+  /// [tabs] must have the same length as [bodies]
+  ///
   /// [maxTabWidth] must be non-negative
   const TabView({
     required this.currentIndex,
@@ -102,7 +105,7 @@ class TabView extends StatefulWidget {
 
   /// The icon of the "Add new tab" button.
   ///
-  /// Defaults to a [WindowsIcon] with [WindowsIcons.add].
+  /// Defaults to an [Icon] with [FluentIcons.add].
   final Widget newTabIcon;
 
   /// Whether the following shortcuts are enabled:
@@ -136,7 +139,7 @@ class TabView extends StatefulWidget {
   /// Defaults to `true`.
   final bool showScrollButtons;
 
-  /// The [ScrollPosController] used to move TabView to right and left when the
+  /// The [ScrollPosController] used to move tabview to right and left when the
   /// tabs don't fit the available horizontal space.
   ///
   /// If null, a [ScrollPosController] is created internally.
@@ -181,7 +184,7 @@ class TabView extends StatefulWidget {
   /// The delay duration to animate the tab after it's closed. Only applied when
   /// [tabWidthBehavior] is [TabWidthBehavior.equal].
   ///
-  /// Defaults to one second.
+  /// Defaults to 400 milliseconds.
   final Duration closeDelayDuration;
 
   /// Whenever the new button should be displayed.
@@ -260,7 +263,7 @@ class TabView extends StatefulWidget {
       )
       ..add(DoubleProperty('minTabWidth', minTabWidth, defaultValue: 80.0))
       ..add(DoubleProperty('maxTabWidth', maxTabWidth, defaultValue: 240.0))
-      ..add(DoubleProperty('reservedStripWidth', reservedStripWidth));
+      ..add(DoubleProperty('minFooterWidth', reservedStripWidth));
   }
 }
 
@@ -300,22 +303,6 @@ class _TabViewState extends State<TabView> {
     super.didChangeDependencies();
     final theme = FluentTheme.of(context);
     scrollController.animationDuration = theme.fastAnimationDuration;
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-        FlagProperty(
-          'isClosePending',
-          value: closeTimer?.isActive ?? false,
-          ifTrue: 'close pending',
-        ),
-      )
-      ..add(DoubleProperty('lockedTabWidth', lockedTabWidth))
-      ..add(DoubleProperty('preferredTabWidth', preferredTabWidth))
-      ..add(DiagnosticsProperty('scrollController', scrollController));
   }
 
   @override
@@ -514,14 +501,14 @@ class _TabViewState extends State<TabView> {
                         'You can only create a TabView in a box with defined width',
                       );
 
-                      preferredTabWidth = clampDouble(
-                        (width -
-                                (widget.showNewButton ? _kButtonWidth : 0) -
-                                (widget.reservedStripWidth ?? 0)) /
-                            widget.tabs.length,
-                        widget.minTabWidth,
-                        widget.maxTabWidth,
-                      );
+                      preferredTabWidth =
+                          ((width -
+                                      (widget.showNewButton
+                                          ? _kButtonWidth
+                                          : 0) -
+                                      (widget.reservedStripWidth ?? 0)) /
+                                  widget.tabs.length)
+                              .clamp(widget.minTabWidth, widget.maxTabWidth);
 
                       final Widget listView = Listener(
                         onPointerSignal: (e) {
@@ -543,25 +530,32 @@ class _TabViewState extends State<TabView> {
                                 });
                           }
                         },
-                        child: ReorderableList(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          controller: scrollController,
-                          onReorderItem: (i, ii) {
-                            widget.onReorder?.call(i, ii);
-                          },
-                          itemCount: widget.tabs.length,
-                          proxyDecorator: (child, index, animation) {
-                            return child;
-                          },
-                          itemBuilder: (context, index) {
-                            return _tabBuilder(
-                              context,
-                              index,
-                              preferredTabWidth,
-                            );
-                          },
-                          dragStartBehavior: DragStartBehavior.down,
+                        child: Localizations.override(
+                          context: context,
+                          delegates: const [
+                            GlobalMaterialLocalizations.delegate,
+                          ],
+                          child: ReorderableListView.builder(
+                            buildDefaultDragHandles: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            scrollController: scrollController,
+                            onReorderItem: (i, ii) {
+                              widget.onReorder?.call(i, ii);
+                            },
+                            itemCount: widget.tabs.length,
+                            proxyDecorator: (child, index, animation) {
+                              return child;
+                            },
+                            itemBuilder: (context, index) {
+                              return _tabBuilder(
+                                context,
+                                index,
+                                preferredTabWidth,
+                              );
+                            },
+                            dragStartBehavior: DragStartBehavior.down,
+                          ),
                         ),
                       );
 
@@ -633,10 +627,9 @@ class _TabViewState extends State<TabView> {
                         children: [
                           // scroll buttons if needed
                           if (showScrollButtons)
-                            if (direction == TextDirection.ltr)
-                              backwardButton()
-                            else
-                              forwardButton(),
+                            direction == TextDirection.ltr
+                                ? backwardButton()
+                                : forwardButton(),
                           // tabs area (flexible/expanded)
                           if (scrollable)
                             Expanded(child: listView)
@@ -644,10 +637,9 @@ class _TabViewState extends State<TabView> {
                             Flexible(child: listView),
                           // scroll buttons if needed
                           if (showScrollButtons)
-                            if (direction == TextDirection.ltr)
-                              forwardButton()
-                            else
-                              backwardButton(),
+                            direction == TextDirection.ltr
+                                ? forwardButton()
+                                : backwardButton(),
                           // new tab button
                           if (widget.showNewButton)
                             Padding(

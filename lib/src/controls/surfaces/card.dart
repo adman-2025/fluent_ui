@@ -1,5 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 
 /// A card is a container that slightly separates its content from the
 /// surrounding UI, giving it a subtle but distinct appearance.
@@ -97,19 +96,6 @@ class Card extends StatelessWidget {
   /// Use [BorderRadius.circular] for uniform corners, or specify different
   /// radii for each corner using [BorderRadius.only].
   final BorderRadiusGeometry borderRadius;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding))
-      ..add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin))
-      ..add(ColorProperty('backgroundColor', backgroundColor))
-      ..add(ColorProperty('borderColor', borderColor))
-      ..add(
-        DiagnosticsProperty<BorderRadiusGeometry>('borderRadius', borderRadius),
-      );
-  }
 
   @override
   Widget build(BuildContext context) {
