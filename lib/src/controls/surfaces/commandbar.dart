@@ -345,6 +345,7 @@ class CommandBarState extends State<CommandBar> {
               ? FluentLocalizations.of(context).seeLess
               : FluentLocalizations.of(context).seeMore,
           icon: const WindowsIcon(WindowsIcons.more),
+          focusNode: FocusNode(skipTraversal: allSecondaryItems.isEmpty),
         );
       }
 
