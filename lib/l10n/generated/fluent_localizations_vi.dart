@@ -54,7 +54,7 @@ class FluentLocalizationsVi extends FluentLocalizations {
   String get selectAllActionLabel => 'Chọn tất cả';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Hoàn tác';
 
   @override
   String get newTabLabel => 'Thêm tab mới';
@@ -85,7 +85,7 @@ class FluentLocalizationsVi extends FluentLocalizations {
   String get selectAllActionTooltip => 'Chọn tất cả';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Hoàn tác thao tác cuối cùng';
 
   @override
   String get hour => 'giờ';
@@ -109,13 +109,13 @@ class FluentLocalizationsVi extends FluentLocalizations {
   String get year => 'năm';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Chọn ngày';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Xem thêm';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Thu gọn';
 
   @override
   String get redLabel => 'Đỏ';

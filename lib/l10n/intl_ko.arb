@@ -15,6 +15,7 @@
   "copyActionLabel": "복사",
   "pasteActionLabel": "붙여넣기",
   "selectAllActionLabel": "전체선택",
+  "undoActionLabel": "실행 취소",
   "newTabLabel": "새탭",
   "closeTabLabelSuffix": "탭닫기",
   "scrollTabBackwardLabel": "이전탭",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "클립보드로 잘라내기",
   "pasteActionTooltip": "클립보드로 붙여넣기",
   "selectAllActionTooltip": "전체선택",
+  "undoActionTooltip": "마지막 작업 실행 취소",
   "hour": "시",
   "minute": "분",
   "am": "오전",
@@ -31,6 +33,9 @@
   "month": "월",
   "day": "일",
   "year": "년",
+  "pickADate": "날짜 선택",
+  "seeMore": "더 보기",
+  "seeLess": "간단히 보기",
   "redLabel": "빨강",
   "greenLabel": "녹색",
   "blueLabel": "파랑",
@@ -41,7 +46,24 @@
   "moreText": "자세히",
   "lessText": "간단히",
   "valueSliderTooltip": "값 {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% 불투명도",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "검정",
   "colorNavy": "진한 파랑",
   "colorDarkBlue": "진한 파랑",

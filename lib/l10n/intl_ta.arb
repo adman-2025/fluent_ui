@@ -15,6 +15,7 @@
   "copyActionLabel": "நகல்",
   "pasteActionLabel": "ஒட்டு",
   "selectAllActionLabel": "அனைத்தையும் தெரிவுசெய்",
+  "undoActionLabel": "செயல்தவிர்",
   "newTabLabel": "புதிய தாவலைச் சேர்",
   "closeTabLabelSuffix": "தாவலை மூடு",
   "scrollTabBackwardLabel": "தாவல் பட்டியலை பின்னோக்கி உருட்டவும்",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "தேர்ந்தெடுத்த உள்ளடக்கத்தை அகற்றி கிளிப்போர்டில் வைக்கவும்",
   "pasteActionTooltip": "கிளிப்போர்டின் உள்ளடக்கங்களை தற்போதைய இடத்தில் செருகும்",
   "selectAllActionTooltip": "அனைத்து உள்ளடக்கத்தையும் தேர்ந்தெடுக்கவும்",
+  "undoActionTooltip": "கடைசிச் செயலைச் செயல்தவிர்",
   "hour": "மணி",
   "minute": "நிமிடம்",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "மாதம்",
   "day": "நாள்",
   "year": "ஆண்டு",
+  "pickADate": "தேதியைத் தேர்ந்தெடுக்கவும்",
+  "seeMore": "மேலும் காட்டு",
+  "seeLess": "குறைவாகக் காட்டு",
   "redLabel": "சிவப்பு",
   "greenLabel": "பச்சை",
   "blueLabel": "நீலம்",
@@ -41,7 +46,24 @@
   "moreText": "மேலும்",
   "lessText": "குறைவாக",
   "valueSliderTooltip": "மதிப்பு {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% ஒளிபுகாத்தன்மை",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "கருப்பு",
   "colorNavy": "அடர் நீலம்",
   "colorDarkBlue": "அடர் நீலம்",

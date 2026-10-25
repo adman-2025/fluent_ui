@@ -5,37 +5,78 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'fluent_localizations_af.dart';
+import 'fluent_localizations_am.dart';
 import 'fluent_localizations_ar.dart';
+import 'fluent_localizations_as.dart';
+import 'fluent_localizations_az.dart';
 import 'fluent_localizations_be.dart';
+import 'fluent_localizations_bg.dart';
 import 'fluent_localizations_bn.dart';
+import 'fluent_localizations_bo.dart';
+import 'fluent_localizations_bs.dart';
 import 'fluent_localizations_ca.dart';
 import 'fluent_localizations_cs.dart';
+import 'fluent_localizations_cy.dart';
+import 'fluent_localizations_da.dart';
 import 'fluent_localizations_de.dart';
 import 'fluent_localizations_el.dart';
 import 'fluent_localizations_en.dart';
 import 'fluent_localizations_es.dart';
+import 'fluent_localizations_et.dart';
+import 'fluent_localizations_eu.dart';
 import 'fluent_localizations_fa.dart';
+import 'fluent_localizations_fi.dart';
+import 'fluent_localizations_fil.dart';
 import 'fluent_localizations_fr.dart';
+import 'fluent_localizations_ga.dart';
+import 'fluent_localizations_gl.dart';
+import 'fluent_localizations_gsw.dart';
+import 'fluent_localizations_gu.dart';
 import 'fluent_localizations_he.dart';
 import 'fluent_localizations_hi.dart';
 import 'fluent_localizations_hr.dart';
 import 'fluent_localizations_hu.dart';
+import 'fluent_localizations_hy.dart';
 import 'fluent_localizations_id.dart';
+import 'fluent_localizations_is.dart';
 import 'fluent_localizations_it.dart';
 import 'fluent_localizations_ja.dart';
+import 'fluent_localizations_ka.dart';
+import 'fluent_localizations_kk.dart';
+import 'fluent_localizations_km.dart';
+import 'fluent_localizations_kn.dart';
 import 'fluent_localizations_ko.dart';
-import 'fluent_localizations_ku.dart';
+import 'fluent_localizations_ky.dart';
+import 'fluent_localizations_lo.dart';
+import 'fluent_localizations_lt.dart';
+import 'fluent_localizations_lv.dart';
+import 'fluent_localizations_mk.dart';
+import 'fluent_localizations_ml.dart';
+import 'fluent_localizations_mn.dart';
+import 'fluent_localizations_mr.dart';
 import 'fluent_localizations_ms.dart';
 import 'fluent_localizations_my.dart';
+import 'fluent_localizations_nb.dart';
 import 'fluent_localizations_ne.dart';
 import 'fluent_localizations_nl.dart';
+import 'fluent_localizations_no.dart';
+import 'fluent_localizations_or.dart';
+import 'fluent_localizations_pa.dart';
 import 'fluent_localizations_pl.dart';
+import 'fluent_localizations_ps.dart';
 import 'fluent_localizations_pt.dart';
 import 'fluent_localizations_ro.dart';
 import 'fluent_localizations_ru.dart';
+import 'fluent_localizations_si.dart';
 import 'fluent_localizations_sk.dart';
+import 'fluent_localizations_sl.dart';
+import 'fluent_localizations_sq.dart';
+import 'fluent_localizations_sr.dart';
 import 'fluent_localizations_sv.dart';
+import 'fluent_localizations_sw.dart';
 import 'fluent_localizations_ta.dart';
+import 'fluent_localizations_te.dart';
 import 'fluent_localizations_th.dart';
 import 'fluent_localizations_tl.dart';
 import 'fluent_localizations_tr.dart';
@@ -45,6 +86,7 @@ import 'fluent_localizations_ur.dart';
 import 'fluent_localizations_uz.dart';
 import 'fluent_localizations_vi.dart';
 import 'fluent_localizations_zh.dart';
+import 'fluent_localizations_zu.dart';
 
 // ignore_for_file: type=lint
 
@@ -133,36 +175,89 @@ abstract class FluentLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
+    Locale('af'),
+    Locale('am'),
     Locale('ar'),
+    Locale('as'),
+    Locale('az'),
     Locale('be'),
+    Locale('bg'),
     Locale('bn'),
+    Locale('bo'),
+    Locale('bs'),
     Locale('ca'),
     Locale('cs'),
+    Locale('cy'),
+    Locale('da'),
     Locale('de'),
+    Locale('de', 'CH'),
     Locale('el'),
+    Locale('en', 'AU'),
+    Locale('en', 'CA'),
+    Locale('en', 'GB'),
+    Locale('en', 'IE'),
+    Locale('en', 'IN'),
+    Locale('en', 'NZ'),
+    Locale('en', 'SG'),
+    Locale('en', 'ZA'),
     Locale('es'),
+    Locale('et'),
+    Locale('eu'),
     Locale('fa'),
+    Locale('fi'),
+    Locale('fil'),
     Locale('fr'),
+    Locale('ga'),
+    Locale('gl'),
+    Locale('gsw'),
+    Locale('gu'),
     Locale('he'),
     Locale('hi'),
     Locale('hr'),
     Locale('hu'),
+    Locale('hy'),
     Locale('id'),
+    Locale('is'),
     Locale('it'),
     Locale('ja'),
+    Locale('ka'),
+    Locale('kk'),
+    Locale('km'),
+    Locale('kn'),
     Locale('ko'),
-    Locale('ku'),
+    Locale('ky'),
+    Locale('lo'),
+    Locale('lt'),
+    Locale('lv'),
+    Locale('mk'),
+    Locale('ml'),
+    Locale('mn'),
+    Locale('mr'),
     Locale('ms'),
     Locale('my'),
+    Locale('nb'),
     Locale('ne'),
     Locale('nl'),
+    Locale('no'),
+    Locale('or'),
+    Locale('pa'),
     Locale('pl'),
+    Locale('ps'),
     Locale('pt'),
+    Locale('pt', 'BR'),
+    Locale('pt', 'PT'),
     Locale('ro'),
     Locale('ru'),
+    Locale('si'),
     Locale('sk'),
+    Locale('sl'),
+    Locale('sq'),
+    Locale('sr'),
+    Locale.fromSubtags(languageCode: 'sr', scriptCode: 'Latn'),
     Locale('sv'),
+    Locale('sw'),
     Locale('ta'),
+    Locale('te'),
     Locale('th'),
     Locale('tl'),
     Locale('tr'),
@@ -173,273 +268,274 @@ abstract class FluentLocalizations {
     Locale('vi'),
     Locale('zh'),
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
+    Locale('zu'),
   ];
 
-  /// The tooltip for the back button on [NavigationAppBar].
+  /// No description provided for @backButtonTooltip.
   ///
   /// In en, this message translates to:
   /// **'Back'**
   String get backButtonTooltip;
 
-  /// Label for "close" buttons and menu items.
+  /// No description provided for @closeButtonLabel.
   ///
   /// In en, this message translates to:
   /// **'Close'**
   String get closeButtonLabel;
 
-  /// Label for "search" text fields.
+  /// No description provided for @searchLabel.
   ///
   /// In en, this message translates to:
   /// **'Search'**
   String get searchLabel;
 
-  /// The tooltip for the toggle navigation button.
+  /// No description provided for @closeNavigationTooltip.
   ///
   /// In en, this message translates to:
   /// **'Close Navigation'**
   String get closeNavigationTooltip;
 
-  /// The tooltip for the toogle navigation button.
+  /// No description provided for @openNavigationTooltip.
   ///
   /// In en, this message translates to:
   /// **'Open Navigation'**
   String get openNavigationTooltip;
 
-  /// The tooltip for the "Click to Search" button.
+  /// No description provided for @clickToSearch.
   ///
   /// In en, this message translates to:
   /// **'Click to search'**
   String get clickToSearch;
 
-  /// Label read out by accessibility tools (TalkBack or VoiceOver) for a modal barrier to indicate that a tap dismisses the barrier. A modal barrier can for example be found behind an alert or popup to block user interaction with elements behind it.
+  /// No description provided for @modalBarrierDismissLabel.
   ///
   /// In en, this message translates to:
   /// **'Dismiss'**
   String get modalBarrierDismissLabel;
 
-  /// The tooltip used by the "Minimize" button on desktop windows.
+  /// No description provided for @minimizeWindowTooltip.
   ///
   /// In en, this message translates to:
   /// **'Minimize'**
   String get minimizeWindowTooltip;
 
-  /// The tooltip used by the "Restore" button on desktop windows.
+  /// No description provided for @restoreWindowTooltip.
   ///
   /// In en, this message translates to:
   /// **'Restore'**
   String get restoreWindowTooltip;
 
-  /// The tooltip used by the "Close" button on desktop windows.
+  /// No description provided for @closeWindowTooltip.
   ///
   /// In en, this message translates to:
   /// **'Close'**
   String get closeWindowTooltip;
 
-  /// The dialog label.
+  /// No description provided for @dialogLabel.
   ///
   /// In en, this message translates to:
   /// **'Dialog'**
   String get dialogLabel;
 
-  /// The label for the cut action on the text selection controls.
+  /// No description provided for @cutActionLabel.
   ///
   /// In en, this message translates to:
   /// **'Cut'**
   String get cutActionLabel;
 
-  /// The label for the copy action on the text selection controls.
+  /// No description provided for @copyActionLabel.
   ///
   /// In en, this message translates to:
   /// **'Copy'**
   String get copyActionLabel;
 
-  /// The label for the paste button on the text selection controls.
+  /// No description provided for @pasteActionLabel.
   ///
   /// In en, this message translates to:
   /// **'Paste'**
   String get pasteActionLabel;
 
-  /// The label for the select all button on the text selection controls.
+  /// No description provided for @selectAllActionLabel.
   ///
   /// In en, this message translates to:
   /// **'Select all'**
   String get selectAllActionLabel;
 
-  /// The label for the undo button on the text selection controls.
+  /// No description provided for @undoActionLabel.
   ///
   /// In en, this message translates to:
   /// **'Undo'**
   String get undoActionLabel;
 
-  /// The label used by [TabView]'s new button.
+  /// No description provided for @newTabLabel.
   ///
   /// In en, this message translates to:
   /// **'Add new tab'**
   String get newTabLabel;
 
-  /// The label used by [TabView]'s close button.
+  /// No description provided for @closeTabLabelSuffix.
   ///
   /// In en, this message translates to:
   /// **'Close tab'**
   String get closeTabLabelSuffix;
 
-  /// The label used by [TabView]'s scroll backward button.
+  /// No description provided for @scrollTabBackwardLabel.
   ///
   /// In en, this message translates to:
   /// **'Scroll tab list backward'**
   String get scrollTabBackwardLabel;
 
-  /// The label used by [TabView]'s scroll forward button.
+  /// No description provided for @scrollTabForwardLabel.
   ///
   /// In en, this message translates to:
   /// **'Scroll tab list forward'**
   String get scrollTabForwardLabel;
 
-  /// The label used by [AutoSuggestBox] when the results can't be found.
+  /// No description provided for @noResultsFoundLabel.
   ///
   /// In en, this message translates to:
   /// **'No results found'**
   String get noResultsFoundLabel;
 
-  /// The tooltip for the copy action on the text selection controls.
+  /// No description provided for @copyActionTooltip.
   ///
   /// In en, this message translates to:
   /// **'Copy the selected content to the clipboard'**
   String get copyActionTooltip;
 
-  /// The tooltip for the cut action on the text selection controls.
+  /// No description provided for @cutActionTooltip.
   ///
   /// In en, this message translates to:
   /// **'Remove the selected content and put it in the clipboard'**
   String get cutActionTooltip;
 
-  /// The tooltip for the paste action on the text selection controls.
+  /// No description provided for @pasteActionTooltip.
   ///
   /// In en, this message translates to:
   /// **'Inserts the contents of the clipboard at the current location'**
   String get pasteActionTooltip;
 
-  /// The tooltip for the select all action on the text selection controls.
+  /// No description provided for @selectAllActionTooltip.
   ///
   /// In en, this message translates to:
   /// **'Select all content'**
   String get selectAllActionTooltip;
 
-  /// The tooltip for the undo action on the text selection controls.
+  /// No description provided for @undoActionTooltip.
   ///
   /// In en, this message translates to:
   /// **'Undo the last action'**
   String get undoActionTooltip;
 
-  /// The text used by [TimePicker] for the hour field.
+  /// No description provided for @hour.
   ///
   /// In en, this message translates to:
   /// **'hour'**
   String get hour;
 
-  /// The text used by [TimePicker] for the minute field.
+  /// No description provided for @minute.
   ///
   /// In en, this message translates to:
   /// **'minute'**
   String get minute;
 
-  /// The text used by [TimePicker] for the AM field.
+  /// No description provided for @am.
   ///
   /// In en, this message translates to:
   /// **'AM'**
   String get am;
 
-  /// The text used by [TimePicker] for the PM field.
+  /// No description provided for @pm.
   ///
   /// In en, this message translates to:
   /// **'PM'**
   String get pm;
 
-  /// The text used by [DatePicker] for the month field
+  /// No description provided for @month.
   ///
   /// In en, this message translates to:
   /// **'month'**
   String get month;
 
-  /// The text used by [DatePicker] for the day field
+  /// No description provided for @day.
   ///
   /// In en, this message translates to:
   /// **'day'**
   String get day;
 
-  /// The text used by [DatePicker] for the year field
+  /// No description provided for @year.
   ///
   /// In en, this message translates to:
   /// **'year'**
   String get year;
 
-  /// The text used by [CalendarDatePicker] to prompt the user to pick a date.
+  /// No description provided for @pickADate.
   ///
   /// In en, this message translates to:
   /// **'Pick a date'**
   String get pickADate;
 
-  /// The text used by [CommandBar] to show more items.
+  /// No description provided for @seeMore.
   ///
   /// In en, this message translates to:
   /// **'See more'**
   String get seeMore;
 
-  /// The text used by [CommandBar] to show less items.
+  /// No description provided for @seeLess.
   ///
   /// In en, this message translates to:
   /// **'See less'**
   String get seeLess;
 
-  /// Label for red color component in color picker
+  /// No description provided for @redLabel.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get redLabel;
 
-  /// Label for green color component in color picker
+  /// No description provided for @greenLabel.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get greenLabel;
 
-  /// Label for blue color component in color picker
+  /// No description provided for @blueLabel.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get blueLabel;
 
-  /// Label for opacity component in color picker
+  /// No description provided for @opacityLabel.
   ///
   /// In en, this message translates to:
   /// **'Opacity'**
   String get opacityLabel;
 
-  /// Label for hue component in color picker
+  /// No description provided for @hueLabel.
   ///
   /// In en, this message translates to:
   /// **'Hue'**
   String get hueLabel;
 
-  /// Label for saturation component in color picker
+  /// No description provided for @saturationLabel.
   ///
   /// In en, this message translates to:
   /// **'Saturation'**
   String get saturationLabel;
 
-  /// Label for value component in color picker
+  /// No description provided for @valueLabel.
   ///
   /// In en, this message translates to:
   /// **'Value'**
   String get valueLabel;
 
-  /// Text for expanding color picker options
+  /// No description provided for @moreText.
   ///
   /// In en, this message translates to:
   /// **'More'**
   String get moreText;
 
-  /// Text for collapsing color picker options
+  /// No description provided for @lessText.
   ///
   /// In en, this message translates to:
   /// **'Less'**
@@ -457,829 +553,829 @@ abstract class FluentLocalizations {
   /// **'{value}% opacity'**
   String alphaSliderTooltip(int value);
 
-  /// The name of the color, Black.
+  /// No description provided for @colorBlack.
   ///
   /// In en, this message translates to:
   /// **'Black'**
   String get colorBlack;
 
-  /// The name of the color, Navy.
+  /// No description provided for @colorNavy.
   ///
   /// In en, this message translates to:
   /// **'Dark blue'**
   String get colorNavy;
 
-  /// The name of the color, Dark Blue.
+  /// No description provided for @colorDarkBlue.
   ///
   /// In en, this message translates to:
   /// **'Dark blue'**
   String get colorDarkBlue;
 
-  /// The name of the color, Medium Blue.
+  /// No description provided for @colorMediumBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get colorMediumBlue;
 
-  /// The name of the color, Blue.
+  /// No description provided for @colorBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get colorBlue;
 
-  /// The name of the color, Dark Green.
+  /// No description provided for @colorDarkGreen.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorDarkGreen;
 
-  /// The name of the color, Green.
+  /// No description provided for @colorGreen.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorGreen;
 
-  /// The name of the color, Teal.
+  /// No description provided for @colorTeal.
   ///
   /// In en, this message translates to:
   /// **'Dark teal'**
   String get colorTeal;
 
-  /// The name of the color, Dark Cyan.
+  /// No description provided for @colorDarkCyan.
   ///
   /// In en, this message translates to:
   /// **'Dark teal'**
   String get colorDarkCyan;
 
-  /// The name of the color, Deep Sky Blue.
+  /// No description provided for @colorDeepSkyBlue.
   ///
   /// In en, this message translates to:
   /// **'Turquoise'**
   String get colorDeepSkyBlue;
 
-  /// The name of the color, Dark Turquoise.
+  /// No description provided for @colorDarkTurquoise.
   ///
   /// In en, this message translates to:
   /// **'Aqua'**
   String get colorDarkTurquoise;
 
-  /// The name of the color, Medium Spring Green.
+  /// No description provided for @colorMediumSpringGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorMediumSpringGreen;
 
-  /// The name of the color, Lime.
+  /// No description provided for @colorLime.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorLime;
 
-  /// The name of the color, Spring Green.
+  /// No description provided for @colorSpringGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorSpringGreen;
 
-  /// The name of the color, Cyan.
+  /// No description provided for @colorCyan.
   ///
   /// In en, this message translates to:
   /// **'Aqua'**
   String get colorCyan;
 
-  /// The name of the color, Midnight Blue.
+  /// No description provided for @colorMidnightBlue.
   ///
   /// In en, this message translates to:
   /// **'Dark blue'**
   String get colorMidnightBlue;
 
-  /// The name of the color, Dodger Blue.
+  /// No description provided for @colorDodgerBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get colorDodgerBlue;
 
-  /// The name of the color, Light Sea Green.
+  /// No description provided for @colorLightSeaGreen.
   ///
   /// In en, this message translates to:
   /// **'Teal'**
   String get colorLightSeaGreen;
 
-  /// The name of the color, Forest Green.
+  /// No description provided for @colorForestGreen.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorForestGreen;
 
-  /// The name of the color, Sea Green.
+  /// No description provided for @colorSeaGreen.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorSeaGreen;
 
-  /// The name of the color, Dark Slate Gray.
+  /// No description provided for @colorDarkSlateGray.
   ///
   /// In en, this message translates to:
   /// **'Dark teal'**
   String get colorDarkSlateGray;
 
-  /// The name of the color, Lime Green.
+  /// No description provided for @colorLimeGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorLimeGreen;
 
-  /// The name of the color, Medium Sea Green.
+  /// No description provided for @colorMediumSeaGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorMediumSeaGreen;
 
-  /// The name of the color, Turquoise.
+  /// No description provided for @colorTurquoise.
   ///
   /// In en, this message translates to:
   /// **'Teal'**
   String get colorTurquoise;
 
-  /// The name of the color, Royal Blue.
+  /// No description provided for @colorRoyalBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get colorRoyalBlue;
 
-  /// The name of the color, Steel Blue.
+  /// No description provided for @colorSteelBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue-gray'**
   String get colorSteelBlue;
 
-  /// The name of the color, Dark Slate Blue.
+  /// No description provided for @colorDarkSlateBlue.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorDarkSlateBlue;
 
-  /// The name of the color, Medium Turquoise.
+  /// No description provided for @colorMediumTurquoise.
   ///
   /// In en, this message translates to:
   /// **'Teal'**
   String get colorMediumTurquoise;
 
-  /// The name of the color, Indigo.
+  /// No description provided for @colorIndigo.
   ///
   /// In en, this message translates to:
   /// **'Dark purple'**
   String get colorIndigo;
 
-  /// The name of the color, Dark Olive Green.
+  /// No description provided for @colorDarkOliveGreen.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorDarkOliveGreen;
 
-  /// The name of the color, Cadet Blue.
+  /// No description provided for @colorCadetBlue.
   ///
   /// In en, this message translates to:
   /// **'Teal'**
   String get colorCadetBlue;
 
-  /// The name of the color, Cornflower Blue.
+  /// No description provided for @colorCornflowerBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue'**
   String get colorCornflowerBlue;
 
-  /// The name of the color, Medium Aquamarine.
+  /// No description provided for @colorMediumAquamarine.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorMediumAquamarine;
 
-  /// The name of the color, Dim Gray.
+  /// No description provided for @colorDimGray.
   ///
   /// In en, this message translates to:
   /// **'Gray'**
   String get colorDimGray;
 
-  /// The name of the color, Slate Blue.
+  /// No description provided for @colorSlateBlue.
   ///
   /// In en, this message translates to:
   /// **'Indigo'**
   String get colorSlateBlue;
 
-  /// The name of the color, Olive Drab.
+  /// No description provided for @colorOliveDrab.
   ///
   /// In en, this message translates to:
   /// **'Dark green'**
   String get colorOliveDrab;
 
-  /// The name of the color, Slate Gray.
+  /// No description provided for @colorSlateGray.
   ///
   /// In en, this message translates to:
   /// **'Blue-gray'**
   String get colorSlateGray;
 
-  /// The name of the color, Light Slate Gray.
+  /// No description provided for @colorLightSlateGray.
   ///
   /// In en, this message translates to:
   /// **'Blue-gray'**
   String get colorLightSlateGray;
 
-  /// The name of the color, Medium Slate Blue.
+  /// No description provided for @colorMediumSlateBlue.
   ///
   /// In en, this message translates to:
   /// **'Light blue'**
   String get colorMediumSlateBlue;
 
-  /// The name of the color, Lawn Green.
+  /// No description provided for @colorLawnGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorLawnGreen;
 
-  /// The name of the color, Chartreuse.
+  /// No description provided for @colorChartreuse.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorChartreuse;
 
-  /// The name of the color, Aquamarine.
+  /// No description provided for @colorAquamarine.
   ///
   /// In en, this message translates to:
   /// **'Light green'**
   String get colorAquamarine;
 
-  /// The name of the color, Maroon.
+  /// No description provided for @colorMaroon.
   ///
   /// In en, this message translates to:
   /// **'Dark red'**
   String get colorMaroon;
 
-  /// The name of the color, Purple.
+  /// No description provided for @colorPurple.
   ///
   /// In en, this message translates to:
   /// **'Dark purple'**
   String get colorPurple;
 
-  /// The name of the color, Olive.
+  /// No description provided for @colorOlive.
   ///
   /// In en, this message translates to:
   /// **'Dark yellow'**
   String get colorOlive;
 
-  /// The name of the color, Gray.
+  /// No description provided for @colorGray.
   ///
   /// In en, this message translates to:
   /// **'Gray'**
   String get colorGray;
 
-  /// The name of the color, Sky Blue.
+  /// No description provided for @colorSkyBlue.
   ///
   /// In en, this message translates to:
   /// **'Light turquoise'**
   String get colorSkyBlue;
 
-  /// The name of the color, Light Sky Blue.
+  /// No description provided for @colorLightSkyBlue.
   ///
   /// In en, this message translates to:
   /// **'Light blue'**
   String get colorLightSkyBlue;
 
-  /// The name of the color, Blue Violet.
+  /// No description provided for @colorBlueViolet.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorBlueViolet;
 
-  /// The name of the color, Dark Red.
+  /// No description provided for @colorDarkRed.
   ///
   /// In en, this message translates to:
   /// **'Dark red'**
   String get colorDarkRed;
 
-  /// The name of the color, Dark Magenta.
+  /// No description provided for @colorDarkMagenta.
   ///
   /// In en, this message translates to:
   /// **'Dark purple'**
   String get colorDarkMagenta;
 
-  /// The name of the color, Saddle Brown.
+  /// No description provided for @colorSaddleBrown.
   ///
   /// In en, this message translates to:
   /// **'Brown'**
   String get colorSaddleBrown;
 
-  /// The name of the color, Dark Sea Green.
+  /// No description provided for @colorDarkSeaGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorDarkSeaGreen;
 
-  /// The name of the color, Light Green.
+  /// No description provided for @colorLightGreen.
   ///
   /// In en, this message translates to:
   /// **'Light green'**
   String get colorLightGreen;
 
-  /// The name of the color, Medium Purple.
+  /// No description provided for @colorMediumPurple.
   ///
   /// In en, this message translates to:
   /// **'Lavender'**
   String get colorMediumPurple;
 
-  /// The name of the color, Dark Violet.
+  /// No description provided for @colorDarkViolet.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorDarkViolet;
 
-  /// The name of the color, Pale Green.
+  /// No description provided for @colorPaleGreen.
   ///
   /// In en, this message translates to:
   /// **'Light green'**
   String get colorPaleGreen;
 
-  /// The name of the color, Dark Orchid.
+  /// No description provided for @colorDarkOrchid.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorDarkOrchid;
 
-  /// The name of the color, Yellow Green.
+  /// No description provided for @colorYellowGreen.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorYellowGreen;
 
-  /// The name of the color, Sienna.
+  /// No description provided for @colorSienna.
   ///
   /// In en, this message translates to:
   /// **'Tan'**
   String get colorSienna;
 
-  /// The name of the color, Brown.
+  /// No description provided for @colorBrown.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorBrown;
 
-  /// The name of the color, Dark Gray.
+  /// No description provided for @colorDarkGray.
   ///
   /// In en, this message translates to:
   /// **'Gray'**
   String get colorDarkGray;
 
-  /// The name of the color, Light Blue.
+  /// No description provided for @colorLightBlue.
   ///
   /// In en, this message translates to:
   /// **'Sky blue'**
   String get colorLightBlue;
 
-  /// The name of the color, Green Yellow.
+  /// No description provided for @colorGreenYellow.
   ///
   /// In en, this message translates to:
   /// **'Green'**
   String get colorGreenYellow;
 
-  /// The name of the color, Pale Turquoise.
+  /// No description provided for @colorPaleTurquoise.
   ///
   /// In en, this message translates to:
   /// **'Aqua'**
   String get colorPaleTurquoise;
 
-  /// The name of the color, Light Steel Blue.
+  /// No description provided for @colorLightSteelBlue.
   ///
   /// In en, this message translates to:
   /// **'Ice blue'**
   String get colorLightSteelBlue;
 
-  /// The name of the color, Powder Blue.
+  /// No description provided for @colorPowderBlue.
   ///
   /// In en, this message translates to:
   /// **'Sky blue'**
   String get colorPowderBlue;
 
-  /// The name of the color, Firebrick.
+  /// No description provided for @colorFirebrick.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorFirebrick;
 
-  /// The name of the color, Dark Goldenrod.
+  /// No description provided for @colorDarkGoldenrod.
   ///
   /// In en, this message translates to:
   /// **'Dark yellow'**
   String get colorDarkGoldenrod;
 
-  /// The name of the color, Medium Orchid.
+  /// No description provided for @colorMediumOrchid.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorMediumOrchid;
 
-  /// The name of the color, Rosy Brown.
+  /// No description provided for @colorRosyBrown.
   ///
   /// In en, this message translates to:
   /// **'Coral'**
   String get colorRosyBrown;
 
-  /// The name of the color, Dark Khaki.
+  /// No description provided for @colorDarkKhaki.
   ///
   /// In en, this message translates to:
   /// **'Tan'**
   String get colorDarkKhaki;
 
-  /// The name of the color, Silver.
+  /// No description provided for @colorSilver.
   ///
   /// In en, this message translates to:
   /// **'Light gray'**
   String get colorSilver;
 
-  /// The name of the color, Medium Violet Red.
+  /// No description provided for @colorMediumVioletRed.
   ///
   /// In en, this message translates to:
   /// **'Pink'**
   String get colorMediumVioletRed;
 
-  /// The name of the color, Indian Red.
+  /// No description provided for @colorIndianRed.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorIndianRed;
 
-  /// The name of the color, Peru.
+  /// No description provided for @colorPeru.
   ///
   /// In en, this message translates to:
   /// **'Tan'**
   String get colorPeru;
 
-  /// The name of the color, Chocolate.
+  /// No description provided for @colorChocolate.
   ///
   /// In en, this message translates to:
   /// **'Orange'**
   String get colorChocolate;
 
-  /// The name of the color, Tan.
+  /// No description provided for @colorTan.
   ///
   /// In en, this message translates to:
   /// **'Tan'**
   String get colorTan;
 
-  /// The name of the color, Light Gray.
+  /// No description provided for @colorLightGray.
   ///
   /// In en, this message translates to:
   /// **'Light gray'**
   String get colorLightGray;
 
-  /// The name of the color, Thistle.
+  /// No description provided for @colorThistle.
   ///
   /// In en, this message translates to:
   /// **'Lavender'**
   String get colorThistle;
 
-  /// The name of the color, Orchid.
+  /// No description provided for @colorOrchid.
   ///
   /// In en, this message translates to:
   /// **'Lavender'**
   String get colorOrchid;
 
-  /// The name of the color, Goldenrod.
+  /// No description provided for @colorGoldenrod.
   ///
   /// In en, this message translates to:
   /// **'Gold'**
   String get colorGoldenrod;
 
-  /// The name of the color, Pale Violet Red.
+  /// No description provided for @colorPaleVioletRed.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorPaleVioletRed;
 
-  /// The name of the color, Crimson.
+  /// No description provided for @colorCrimson.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorCrimson;
 
-  /// The name of the color, Gainsboro.
+  /// No description provided for @colorGainsboro.
   ///
   /// In en, this message translates to:
   /// **'Light gray'**
   String get colorGainsboro;
 
-  /// The name of the color, Plum.
+  /// No description provided for @colorPlum.
   ///
   /// In en, this message translates to:
   /// **'Pink'**
   String get colorPlum;
 
-  /// The name of the color, Burly Wood.
+  /// No description provided for @colorBurlyWood.
   ///
   /// In en, this message translates to:
   /// **'Tan'**
   String get colorBurlyWood;
 
-  /// The name of the color, Light Cyan.
+  /// No description provided for @colorLightCyan.
   ///
   /// In en, this message translates to:
   /// **'Sky blue'**
   String get colorLightCyan;
 
-  /// The name of the color, Lavender.
+  /// No description provided for @colorLavender.
   ///
   /// In en, this message translates to:
   /// **'Light blue'**
   String get colorLavender;
 
-  /// The name of the color, Dark Salmon.
+  /// No description provided for @colorDarkSalmon.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorDarkSalmon;
 
-  /// The name of the color, Violet.
+  /// No description provided for @colorViolet.
   ///
   /// In en, this message translates to:
   /// **'Lavender'**
   String get colorViolet;
 
-  /// The name of the color, Pale Goldenrod.
+  /// No description provided for @colorPaleGoldenrod.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorPaleGoldenrod;
 
-  /// The name of the color, Light Coral.
+  /// No description provided for @colorLightCoral.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorLightCoral;
 
-  /// The name of the color, Khaki.
+  /// No description provided for @colorKhaki.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorKhaki;
 
-  /// The name of the color, Alice Blue.
+  /// No description provided for @colorAliceBlue.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorAliceBlue;
 
-  /// The name of the color, Honeydew.
+  /// No description provided for @colorHoneydew.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorHoneydew;
 
-  /// The name of the color, Azure.
+  /// No description provided for @colorAzure.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorAzure;
 
-  /// The name of the color, Sandy Brown.
+  /// No description provided for @colorSandyBrown.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorSandyBrown;
 
-  /// The name of the color, Wheat.
+  /// No description provided for @colorWheat.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorWheat;
 
-  /// The name of the color, Beige.
+  /// No description provided for @colorBeige.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorBeige;
 
-  /// The name of the color, White Smoke.
+  /// No description provided for @colorWhiteSmoke.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorWhiteSmoke;
 
-  /// The name of the color, Mint Cream.
+  /// No description provided for @colorMintCream.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorMintCream;
 
-  /// The name of the color, Ghost White.
+  /// No description provided for @colorGhostWhite.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorGhostWhite;
 
-  /// The name of the color, Salmon.
+  /// No description provided for @colorSalmon.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorSalmon;
 
-  /// The name of the color, Antique White.
+  /// No description provided for @colorAntiqueWhite.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorAntiqueWhite;
 
-  /// The name of the color, Linen.
+  /// No description provided for @colorLinen.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorLinen;
 
-  /// The name of the color, Light Goldenrod Yellow.
+  /// No description provided for @colorLightGoldenrodYellow.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorLightGoldenrodYellow;
 
-  /// The name of the color, Old Lace.
+  /// No description provided for @colorOldLace.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorOldLace;
 
-  /// The name of the color, Red.
+  /// No description provided for @colorRed.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorRed;
 
-  /// The name of the color, Magenta.
+  /// No description provided for @colorMagenta.
   ///
   /// In en, this message translates to:
   /// **'Purple'**
   String get colorMagenta;
 
-  /// The name of the color, Deep Pink.
+  /// No description provided for @colorDeepPink.
   ///
   /// In en, this message translates to:
   /// **'Pink'**
   String get colorDeepPink;
 
-  /// The name of the color, Orange Red.
+  /// No description provided for @colorOrangeRed.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorOrangeRed;
 
-  /// The name of the color, Tomato.
+  /// No description provided for @colorTomato.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorTomato;
 
-  /// The name of the color, Hot Pink.
+  /// No description provided for @colorHotPink.
   ///
   /// In en, this message translates to:
   /// **'Pink'**
   String get colorHotPink;
 
-  /// The name of the color, Coral.
+  /// No description provided for @colorCoral.
   ///
   /// In en, this message translates to:
   /// **'Red'**
   String get colorCoral;
 
-  /// The name of the color, Dark Orange.
+  /// No description provided for @colorDarkOrange.
   ///
   /// In en, this message translates to:
   /// **'Orange'**
   String get colorDarkOrange;
 
-  /// The name of the color, Light Salmon.
+  /// No description provided for @colorLightSalmon.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorLightSalmon;
 
-  /// The name of the color, Orange.
+  /// No description provided for @colorOrange.
   ///
   /// In en, this message translates to:
   /// **'Gold'**
   String get colorOrange;
 
-  /// The name of the color, Light Pink.
+  /// No description provided for @colorLightPink.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorLightPink;
 
-  /// The name of the color, Pink.
+  /// No description provided for @colorPink.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorPink;
 
-  /// The name of the color, Gold.
+  /// No description provided for @colorGold.
   ///
   /// In en, this message translates to:
   /// **'Gold'**
   String get colorGold;
 
-  /// The name of the color, Peach Puff.
+  /// No description provided for @colorPeachPuff.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorPeachPuff;
 
-  /// The name of the color, Navajo White.
+  /// No description provided for @colorNavajoWhite.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorNavajoWhite;
 
-  /// The name of the color, Moccasin.
+  /// No description provided for @colorMoccasin.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorMoccasin;
 
-  /// The name of the color, Bisque.
+  /// No description provided for @colorBisque.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorBisque;
 
-  /// The name of the color, Misty Rose.
+  /// No description provided for @colorMistyRose.
   ///
   /// In en, this message translates to:
   /// **'Rose'**
   String get colorMistyRose;
 
-  /// The name of the color, Blanched Almond.
+  /// No description provided for @colorBlanchedAlmond.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorBlanchedAlmond;
 
-  /// The name of the color, Papaya Whip.
+  /// No description provided for @colorPapayaWhip.
   ///
   /// In en, this message translates to:
   /// **'Light orange'**
   String get colorPapayaWhip;
 
-  /// The name of the color, Lavender Blush.
+  /// No description provided for @colorLavenderBlush.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorLavenderBlush;
 
-  /// The name of the color, Sea Shell.
+  /// No description provided for @colorSeaShell.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorSeaShell;
 
-  /// The name of the color, Cornsilk.
+  /// No description provided for @colorCornsilk.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorCornsilk;
 
-  /// The name of the color, Lemon Chiffon.
+  /// No description provided for @colorLemonChiffon.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorLemonChiffon;
 
-  /// The name of the color, Floral White.
+  /// No description provided for @colorFloralWhite.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorFloralWhite;
 
-  /// The name of the color, Snow.
+  /// No description provided for @colorSnow.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorSnow;
 
-  /// The name of the color, Yellow.
+  /// No description provided for @colorYellow.
   ///
   /// In en, this message translates to:
   /// **'Yellow'**
   String get colorYellow;
 
-  /// The name of the color, Light Yellow.
+  /// No description provided for @colorLightYellow.
   ///
   /// In en, this message translates to:
   /// **'Light yellow'**
   String get colorLightYellow;
 
-  /// The name of the color, Ivory.
+  /// No description provided for @colorIvory.
   ///
   /// In en, this message translates to:
   /// **'White'**
   String get colorIvory;
 
-  /// The name of the color, White.
+  /// No description provided for @colorWhite.
   ///
   /// In en, this message translates to:
   /// **'White'**
@@ -1299,37 +1395,78 @@ class _FluentLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) => <String>[
+    'af',
+    'am',
     'ar',
+    'as',
+    'az',
     'be',
+    'bg',
     'bn',
+    'bo',
+    'bs',
     'ca',
     'cs',
+    'cy',
+    'da',
     'de',
     'el',
     'en',
     'es',
+    'et',
+    'eu',
     'fa',
+    'fi',
+    'fil',
     'fr',
+    'ga',
+    'gl',
+    'gsw',
+    'gu',
     'he',
     'hi',
     'hr',
     'hu',
+    'hy',
     'id',
+    'is',
     'it',
     'ja',
+    'ka',
+    'kk',
+    'km',
+    'kn',
     'ko',
-    'ku',
+    'ky',
+    'lo',
+    'lt',
+    'lv',
+    'mk',
+    'ml',
+    'mn',
+    'mr',
     'ms',
     'my',
+    'nb',
     'ne',
     'nl',
+    'no',
+    'or',
+    'pa',
     'pl',
+    'ps',
     'pt',
     'ro',
     'ru',
+    'si',
     'sk',
+    'sl',
+    'sq',
+    'sr',
     'sv',
+    'sw',
     'ta',
+    'te',
     'th',
     'tl',
     'tr',
@@ -1339,6 +1476,7 @@ class _FluentLocalizationsDelegate
     'uz',
     'vi',
     'zh',
+    'zu',
   ].contains(locale.languageCode);
 
   @override
@@ -1348,6 +1486,14 @@ class _FluentLocalizationsDelegate
 FluentLocalizations lookupFluentLocalizations(Locale locale) {
   // Lookup logic when language+script codes are specified.
   switch (locale.languageCode) {
+    case 'sr':
+      {
+        switch (locale.scriptCode) {
+          case 'Latn':
+            return FluentLocalizationsSrLatn();
+        }
+        break;
+      }
     case 'zh':
       {
         switch (locale.scriptCode) {
@@ -1358,18 +1504,80 @@ FluentLocalizations lookupFluentLocalizations(Locale locale) {
       }
   }
 
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'de':
+      {
+        switch (locale.countryCode) {
+          case 'CH':
+            return FluentLocalizationsDeCh();
+        }
+        break;
+      }
+    case 'en':
+      {
+        switch (locale.countryCode) {
+          case 'AU':
+            return FluentLocalizationsEnAu();
+          case 'CA':
+            return FluentLocalizationsEnCa();
+          case 'GB':
+            return FluentLocalizationsEnGb();
+          case 'IE':
+            return FluentLocalizationsEnIe();
+          case 'IN':
+            return FluentLocalizationsEnIn();
+          case 'NZ':
+            return FluentLocalizationsEnNz();
+          case 'SG':
+            return FluentLocalizationsEnSg();
+          case 'ZA':
+            return FluentLocalizationsEnZa();
+        }
+        break;
+      }
+    case 'pt':
+      {
+        switch (locale.countryCode) {
+          case 'BR':
+            return FluentLocalizationsPtBr();
+          case 'PT':
+            return FluentLocalizationsPtPt();
+        }
+        break;
+      }
+  }
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'af':
+      return FluentLocalizationsAf();
+    case 'am':
+      return FluentLocalizationsAm();
     case 'ar':
       return FluentLocalizationsAr();
+    case 'as':
+      return FluentLocalizationsAs();
+    case 'az':
+      return FluentLocalizationsAz();
     case 'be':
       return FluentLocalizationsBe();
+    case 'bg':
+      return FluentLocalizationsBg();
     case 'bn':
       return FluentLocalizationsBn();
+    case 'bo':
+      return FluentLocalizationsBo();
+    case 'bs':
+      return FluentLocalizationsBs();
     case 'ca':
       return FluentLocalizationsCa();
     case 'cs':
       return FluentLocalizationsCs();
+    case 'cy':
+      return FluentLocalizationsCy();
+    case 'da':
+      return FluentLocalizationsDa();
     case 'de':
       return FluentLocalizationsDe();
     case 'el':
@@ -1378,10 +1586,26 @@ FluentLocalizations lookupFluentLocalizations(Locale locale) {
       return FluentLocalizationsEn();
     case 'es':
       return FluentLocalizationsEs();
+    case 'et':
+      return FluentLocalizationsEt();
+    case 'eu':
+      return FluentLocalizationsEu();
     case 'fa':
       return FluentLocalizationsFa();
+    case 'fi':
+      return FluentLocalizationsFi();
+    case 'fil':
+      return FluentLocalizationsFil();
     case 'fr':
       return FluentLocalizationsFr();
+    case 'ga':
+      return FluentLocalizationsGa();
+    case 'gl':
+      return FluentLocalizationsGl();
+    case 'gsw':
+      return FluentLocalizationsGsw();
+    case 'gu':
+      return FluentLocalizationsGu();
     case 'he':
       return FluentLocalizationsHe();
     case 'hi':
@@ -1390,38 +1614,86 @@ FluentLocalizations lookupFluentLocalizations(Locale locale) {
       return FluentLocalizationsHr();
     case 'hu':
       return FluentLocalizationsHu();
+    case 'hy':
+      return FluentLocalizationsHy();
     case 'id':
       return FluentLocalizationsId();
+    case 'is':
+      return FluentLocalizationsIs();
     case 'it':
       return FluentLocalizationsIt();
     case 'ja':
       return FluentLocalizationsJa();
+    case 'ka':
+      return FluentLocalizationsKa();
+    case 'kk':
+      return FluentLocalizationsKk();
+    case 'km':
+      return FluentLocalizationsKm();
+    case 'kn':
+      return FluentLocalizationsKn();
     case 'ko':
       return FluentLocalizationsKo();
-    case 'ku':
-      return FluentLocalizationsKu();
+    case 'ky':
+      return FluentLocalizationsKy();
+    case 'lo':
+      return FluentLocalizationsLo();
+    case 'lt':
+      return FluentLocalizationsLt();
+    case 'lv':
+      return FluentLocalizationsLv();
+    case 'mk':
+      return FluentLocalizationsMk();
+    case 'ml':
+      return FluentLocalizationsMl();
+    case 'mn':
+      return FluentLocalizationsMn();
+    case 'mr':
+      return FluentLocalizationsMr();
     case 'ms':
       return FluentLocalizationsMs();
     case 'my':
       return FluentLocalizationsMy();
+    case 'nb':
+      return FluentLocalizationsNb();
     case 'ne':
       return FluentLocalizationsNe();
     case 'nl':
       return FluentLocalizationsNl();
+    case 'no':
+      return FluentLocalizationsNo();
+    case 'or':
+      return FluentLocalizationsOr();
+    case 'pa':
+      return FluentLocalizationsPa();
     case 'pl':
       return FluentLocalizationsPl();
+    case 'ps':
+      return FluentLocalizationsPs();
     case 'pt':
       return FluentLocalizationsPt();
     case 'ro':
       return FluentLocalizationsRo();
     case 'ru':
       return FluentLocalizationsRu();
+    case 'si':
+      return FluentLocalizationsSi();
     case 'sk':
       return FluentLocalizationsSk();
+    case 'sl':
+      return FluentLocalizationsSl();
+    case 'sq':
+      return FluentLocalizationsSq();
+    case 'sr':
+      return FluentLocalizationsSr();
     case 'sv':
       return FluentLocalizationsSv();
+    case 'sw':
+      return FluentLocalizationsSw();
     case 'ta':
       return FluentLocalizationsTa();
+    case 'te':
+      return FluentLocalizationsTe();
     case 'th':
       return FluentLocalizationsTh();
     case 'tl':
@@ -1440,6 +1712,8 @@ FluentLocalizations lookupFluentLocalizations(Locale locale) {
       return FluentLocalizationsVi();
     case 'zh':
       return FluentLocalizationsZh();
+    case 'zu':
+      return FluentLocalizationsZu();
   }
 
   throw FlutterError(

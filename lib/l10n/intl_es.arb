@@ -33,6 +33,7 @@
   "month": "mes",
   "day": "día",
   "year": "año",
+  "pickADate": "Elige una fecha",
   "seeMore": "Ver más",
   "seeLess": "Ver menos",
   "redLabel": "Rojo",
@@ -45,7 +46,24 @@
   "moreText": "Más",
   "lessText": "Menos",
   "valueSliderTooltip": "Valor {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opacidad",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Negro",
   "colorNavy": "Azul marino",
   "colorDarkBlue": "Azul marino",

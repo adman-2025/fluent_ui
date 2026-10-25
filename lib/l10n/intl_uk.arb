@@ -15,6 +15,7 @@
   "copyActionLabel": "Копіювати",
   "pasteActionLabel": "Вставити",
   "selectAllActionLabel": "Обрати все",
+  "undoActionLabel": "Скасувати",
   "newTabLabel": "Нова вкладка",
   "closeTabLabelSuffix": "Зачинити вкладку",
   "scrollTabBackwardLabel": "Прокрутити назад",
@@ -24,11 +25,17 @@
   "cutActionTooltip": "Вирізати та помістити у буфер обміну",
   "pasteActionTooltip": "Вставити вміст буферу обміну",
   "selectAllActionTooltip": "Обрати все",
+  "undoActionTooltip": "Скасувати останню дію",
   "hour": "годин",
   "minute": "хвилин",
+  "am": "дп",
+  "pm": "пп",
   "month": "місяць",
   "day": "день",
   "year": "рік",
+  "pickADate": "Виберіть дату",
+  "seeMore": "Показати більше",
+  "seeLess": "Показати менше",
   "redLabel": "Червоний",
   "greenLabel": "Зелений",
   "blueLabel": "Синій",
@@ -39,7 +46,24 @@
   "moreText": "Більше",
   "lessText": "Менше",
   "valueSliderTooltip": "Значення {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Непрозорість",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Чорний",
   "colorNavy": "Темно-синій",
   "colorDarkBlue": "Темно-синій",

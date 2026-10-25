@@ -15,6 +15,7 @@
   "copyActionLabel": "Αντιγραφή",
   "pasteActionLabel": "Επικόλληση",
   "selectAllActionLabel": "Επιλογή όλων",
+  "undoActionLabel": "Αναίρεση",
   "newTabLabel": "Προσθήκη νέας καρτέλας",
   "closeTabLabelSuffix": "Κλείσιμο καρτέλας",
   "scrollTabBackwardLabel": "Κύλιση λίστας προς τα πίσω",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Αποκοπή του επιλεγμένου περιεχομένου στο πρόχειρο",
   "pasteActionTooltip": "Επικόλληση περιεχομένου από το πρόχειρο σε αυτό το σημείο",
   "selectAllActionTooltip": "Επιλογή όλων",
+  "undoActionTooltip": "Αναίρεση της τελευταίας ενέργειας",
   "hour": "ώρα",
   "minute": "λεπτό",
   "am": "ΠΜ",
@@ -31,6 +33,9 @@
   "month": "μήνας",
   "day": "ημέρα",
   "year": "έτος",
+  "pickADate": "Επιλέξτε ημερομηνία",
+  "seeMore": "Εμφάνιση περισσότερων",
+  "seeLess": "Εμφάνιση λιγότερων",
   "redLabel": "Κόκκινο",
   "greenLabel": "Πράσινο",
   "blueLabel": "Μπλε",
@@ -41,7 +46,24 @@
   "moreText": "Περισσότερα",
   "lessText": "Λιγότερα",
   "valueSliderTooltip": "Τιμή {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Αδιαφάνεια",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Μαύρο",
   "colorNavy": "Σκούρο μπλε",
   "colorDarkBlue": "Σκούρο μπλε",

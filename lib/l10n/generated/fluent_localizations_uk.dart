@@ -54,7 +54,7 @@ class FluentLocalizationsUk extends FluentLocalizations {
   String get selectAllActionLabel => 'Обрати все';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Скасувати';
 
   @override
   String get newTabLabel => 'Нова вкладка';
@@ -84,7 +84,7 @@ class FluentLocalizationsUk extends FluentLocalizations {
   String get selectAllActionTooltip => 'Обрати все';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Скасувати останню дію';
 
   @override
   String get hour => 'годин';
@@ -93,10 +93,10 @@ class FluentLocalizationsUk extends FluentLocalizations {
   String get minute => 'хвилин';
 
   @override
-  String get am => 'AM';
+  String get am => 'дп';
 
   @override
-  String get pm => 'PM';
+  String get pm => 'пп';
 
   @override
   String get month => 'місяць';
@@ -108,13 +108,13 @@ class FluentLocalizationsUk extends FluentLocalizations {
   String get year => 'рік';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Виберіть дату';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Показати більше';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Показати менше';
 
   @override
   String get redLabel => 'Червоний';

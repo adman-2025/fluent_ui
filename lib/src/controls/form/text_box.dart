@@ -182,6 +182,7 @@ class TextBox extends StatefulWidget {
     this.groupId = EditableText,
     this.controller,
     this.focusNode,
+    this.showFocusHighlight = true,
     this.undoController,
     this.decoration,
     this.foregroundDecoration,
@@ -302,6 +303,8 @@ class TextBox extends StatefulWidget {
 
   /// {@macro flutter.widgets.Focus.focusNode}
   final FocusNode? focusNode;
+
+  final bool showFocusHighlight;
 
   /// Controls the [BoxDecoration] of the box behind the text input.
   ///
@@ -1556,7 +1559,7 @@ class _TextBoxState extends State<TextBox>
                   ?.resolve(states);
               final foregroundDecoration =
                   WidgetStateProperty.resolveWith((states) {
-                        if (states.isFocused) {
+                        if (widget.showFocusHighlight && states.isFocused) {
                           return BoxDecoration(
                             border: Border(
                               bottom: BorderSide(

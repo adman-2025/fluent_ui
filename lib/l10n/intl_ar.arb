@@ -15,6 +15,7 @@
   "copyActionLabel": "نسخ",
   "pasteActionLabel": "لصق",
   "selectAllActionLabel": "تحديد الكل",
+  "undoActionLabel": "تراجع",
   "newTabLabel": "إضافة علامة تبويب جديدة",
   "closeTabLabelSuffix": "إغلاق علامة التبويب",
   "scrollTabBackwardLabel": "تمرير قائمة علامة التبويب للخلف",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "قم بإزالة المحتوى المحدد وضعه في الحافظة",
   "pasteActionTooltip": "إدراج محتويات الحافظة إلى الموقع الحالي",
   "selectAllActionTooltip": "تحديد المحتوى بالكامل",
+  "undoActionTooltip": "التراجع عن الإجراء الأخير",
   "hour": "ساعة",
   "minute": "دقيقة",
   "am": "ص",
@@ -31,6 +33,9 @@
   "month": "شهر",
   "day": "يوم",
   "year": "سنة",
+  "pickADate": "اختيار تاريخ",
+  "seeMore": "عرض المزيد",
+  "seeLess": "عرض أقل",
   "redLabel": "أحمر",
   "greenLabel": "أخضر",
   "blueLabel": "أزرق",
@@ -41,7 +46,24 @@
   "moreText": "المزيد",
   "lessText": "أقل",
   "valueSliderTooltip": "({colorName}) {value} القيمة",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "%{value} معدل العتامة",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "أسود",
   "colorNavy": "أزرق داكن",
   "colorDarkBlue": "أزرق داكن",

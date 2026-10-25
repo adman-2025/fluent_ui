@@ -54,7 +54,7 @@ class FluentLocalizationsPl extends FluentLocalizations {
   String get selectAllActionLabel => 'Zaznacz wszystko';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Cofnij';
 
   @override
   String get newTabLabel => 'Nowa zakładka';
@@ -84,13 +84,13 @@ class FluentLocalizationsPl extends FluentLocalizations {
   String get selectAllActionTooltip => 'Zaznacz wszystko';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Cofnij ostatnią akcję';
 
   @override
-  String get hour => 'hour';
+  String get hour => 'godzina';
 
   @override
-  String get minute => 'minute';
+  String get minute => 'minuta';
 
   @override
   String get am => 'AM';
@@ -99,22 +99,22 @@ class FluentLocalizationsPl extends FluentLocalizations {
   String get pm => 'PM';
 
   @override
-  String get month => 'month';
+  String get month => 'miesiąc';
 
   @override
-  String get day => 'day';
+  String get day => 'dzień';
 
   @override
-  String get year => 'year';
+  String get year => 'rok';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Wybierz datę';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Pokaż więcej';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Pokaż mniej';
 
   @override
   String get redLabel => 'Czerwony';

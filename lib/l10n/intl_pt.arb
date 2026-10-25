@@ -46,7 +46,24 @@
   "moreText": "Mais",
   "lessText": "Menos",
   "valueSliderTooltip": "Valor {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opacidade",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Preto",
   "colorNavy": "Azul escuro",
   "colorDarkBlue": "Azul escuro",

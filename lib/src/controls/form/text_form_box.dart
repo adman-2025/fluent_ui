@@ -69,6 +69,7 @@ class TextFormBox extends ControllableFormBox {
     super.controller,
     String? initialValue,
     FocusNode? focusNode,
+    bool showFocusHighlight = true,
     TextInputType? keyboardType,
     TextCapitalization textCapitalization = TextCapitalization.none,
     TextInputAction? textInputAction,
@@ -176,6 +177,7 @@ class TextFormBox extends ControllableFormBox {
                child: TextBox(
                  controller: state._effectiveController,
                  focusNode: focusNode,
+                 showFocusHighlight: showFocusHighlight,
                  keyboardType: keyboardType,
                  textInputAction: textInputAction,
                  style: style,

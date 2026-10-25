@@ -54,7 +54,7 @@ class FluentLocalizationsHr extends FluentLocalizations {
   String get selectAllActionLabel => 'Odaberi sve';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Poništi';
 
   @override
   String get newTabLabel => 'Dodaj novi tab';
@@ -86,7 +86,7 @@ class FluentLocalizationsHr extends FluentLocalizations {
   String get selectAllActionTooltip => 'Odaberi sav sadržaj';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Poništi posljednju radnju';
 
   @override
   String get hour => 'sat';
@@ -110,13 +110,13 @@ class FluentLocalizationsHr extends FluentLocalizations {
   String get year => 'godina';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Odaberite datum';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Prikaži više';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Prikaži manje';
 
   @override
   String get redLabel => 'Crvena';

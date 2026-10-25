@@ -54,7 +54,7 @@ class FluentLocalizationsKo extends FluentLocalizations {
   String get selectAllActionLabel => '전체선택';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => '실행 취소';
 
   @override
   String get newTabLabel => '새탭';
@@ -84,7 +84,7 @@ class FluentLocalizationsKo extends FluentLocalizations {
   String get selectAllActionTooltip => '전체선택';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => '마지막 작업 실행 취소';
 
   @override
   String get hour => '시';
@@ -108,13 +108,13 @@ class FluentLocalizationsKo extends FluentLocalizations {
   String get year => '년';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => '날짜 선택';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => '더 보기';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => '간단히 보기';
 
   @override
   String get redLabel => '빨강';

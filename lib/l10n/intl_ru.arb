@@ -10,23 +10,12 @@
   "minimizeWindowTooltip": "Свернуть",
   "restoreWindowTooltip": "Восстановить",
   "closeWindowTooltip": "Закрыть",
-  "hour": "Час",
-  "minute": "Минута",
-  "am": "AM",
-  "pm": "PM",
-  "month": "Месяц",
-  "day": "День",
-  "year": "Год",
-  "pickADate": "Выбрать дату",  
-  "undoActionLabel": "Отменить",
-  "undoActionTooltip": "Отменить последнее действие",
-  "seeMore": "Показать больше",
-  "seeLess": "Показать меньше",
   "dialogLabel": "Диалог",
   "cutActionLabel": "Вырезать",
   "copyActionLabel": "Копировать",
   "pasteActionLabel": "Вставить",
   "selectAllActionLabel": "Выбрать все",
+  "undoActionLabel": "Отменить",
   "newTabLabel": "Новая вкладка",
   "closeTabLabelSuffix": "Закрыть вкладку",
   "scrollTabBackwardLabel": "Прокрутить назад",
@@ -36,6 +25,17 @@
   "cutActionTooltip": "Вырезать и поместить в буфер обмена",
   "pasteActionTooltip": "Вставить содержимое буфера обмена",
   "selectAllActionTooltip": "Выбрать все",
+  "undoActionTooltip": "Отменить последнее действие",
+  "hour": "Час",
+  "minute": "Минута",
+  "am": "AM",
+  "pm": "PM",
+  "month": "Месяц",
+  "day": "День",
+  "year": "Год",
+  "pickADate": "Выбрать дату",
+  "seeMore": "Показать больше",
+  "seeLess": "Показать меньше",
   "redLabel": "Красный",
   "greenLabel": "Зеленый",
   "blueLabel": "Синий",
@@ -46,7 +46,24 @@
   "moreText": "Больше",
   "lessText": "Меньше",
   "valueSliderTooltip": "Значение {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Непрозрачность",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Черный",
   "colorNavy": "Темно-синий",
   "colorDarkBlue": "Темно-синий",

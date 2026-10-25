@@ -15,6 +15,7 @@
   "copyActionLabel": "Sao chép",
   "pasteActionLabel": "Dán",
   "selectAllActionLabel": "Chọn tất cả",
+  "undoActionLabel": "Hoàn tác",
   "newTabLabel": "Thêm tab mới",
   "closeTabLabelSuffix": "Đóng",
   "scrollTabBackwardLabel": "Cuộn tab lùi",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Cắt nội dung đã chọn vào bảng nhớ tạm",
   "pasteActionTooltip": "Dán nội dung bảng nhớ tạm vào vị trí hiện tại",
   "selectAllActionTooltip": "Chọn tất cả",
+  "undoActionTooltip": "Hoàn tác thao tác cuối cùng",
   "hour": "giờ",
   "minute": "phút",
   "am": "SA",
@@ -31,6 +33,9 @@
   "month": "tháng",
   "day": "ngày",
   "year": "năm",
+  "pickADate": "Chọn ngày",
+  "seeMore": "Xem thêm",
+  "seeLess": "Thu gọn",
   "redLabel": "Đỏ",
   "greenLabel": "Xanh lá",
   "blueLabel": "Xanh dương",
@@ -41,7 +46,24 @@
   "moreText": "Thêm",
   "lessText": "Ít hơn",
   "valueSliderTooltip": "Giá trị {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Độ mờ đục",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Đen",
   "colorNavy": "Xanh dương đậm",
   "colorDarkBlue": "Xanh dương đậm",

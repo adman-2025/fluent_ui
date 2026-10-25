@@ -54,7 +54,7 @@ class FluentLocalizationsHu extends FluentLocalizations {
   String get selectAllActionLabel => 'Mind kijelölése';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Visszavonás';
 
   @override
   String get newTabLabel => 'Lap hozzáadása';
@@ -85,7 +85,7 @@ class FluentLocalizationsHu extends FluentLocalizations {
   String get selectAllActionTooltip => 'Teljes tartalom kijelölése';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Utolsó művelet visszavonása';
 
   @override
   String get hour => 'óra';
@@ -109,13 +109,13 @@ class FluentLocalizationsHu extends FluentLocalizations {
   String get year => 'év';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Válassz dátumot';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Továbbiak megjelenítése';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Kevesebb megjelenítése';
 
   @override
   String get redLabel => 'Vörös';

@@ -15,6 +15,7 @@
   "copyActionLabel": "Copiar",
   "pasteActionLabel": "Enganxar",
   "selectAllActionLabel": "Selecciona-ho tot",
+  "undoActionLabel": "Desfés",
   "newTabLabel": "Afegeix nova pestanya",
   "closeTabLabelSuffix": "Tancar pestanya",
   "scrollTabBackwardLabel": "Fer scroll cap enrere",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Tallar el contingut seleccionat i posar-lo al porta-retalls",
   "pasteActionTooltip": "Inserir el contingut del porta-retalls a la posició actual",
   "selectAllActionTooltip": "Seleccionar tot el contingut",
+  "undoActionTooltip": "Desfés l'última acció",
   "hour": "hora",
   "minute": "minut",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "mes",
   "day": "dia",
   "year": "any",
+  "pickADate": "Tria una data",
+  "seeMore": "Mostra'n més",
+  "seeLess": "Mostra'n menys",
   "redLabel": "Vermell",
   "greenLabel": "Verd",
   "blueLabel": "Blau",
@@ -41,7 +46,24 @@
   "moreText": "Més",
   "lessText": "Menys",
   "valueSliderTooltip": "Valor {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opacitat",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Negre",
   "colorNavy": "Blau fosc",
   "colorDarkBlue": "Blau fosc",

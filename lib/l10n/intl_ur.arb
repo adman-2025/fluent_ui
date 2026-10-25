@@ -15,6 +15,7 @@
   "copyActionLabel": "کاپی کریں",
   "pasteActionLabel": "پیسٹ کریں",
   "selectAllActionLabel": "سب کچھ منتخب کریں",
+  "undoActionLabel": "کالعدم کریں",
   "newTabLabel": "نیا ٹیب کھولیں۔",
   "closeTabLabelSuffix": "بند کریں",
   "scrollTabBackwardLabel": "ٹیب کی فہرست کو پیچھے کی طرف اسکرول کریں۔",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "منتخب کردہ مواد کو ہٹائیں اور اسے کلپ بورڈ میں رکھیں",
   "pasteActionTooltip": "کلپ بورڈ کے مواد کو موجودہ مقام پر داخل کریں۔",
   "selectAllActionTooltip": "تمام مواد کو منتخب کریں۔",
+  "undoActionTooltip": "آخری عمل کو کالعدم کریں",
   "hour": "گھنٹہ",
   "minute": "منٹ",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "مہینہ",
   "day": "دِن",
   "year": "سال",
+  "pickADate": "تاریخ منتخب کریں",
+  "seeMore": "مزید دیکھیں",
+  "seeLess": "کم دیکھیں",
   "redLabel": "سرخ",
   "greenLabel": "سبز",
   "blueLabel": "نیلا",
@@ -41,7 +46,24 @@
   "moreText": "مزید",
   "lessText": "کم",
   "valueSliderTooltip": "({colorName}) {value} قدر",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "%{value} دھندلاپن",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "سیاہ",
   "colorNavy": "گہرا نیلا",
   "colorDarkBlue": "گہرا نیلا",

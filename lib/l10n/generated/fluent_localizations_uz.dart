@@ -54,7 +54,7 @@ class FluentLocalizationsUz extends FluentLocalizations {
   String get selectAllActionLabel => 'Barchasini belgilash';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Bekor qilish';
 
   @override
   String get newTabLabel => 'Yangi oyna ochish';
@@ -85,7 +85,7 @@ class FluentLocalizationsUz extends FluentLocalizations {
   String get selectAllActionTooltip => 'Barchasini belgilash';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Oxirgi amalni bekor qilish';
 
   @override
   String get hour => 'soat';
@@ -109,13 +109,13 @@ class FluentLocalizationsUz extends FluentLocalizations {
   String get year => 'yil';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Sanani tanlang';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Ko‘proq ko‘rish';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Kamroq ko‘rish';
 
   @override
   String get redLabel => 'Qizil';
@@ -155,416 +155,416 @@ class FluentLocalizationsUz extends FluentLocalizations {
   }
 
   @override
-  String get colorBlack => 'Black';
+  String get colorBlack => 'Qora';
 
   @override
-  String get colorNavy => 'Dark blue';
+  String get colorNavy => 'To‘q ko‘k';
 
   @override
-  String get colorDarkBlue => 'Dark blue';
+  String get colorDarkBlue => 'To‘q ko‘k';
 
   @override
-  String get colorMediumBlue => 'Blue';
+  String get colorMediumBlue => 'Ko‘k';
 
   @override
-  String get colorBlue => 'Blue';
+  String get colorBlue => 'Ko‘k';
 
   @override
-  String get colorDarkGreen => 'Dark green';
+  String get colorDarkGreen => 'To‘q yashil';
 
   @override
-  String get colorGreen => 'Dark green';
+  String get colorGreen => 'To‘q yashil';
 
   @override
-  String get colorTeal => 'Dark teal';
+  String get colorTeal => 'To‘q zangori-yashil';
 
   @override
-  String get colorDarkCyan => 'Dark teal';
+  String get colorDarkCyan => 'To‘q zangori-yashil';
 
   @override
-  String get colorDeepSkyBlue => 'Turquoise';
+  String get colorDeepSkyBlue => 'Firuza';
 
   @override
   String get colorDarkTurquoise => 'Aqua';
 
   @override
-  String get colorMediumSpringGreen => 'Green';
+  String get colorMediumSpringGreen => 'Yashil';
 
   @override
-  String get colorLime => 'Green';
+  String get colorLime => 'Yashil';
 
   @override
-  String get colorSpringGreen => 'Green';
+  String get colorSpringGreen => 'Yashil';
 
   @override
   String get colorCyan => 'Aqua';
 
   @override
-  String get colorMidnightBlue => 'Dark blue';
+  String get colorMidnightBlue => 'To‘q ko‘k';
 
   @override
-  String get colorDodgerBlue => 'Blue';
+  String get colorDodgerBlue => 'Ko‘k';
 
   @override
-  String get colorLightSeaGreen => 'Teal';
+  String get colorLightSeaGreen => 'Zangori-yashil';
 
   @override
-  String get colorForestGreen => 'Dark green';
+  String get colorForestGreen => 'To‘q yashil';
 
   @override
-  String get colorSeaGreen => 'Dark green';
+  String get colorSeaGreen => 'To‘q yashil';
 
   @override
-  String get colorDarkSlateGray => 'Dark teal';
+  String get colorDarkSlateGray => 'To‘q zangori-yashil';
 
   @override
-  String get colorLimeGreen => 'Green';
+  String get colorLimeGreen => 'Yashil';
 
   @override
-  String get colorMediumSeaGreen => 'Green';
+  String get colorMediumSeaGreen => 'Yashil';
 
   @override
-  String get colorTurquoise => 'Teal';
+  String get colorTurquoise => 'Zangori-yashil';
 
   @override
-  String get colorRoyalBlue => 'Blue';
+  String get colorRoyalBlue => 'Ko‘k';
 
   @override
-  String get colorSteelBlue => 'Blue-gray';
+  String get colorSteelBlue => 'Ko‘k-kulrang';
 
   @override
-  String get colorDarkSlateBlue => 'Purple';
+  String get colorDarkSlateBlue => 'Binafsha';
 
   @override
-  String get colorMediumTurquoise => 'Teal';
+  String get colorMediumTurquoise => 'Zangori-yashil';
 
   @override
-  String get colorIndigo => 'Dark purple';
+  String get colorIndigo => 'To‘q binafsha';
 
   @override
-  String get colorDarkOliveGreen => 'Dark green';
+  String get colorDarkOliveGreen => 'To‘q yashil';
 
   @override
-  String get colorCadetBlue => 'Teal';
+  String get colorCadetBlue => 'Zangori-yashil';
 
   @override
-  String get colorCornflowerBlue => 'Blue';
+  String get colorCornflowerBlue => 'Ko‘k';
 
   @override
-  String get colorMediumAquamarine => 'Green';
+  String get colorMediumAquamarine => 'Yashil';
 
   @override
-  String get colorDimGray => 'Gray';
+  String get colorDimGray => 'Kulrang';
 
   @override
   String get colorSlateBlue => 'Indigo';
 
   @override
-  String get colorOliveDrab => 'Dark green';
+  String get colorOliveDrab => 'To‘q yashil';
 
   @override
-  String get colorSlateGray => 'Blue-gray';
+  String get colorSlateGray => 'Ko‘k-kulrang';
 
   @override
-  String get colorLightSlateGray => 'Blue-gray';
+  String get colorLightSlateGray => 'Ko‘k-kulrang';
 
   @override
-  String get colorMediumSlateBlue => 'Light blue';
+  String get colorMediumSlateBlue => 'Och ko‘k';
 
   @override
-  String get colorLawnGreen => 'Green';
+  String get colorLawnGreen => 'Yashil';
 
   @override
-  String get colorChartreuse => 'Green';
+  String get colorChartreuse => 'Yashil';
 
   @override
-  String get colorAquamarine => 'Light green';
+  String get colorAquamarine => 'Och yashil';
 
   @override
-  String get colorMaroon => 'Dark red';
+  String get colorMaroon => 'To‘q qizil';
 
   @override
-  String get colorPurple => 'Dark purple';
+  String get colorPurple => 'To‘q binafsha';
 
   @override
-  String get colorOlive => 'Dark yellow';
+  String get colorOlive => 'To‘q sariq';
 
   @override
-  String get colorGray => 'Gray';
+  String get colorGray => 'Kulrang';
 
   @override
-  String get colorSkyBlue => 'Light turquoise';
+  String get colorSkyBlue => 'Och firuza';
 
   @override
-  String get colorLightSkyBlue => 'Light blue';
+  String get colorLightSkyBlue => 'Och ko‘k';
 
   @override
-  String get colorBlueViolet => 'Purple';
+  String get colorBlueViolet => 'Binafsha';
 
   @override
-  String get colorDarkRed => 'Dark red';
+  String get colorDarkRed => 'To‘q qizil';
 
   @override
-  String get colorDarkMagenta => 'Dark purple';
+  String get colorDarkMagenta => 'To‘q binafsha';
 
   @override
-  String get colorSaddleBrown => 'Brown';
+  String get colorSaddleBrown => 'Jigarrang';
 
   @override
-  String get colorDarkSeaGreen => 'Green';
+  String get colorDarkSeaGreen => 'Yashil';
 
   @override
-  String get colorLightGreen => 'Light green';
+  String get colorLightGreen => 'Och yashil';
 
   @override
-  String get colorMediumPurple => 'Lavender';
+  String get colorMediumPurple => 'Lavanda';
 
   @override
-  String get colorDarkViolet => 'Purple';
+  String get colorDarkViolet => 'Binafsha';
 
   @override
-  String get colorPaleGreen => 'Light green';
+  String get colorPaleGreen => 'Och yashil';
 
   @override
-  String get colorDarkOrchid => 'Purple';
+  String get colorDarkOrchid => 'Binafsha';
 
   @override
-  String get colorYellowGreen => 'Green';
+  String get colorYellowGreen => 'Yashil';
 
   @override
-  String get colorSienna => 'Tan';
+  String get colorSienna => 'Och jigarrang';
 
   @override
-  String get colorBrown => 'Red';
+  String get colorBrown => 'Qizil';
 
   @override
-  String get colorDarkGray => 'Gray';
+  String get colorDarkGray => 'Kulrang';
 
   @override
-  String get colorLightBlue => 'Sky blue';
+  String get colorLightBlue => 'Osmon rang';
 
   @override
-  String get colorGreenYellow => 'Green';
+  String get colorGreenYellow => 'Yashil';
 
   @override
   String get colorPaleTurquoise => 'Aqua';
 
   @override
-  String get colorLightSteelBlue => 'Ice blue';
+  String get colorLightSteelBlue => 'Muz rang';
 
   @override
-  String get colorPowderBlue => 'Sky blue';
+  String get colorPowderBlue => 'Osmon rang';
 
   @override
-  String get colorFirebrick => 'Red';
+  String get colorFirebrick => 'Qizil';
 
   @override
-  String get colorDarkGoldenrod => 'Dark yellow';
+  String get colorDarkGoldenrod => 'To‘q sariq';
 
   @override
-  String get colorMediumOrchid => 'Purple';
+  String get colorMediumOrchid => 'Binafsha';
 
   @override
-  String get colorRosyBrown => 'Coral';
+  String get colorRosyBrown => 'Marjon';
 
   @override
-  String get colorDarkKhaki => 'Tan';
+  String get colorDarkKhaki => 'Och jigarrang';
 
   @override
-  String get colorSilver => 'Light gray';
+  String get colorSilver => 'Och kulrang';
 
   @override
-  String get colorMediumVioletRed => 'Pink';
+  String get colorMediumVioletRed => 'Pushti';
 
   @override
-  String get colorIndianRed => 'Red';
+  String get colorIndianRed => 'Qizil';
 
   @override
-  String get colorPeru => 'Tan';
+  String get colorPeru => 'Och jigarrang';
 
   @override
-  String get colorChocolate => 'Orange';
+  String get colorChocolate => 'Zarg‘aldoq';
 
   @override
-  String get colorTan => 'Tan';
+  String get colorTan => 'Och jigarrang';
 
   @override
-  String get colorLightGray => 'Light gray';
+  String get colorLightGray => 'Och kulrang';
 
   @override
-  String get colorThistle => 'Lavender';
+  String get colorThistle => 'Lavanda';
 
   @override
-  String get colorOrchid => 'Lavender';
+  String get colorOrchid => 'Lavanda';
 
   @override
-  String get colorGoldenrod => 'Gold';
+  String get colorGoldenrod => 'Tilla rang';
 
   @override
-  String get colorPaleVioletRed => 'Rose';
+  String get colorPaleVioletRed => 'Atirgul';
 
   @override
-  String get colorCrimson => 'Red';
+  String get colorCrimson => 'Qizil';
 
   @override
-  String get colorGainsboro => 'Light gray';
+  String get colorGainsboro => 'Och kulrang';
 
   @override
-  String get colorPlum => 'Pink';
+  String get colorPlum => 'Pushti';
 
   @override
-  String get colorBurlyWood => 'Tan';
+  String get colorBurlyWood => 'Och jigarrang';
 
   @override
-  String get colorLightCyan => 'Sky blue';
+  String get colorLightCyan => 'Osmon rang';
 
   @override
-  String get colorLavender => 'Light blue';
+  String get colorLavender => 'Och ko‘k';
 
   @override
-  String get colorDarkSalmon => 'Rose';
+  String get colorDarkSalmon => 'Atirgul';
 
   @override
-  String get colorViolet => 'Lavender';
+  String get colorViolet => 'Lavanda';
 
   @override
-  String get colorPaleGoldenrod => 'Light yellow';
+  String get colorPaleGoldenrod => 'Och sariq';
 
   @override
-  String get colorLightCoral => 'Rose';
+  String get colorLightCoral => 'Atirgul';
 
   @override
-  String get colorKhaki => 'Light yellow';
+  String get colorKhaki => 'Och sariq';
 
   @override
-  String get colorAliceBlue => 'White';
+  String get colorAliceBlue => 'Oq';
 
   @override
-  String get colorHoneydew => 'White';
+  String get colorHoneydew => 'Oq';
 
   @override
-  String get colorAzure => 'White';
+  String get colorAzure => 'Oq';
 
   @override
-  String get colorSandyBrown => 'Light orange';
+  String get colorSandyBrown => 'Och zarg‘aldoq';
 
   @override
-  String get colorWheat => 'Light yellow';
+  String get colorWheat => 'Och sariq';
 
   @override
-  String get colorBeige => 'Light yellow';
+  String get colorBeige => 'Och sariq';
 
   @override
-  String get colorWhiteSmoke => 'White';
+  String get colorWhiteSmoke => 'Oq';
 
   @override
-  String get colorMintCream => 'White';
+  String get colorMintCream => 'Oq';
 
   @override
-  String get colorGhostWhite => 'White';
+  String get colorGhostWhite => 'Oq';
 
   @override
-  String get colorSalmon => 'Rose';
+  String get colorSalmon => 'Atirgul';
 
   @override
-  String get colorAntiqueWhite => 'Light orange';
+  String get colorAntiqueWhite => 'Och zarg‘aldoq';
 
   @override
-  String get colorLinen => 'Light orange';
+  String get colorLinen => 'Och zarg‘aldoq';
 
   @override
-  String get colorLightGoldenrodYellow => 'Light yellow';
+  String get colorLightGoldenrodYellow => 'Och sariq';
 
   @override
-  String get colorOldLace => 'White';
+  String get colorOldLace => 'Oq';
 
   @override
-  String get colorRed => 'Red';
+  String get colorRed => 'Qizil';
 
   @override
-  String get colorMagenta => 'Purple';
+  String get colorMagenta => 'Binafsha';
 
   @override
-  String get colorDeepPink => 'Pink';
+  String get colorDeepPink => 'Pushti';
 
   @override
-  String get colorOrangeRed => 'Red';
+  String get colorOrangeRed => 'Qizil';
 
   @override
-  String get colorTomato => 'Red';
+  String get colorTomato => 'Qizil';
 
   @override
-  String get colorHotPink => 'Pink';
+  String get colorHotPink => 'Pushti';
 
   @override
-  String get colorCoral => 'Red';
+  String get colorCoral => 'Qizil';
 
   @override
-  String get colorDarkOrange => 'Orange';
+  String get colorDarkOrange => 'Zarg‘aldoq';
 
   @override
-  String get colorLightSalmon => 'Rose';
+  String get colorLightSalmon => 'Atirgul';
 
   @override
-  String get colorOrange => 'Gold';
+  String get colorOrange => 'Tilla rang';
 
   @override
-  String get colorLightPink => 'Rose';
+  String get colorLightPink => 'Atirgul';
 
   @override
-  String get colorPink => 'Rose';
+  String get colorPink => 'Atirgul';
 
   @override
-  String get colorGold => 'Gold';
+  String get colorGold => 'Tilla rang';
 
   @override
-  String get colorPeachPuff => 'Light orange';
+  String get colorPeachPuff => 'Och zarg‘aldoq';
 
   @override
-  String get colorNavajoWhite => 'Light orange';
+  String get colorNavajoWhite => 'Och zarg‘aldoq';
 
   @override
-  String get colorMoccasin => 'Light orange';
+  String get colorMoccasin => 'Och zarg‘aldoq';
 
   @override
-  String get colorBisque => 'Light orange';
+  String get colorBisque => 'Och zarg‘aldoq';
 
   @override
-  String get colorMistyRose => 'Rose';
+  String get colorMistyRose => 'Atirgul';
 
   @override
-  String get colorBlanchedAlmond => 'Light orange';
+  String get colorBlanchedAlmond => 'Och zarg‘aldoq';
 
   @override
-  String get colorPapayaWhip => 'Light orange';
+  String get colorPapayaWhip => 'Och zarg‘aldoq';
 
   @override
-  String get colorLavenderBlush => 'White';
+  String get colorLavenderBlush => 'Oq';
 
   @override
-  String get colorSeaShell => 'White';
+  String get colorSeaShell => 'Oq';
 
   @override
-  String get colorCornsilk => 'Light yellow';
+  String get colorCornsilk => 'Och sariq';
 
   @override
-  String get colorLemonChiffon => 'Light yellow';
+  String get colorLemonChiffon => 'Och sariq';
 
   @override
-  String get colorFloralWhite => 'White';
+  String get colorFloralWhite => 'Oq';
 
   @override
-  String get colorSnow => 'White';
+  String get colorSnow => 'Oq';
 
   @override
-  String get colorYellow => 'Yellow';
+  String get colorYellow => 'Sariq';
 
   @override
-  String get colorLightYellow => 'Light yellow';
+  String get colorLightYellow => 'Och sariq';
 
   @override
-  String get colorIvory => 'White';
+  String get colorIvory => 'Oq';
 
   @override
-  String get colorWhite => 'White';
+  String get colorWhite => 'Oq';
 }

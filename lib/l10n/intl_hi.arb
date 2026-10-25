@@ -15,6 +15,7 @@
   "copyActionLabel": "कॉपी",
   "pasteActionLabel": "पेस्ट",
   "selectAllActionLabel": "सब-कुछ सेलेक्ट करें",
+  "undoActionLabel": "पूर्ववत करें",
   "newTabLabel": "नया टैब ऐड करें",
   "closeTabLabelSuffix": "टैब बंद करें",
   "scrollTabBackwardLabel": "टैब लिस्ट पीछे स्क्रॉल करें",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "सिलेक्टेड कंटेंट यहाँ से हटा कर क्लिपबोर्ड पर कॉपी करें",
   "pasteActionTooltip": "क्लिपबोर्ड का कंटेंट इस लोकेशन पर पेस्ट करें",
   "selectAllActionTooltip": "सारा कंटेंट सेलेक्ट करें",
+  "undoActionTooltip": "पिछली कार्रवाई को पूर्ववत करें",
   "hour": "घंटा",
   "minute": "मिनट",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "महीना",
   "day": "दिन",
   "year": "साल",
+  "pickADate": "तारीख चुनें",
+  "seeMore": "और देखें",
+  "seeLess": "कम देखें",
   "redLabel": "लाल",
   "greenLabel": "हरा",
   "blueLabel": "नीला",
@@ -41,7 +46,24 @@
   "moreText": "अधिक",
   "lessText": "कम",
   "valueSliderTooltip": "मान {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% अपारदर्शिता",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "काला",
   "colorNavy": "गहरा नीला",
   "colorDarkBlue": "गहरा नीला",

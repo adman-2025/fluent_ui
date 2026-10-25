@@ -54,7 +54,7 @@ class FluentLocalizationsHe extends FluentLocalizations {
   String get selectAllActionLabel => 'בחר הכל';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'בטל';
 
   @override
   String get newTabLabel => 'כרטיסייה חדשה';
@@ -84,7 +84,7 @@ class FluentLocalizationsHe extends FluentLocalizations {
   String get selectAllActionTooltip => 'בחר הכל';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'בטל את הפעולה האחרונה';
 
   @override
   String get hour => 'שעה';
@@ -108,13 +108,13 @@ class FluentLocalizationsHe extends FluentLocalizations {
   String get year => 'שנה';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'בחר תאריך';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'הצג עוד';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'הצג פחות';
 
   @override
   String get redLabel => 'אדום';

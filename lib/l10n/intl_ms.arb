@@ -15,6 +15,7 @@
   "copyActionLabel": "Salin",
   "pasteActionLabel": "Tampal",
   "selectAllActionLabel": "Pilih semua",
+  "undoActionLabel": "Buat asal",
   "newTabLabel": "Tambah tab baru",
   "closeTabLabelSuffix": "Tutup tab",
   "scrollTabBackwardLabel": "Tatal senarai tab ke belakang",
@@ -24,6 +25,17 @@
   "cutActionTooltip": "Alih keluar kandungan yang dipilih dan letakkan dalam papan keratan",
   "pasteActionTooltip": "Masukkan kandungan papan keratan di lokasi semasa",
   "selectAllActionTooltip": "Pilih semua kandungan",
+  "undoActionTooltip": "Buat asal tindakan terakhir",
+  "hour": "jam",
+  "minute": "minit",
+  "am": "PG",
+  "pm": "PTG",
+  "month": "bulan",
+  "day": "hari",
+  "year": "tahun",
+  "pickADate": "Pilih tarikh",
+  "seeMore": "Lihat lagi",
+  "seeLess": "Lihat kurang",
   "redLabel": "Merah",
   "greenLabel": "Hijau",
   "blueLabel": "Biru",
@@ -34,7 +46,24 @@
   "moreText": "Lagi",
   "lessText": "Kurang",
   "valueSliderTooltip": "Nilai {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Kelegapan",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Hitam",
   "colorNavy": "Biru tua",
   "colorDarkBlue": "Biru tua",

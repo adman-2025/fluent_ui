@@ -54,7 +54,7 @@ class FluentLocalizationsBe extends FluentLocalizations {
   String get selectAllActionLabel => 'Вылучыць усе';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Адрабіць';
 
   @override
   String get newTabLabel => 'Новая ўкладка';
@@ -84,7 +84,7 @@ class FluentLocalizationsBe extends FluentLocalizations {
   String get selectAllActionTooltip => 'Абраць усё';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Адрабіць апошняе дзеянне';
 
   @override
   String get hour => 'гадзін';
@@ -108,13 +108,13 @@ class FluentLocalizationsBe extends FluentLocalizations {
   String get year => 'год';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Выберыце дату';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Паказаць больш';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Паказаць менш';
 
   @override
   String get redLabel => 'Чырвоны';
@@ -154,416 +154,416 @@ class FluentLocalizationsBe extends FluentLocalizations {
   }
 
   @override
-  String get colorBlack => 'Black';
+  String get colorBlack => 'Чорны';
 
   @override
-  String get colorNavy => 'Dark blue';
+  String get colorNavy => 'Цёмна-сіні';
 
   @override
-  String get colorDarkBlue => 'Dark blue';
+  String get colorDarkBlue => 'Цёмна-сіні';
 
   @override
-  String get colorMediumBlue => 'Blue';
+  String get colorMediumBlue => 'Сіні';
 
   @override
-  String get colorBlue => 'Blue';
+  String get colorBlue => 'Сіні';
 
   @override
-  String get colorDarkGreen => 'Dark green';
+  String get colorDarkGreen => 'Цёмна-зялёны';
 
   @override
-  String get colorGreen => 'Dark green';
+  String get colorGreen => 'Цёмна-зялёны';
 
   @override
-  String get colorTeal => 'Dark teal';
+  String get colorTeal => 'Цёмны сіне-зялёны';
 
   @override
-  String get colorDarkCyan => 'Dark teal';
+  String get colorDarkCyan => 'Цёмны сіне-зялёны';
 
   @override
-  String get colorDeepSkyBlue => 'Turquoise';
+  String get colorDeepSkyBlue => 'Бірузовы';
 
   @override
-  String get colorDarkTurquoise => 'Aqua';
+  String get colorDarkTurquoise => 'Аква';
 
   @override
-  String get colorMediumSpringGreen => 'Green';
+  String get colorMediumSpringGreen => 'Зялёны';
 
   @override
-  String get colorLime => 'Green';
+  String get colorLime => 'Зялёны';
 
   @override
-  String get colorSpringGreen => 'Green';
+  String get colorSpringGreen => 'Зялёны';
 
   @override
-  String get colorCyan => 'Aqua';
+  String get colorCyan => 'Аква';
 
   @override
-  String get colorMidnightBlue => 'Dark blue';
+  String get colorMidnightBlue => 'Цёмна-сіні';
 
   @override
-  String get colorDodgerBlue => 'Blue';
+  String get colorDodgerBlue => 'Сіні';
 
   @override
-  String get colorLightSeaGreen => 'Teal';
+  String get colorLightSeaGreen => 'Сіне-зялёны';
 
   @override
-  String get colorForestGreen => 'Dark green';
+  String get colorForestGreen => 'Цёмна-зялёны';
 
   @override
-  String get colorSeaGreen => 'Dark green';
+  String get colorSeaGreen => 'Цёмна-зялёны';
 
   @override
-  String get colorDarkSlateGray => 'Dark teal';
+  String get colorDarkSlateGray => 'Цёмны сіне-зялёны';
 
   @override
-  String get colorLimeGreen => 'Green';
+  String get colorLimeGreen => 'Зялёны';
 
   @override
-  String get colorMediumSeaGreen => 'Green';
+  String get colorMediumSeaGreen => 'Зялёны';
 
   @override
-  String get colorTurquoise => 'Teal';
+  String get colorTurquoise => 'Сіне-зялёны';
 
   @override
-  String get colorRoyalBlue => 'Blue';
+  String get colorRoyalBlue => 'Сіні';
 
   @override
-  String get colorSteelBlue => 'Blue-gray';
+  String get colorSteelBlue => 'Шэра-сіні';
 
   @override
-  String get colorDarkSlateBlue => 'Purple';
+  String get colorDarkSlateBlue => 'Фіялетавы';
 
   @override
-  String get colorMediumTurquoise => 'Teal';
+  String get colorMediumTurquoise => 'Сіне-зялёны';
 
   @override
-  String get colorIndigo => 'Dark purple';
+  String get colorIndigo => 'Цёмна-фіялетавы';
 
   @override
-  String get colorDarkOliveGreen => 'Dark green';
+  String get colorDarkOliveGreen => 'Цёмна-зялёны';
 
   @override
-  String get colorCadetBlue => 'Teal';
+  String get colorCadetBlue => 'Сіне-зялёны';
 
   @override
-  String get colorCornflowerBlue => 'Blue';
+  String get colorCornflowerBlue => 'Сіні';
 
   @override
-  String get colorMediumAquamarine => 'Green';
+  String get colorMediumAquamarine => 'Зялёны';
 
   @override
-  String get colorDimGray => 'Gray';
+  String get colorDimGray => 'Шэры';
 
   @override
-  String get colorSlateBlue => 'Indigo';
+  String get colorSlateBlue => 'Індыга';
 
   @override
-  String get colorOliveDrab => 'Dark green';
+  String get colorOliveDrab => 'Цёмна-зялёны';
 
   @override
-  String get colorSlateGray => 'Blue-gray';
+  String get colorSlateGray => 'Шэра-сіні';
 
   @override
-  String get colorLightSlateGray => 'Blue-gray';
+  String get colorLightSlateGray => 'Шэра-сіні';
 
   @override
-  String get colorMediumSlateBlue => 'Light blue';
+  String get colorMediumSlateBlue => 'Светла-сіні';
 
   @override
-  String get colorLawnGreen => 'Green';
+  String get colorLawnGreen => 'Зялёны';
 
   @override
-  String get colorChartreuse => 'Green';
+  String get colorChartreuse => 'Зялёны';
 
   @override
-  String get colorAquamarine => 'Light green';
+  String get colorAquamarine => 'Светла-зялёны';
 
   @override
-  String get colorMaroon => 'Dark red';
+  String get colorMaroon => 'Цёмна-чырвоны';
 
   @override
-  String get colorPurple => 'Dark purple';
+  String get colorPurple => 'Цёмна-фіялетавы';
 
   @override
-  String get colorOlive => 'Dark yellow';
+  String get colorOlive => 'Цёмна-жоўты';
 
   @override
-  String get colorGray => 'Gray';
+  String get colorGray => 'Шэры';
 
   @override
-  String get colorSkyBlue => 'Light turquoise';
+  String get colorSkyBlue => 'Светлы бірузовы';
 
   @override
-  String get colorLightSkyBlue => 'Light blue';
+  String get colorLightSkyBlue => 'Светла-сіні';
 
   @override
-  String get colorBlueViolet => 'Purple';
+  String get colorBlueViolet => 'Фіялетавы';
 
   @override
-  String get colorDarkRed => 'Dark red';
+  String get colorDarkRed => 'Цёмна-чырвоны';
 
   @override
-  String get colorDarkMagenta => 'Dark purple';
+  String get colorDarkMagenta => 'Цёмна-фіялетавы';
 
   @override
-  String get colorSaddleBrown => 'Brown';
+  String get colorSaddleBrown => 'Карычневы';
 
   @override
-  String get colorDarkSeaGreen => 'Green';
+  String get colorDarkSeaGreen => 'Зялёны';
 
   @override
-  String get colorLightGreen => 'Light green';
+  String get colorLightGreen => 'Светла-зялёны';
 
   @override
-  String get colorMediumPurple => 'Lavender';
+  String get colorMediumPurple => 'Лаванда';
 
   @override
-  String get colorDarkViolet => 'Purple';
+  String get colorDarkViolet => 'Фіялетавы';
 
   @override
-  String get colorPaleGreen => 'Light green';
+  String get colorPaleGreen => 'Светла-зялёны';
 
   @override
-  String get colorDarkOrchid => 'Purple';
+  String get colorDarkOrchid => 'Фіялетавы';
 
   @override
-  String get colorYellowGreen => 'Green';
+  String get colorYellowGreen => 'Зялёны';
 
   @override
-  String get colorSienna => 'Tan';
+  String get colorSienna => 'Светла-карычневы';
 
   @override
-  String get colorBrown => 'Red';
+  String get colorBrown => 'Чырвоны';
 
   @override
-  String get colorDarkGray => 'Gray';
+  String get colorDarkGray => 'Шэры';
 
   @override
-  String get colorLightBlue => 'Sky blue';
+  String get colorLightBlue => 'Блакітны';
 
   @override
-  String get colorGreenYellow => 'Green';
+  String get colorGreenYellow => 'Зялёны';
 
   @override
-  String get colorPaleTurquoise => 'Aqua';
+  String get colorPaleTurquoise => 'Аква';
 
   @override
-  String get colorLightSteelBlue => 'Ice blue';
+  String get colorLightSteelBlue => 'Ледзяны сіні';
 
   @override
-  String get colorPowderBlue => 'Sky blue';
+  String get colorPowderBlue => 'Блакітны';
 
   @override
-  String get colorFirebrick => 'Red';
+  String get colorFirebrick => 'Чырвоны';
 
   @override
-  String get colorDarkGoldenrod => 'Dark yellow';
+  String get colorDarkGoldenrod => 'Цёмна-жоўты';
 
   @override
-  String get colorMediumOrchid => 'Purple';
+  String get colorMediumOrchid => 'Фіялетавы';
 
   @override
-  String get colorRosyBrown => 'Coral';
+  String get colorRosyBrown => 'Каралавы';
 
   @override
-  String get colorDarkKhaki => 'Tan';
+  String get colorDarkKhaki => 'Светла-карычневы';
 
   @override
-  String get colorSilver => 'Light gray';
+  String get colorSilver => 'Светла-шэры';
 
   @override
-  String get colorMediumVioletRed => 'Pink';
+  String get colorMediumVioletRed => 'Ружовы';
 
   @override
-  String get colorIndianRed => 'Red';
+  String get colorIndianRed => 'Чырвоны';
 
   @override
-  String get colorPeru => 'Tan';
+  String get colorPeru => 'Светла-карычневы';
 
   @override
-  String get colorChocolate => 'Orange';
+  String get colorChocolate => 'Аранжавы';
 
   @override
-  String get colorTan => 'Tan';
+  String get colorTan => 'Светла-карычневы';
 
   @override
-  String get colorLightGray => 'Light gray';
+  String get colorLightGray => 'Светла-шэры';
 
   @override
-  String get colorThistle => 'Lavender';
+  String get colorThistle => 'Лаванда';
 
   @override
-  String get colorOrchid => 'Lavender';
+  String get colorOrchid => 'Лаванда';
 
   @override
-  String get colorGoldenrod => 'Gold';
+  String get colorGoldenrod => 'Залаты';
 
   @override
-  String get colorPaleVioletRed => 'Rose';
+  String get colorPaleVioletRed => 'Ружа';
 
   @override
-  String get colorCrimson => 'Red';
+  String get colorCrimson => 'Чырвоны';
 
   @override
-  String get colorGainsboro => 'Light gray';
+  String get colorGainsboro => 'Светла-шэры';
 
   @override
-  String get colorPlum => 'Pink';
+  String get colorPlum => 'Ружовы';
 
   @override
-  String get colorBurlyWood => 'Tan';
+  String get colorBurlyWood => 'Светла-карычневы';
 
   @override
-  String get colorLightCyan => 'Sky blue';
+  String get colorLightCyan => 'Блакітны';
 
   @override
-  String get colorLavender => 'Light blue';
+  String get colorLavender => 'Светла-сіні';
 
   @override
-  String get colorDarkSalmon => 'Rose';
+  String get colorDarkSalmon => 'Ружа';
 
   @override
-  String get colorViolet => 'Lavender';
+  String get colorViolet => 'Лаванда';
 
   @override
-  String get colorPaleGoldenrod => 'Light yellow';
+  String get colorPaleGoldenrod => 'Светла-жоўты';
 
   @override
-  String get colorLightCoral => 'Rose';
+  String get colorLightCoral => 'Ружа';
 
   @override
-  String get colorKhaki => 'Light yellow';
+  String get colorKhaki => 'Светла-жоўты';
 
   @override
-  String get colorAliceBlue => 'White';
+  String get colorAliceBlue => 'Белы';
 
   @override
-  String get colorHoneydew => 'White';
+  String get colorHoneydew => 'Белы';
 
   @override
-  String get colorAzure => 'White';
+  String get colorAzure => 'Белы';
 
   @override
-  String get colorSandyBrown => 'Light orange';
+  String get colorSandyBrown => 'Светла-аранжавы';
 
   @override
-  String get colorWheat => 'Light yellow';
+  String get colorWheat => 'Светла-жоўты';
 
   @override
-  String get colorBeige => 'Light yellow';
+  String get colorBeige => 'Светла-жоўты';
 
   @override
-  String get colorWhiteSmoke => 'White';
+  String get colorWhiteSmoke => 'Белы';
 
   @override
-  String get colorMintCream => 'White';
+  String get colorMintCream => 'Белы';
 
   @override
-  String get colorGhostWhite => 'White';
+  String get colorGhostWhite => 'Белы';
 
   @override
-  String get colorSalmon => 'Rose';
+  String get colorSalmon => 'Ружа';
 
   @override
-  String get colorAntiqueWhite => 'Light orange';
+  String get colorAntiqueWhite => 'Светла-аранжавы';
 
   @override
-  String get colorLinen => 'Light orange';
+  String get colorLinen => 'Светла-аранжавы';
 
   @override
-  String get colorLightGoldenrodYellow => 'Light yellow';
+  String get colorLightGoldenrodYellow => 'Светла-жоўты';
 
   @override
-  String get colorOldLace => 'White';
+  String get colorOldLace => 'Белы';
 
   @override
-  String get colorRed => 'Red';
+  String get colorRed => 'Чырвоны';
 
   @override
-  String get colorMagenta => 'Purple';
+  String get colorMagenta => 'Фіялетавы';
 
   @override
-  String get colorDeepPink => 'Pink';
+  String get colorDeepPink => 'Ружовы';
 
   @override
-  String get colorOrangeRed => 'Red';
+  String get colorOrangeRed => 'Чырвоны';
 
   @override
-  String get colorTomato => 'Red';
+  String get colorTomato => 'Чырвоны';
 
   @override
-  String get colorHotPink => 'Pink';
+  String get colorHotPink => 'Ружовы';
 
   @override
-  String get colorCoral => 'Red';
+  String get colorCoral => 'Чырвоны';
 
   @override
-  String get colorDarkOrange => 'Orange';
+  String get colorDarkOrange => 'Аранжавы';
 
   @override
-  String get colorLightSalmon => 'Rose';
+  String get colorLightSalmon => 'Ружа';
 
   @override
-  String get colorOrange => 'Gold';
+  String get colorOrange => 'Залаты';
 
   @override
-  String get colorLightPink => 'Rose';
+  String get colorLightPink => 'Ружа';
 
   @override
-  String get colorPink => 'Rose';
+  String get colorPink => 'Ружа';
 
   @override
-  String get colorGold => 'Gold';
+  String get colorGold => 'Залаты';
 
   @override
-  String get colorPeachPuff => 'Light orange';
+  String get colorPeachPuff => 'Светла-аранжавы';
 
   @override
-  String get colorNavajoWhite => 'Light orange';
+  String get colorNavajoWhite => 'Светла-аранжавы';
 
   @override
-  String get colorMoccasin => 'Light orange';
+  String get colorMoccasin => 'Светла-аранжавы';
 
   @override
-  String get colorBisque => 'Light orange';
+  String get colorBisque => 'Светла-аранжавы';
 
   @override
-  String get colorMistyRose => 'Rose';
+  String get colorMistyRose => 'Ружа';
 
   @override
-  String get colorBlanchedAlmond => 'Light orange';
+  String get colorBlanchedAlmond => 'Светла-аранжавы';
 
   @override
-  String get colorPapayaWhip => 'Light orange';
+  String get colorPapayaWhip => 'Светла-аранжавы';
 
   @override
-  String get colorLavenderBlush => 'White';
+  String get colorLavenderBlush => 'Белы';
 
   @override
-  String get colorSeaShell => 'White';
+  String get colorSeaShell => 'Белы';
 
   @override
-  String get colorCornsilk => 'Light yellow';
+  String get colorCornsilk => 'Светла-жоўты';
 
   @override
-  String get colorLemonChiffon => 'Light yellow';
+  String get colorLemonChiffon => 'Светла-жоўты';
 
   @override
-  String get colorFloralWhite => 'White';
+  String get colorFloralWhite => 'Белы';
 
   @override
-  String get colorSnow => 'White';
+  String get colorSnow => 'Белы';
 
   @override
-  String get colorYellow => 'Yellow';
+  String get colorYellow => 'Жоўты';
 
   @override
-  String get colorLightYellow => 'Light yellow';
+  String get colorLightYellow => 'Светла-жоўты';
 
   @override
-  String get colorIvory => 'White';
+  String get colorIvory => 'Белы';
 
   @override
-  String get colorWhite => 'White';
+  String get colorWhite => 'Белы';
 }

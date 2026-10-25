@@ -54,7 +54,7 @@ class FluentLocalizationsFa extends FluentLocalizations {
   String get selectAllActionLabel => 'انتخاب همه';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'بازگردانی';
 
   @override
   String get newTabLabel => 'ایجاد تب جدید';
@@ -85,7 +85,7 @@ class FluentLocalizationsFa extends FluentLocalizations {
   String get selectAllActionTooltip => 'انتخاب تمام محتوا';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'بازگردانی آخرین عمل';
 
   @override
   String get hour => 'ساعت';
@@ -109,13 +109,13 @@ class FluentLocalizationsFa extends FluentLocalizations {
   String get year => 'سال';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'انتخاب تاریخ';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'نمایش بیشتر';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'نمایش کمتر';
 
   @override
   String get redLabel => 'قرمز';

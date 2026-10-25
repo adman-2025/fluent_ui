@@ -15,6 +15,7 @@
   "copyActionLabel": "Kopyala",
   "pasteActionLabel": "Yapıştır",
   "selectAllActionLabel": "Tümünü seç",
+  "undoActionLabel": "Geri al",
   "newTabLabel": "Yeni sekme ekle",
   "closeTabLabelSuffix": "Sekmeyi kapat",
   "scrollTabBackwardLabel": "Sekme listesini geri kaydır",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Seçili içeriği panoya kopyala ve sil",
   "pasteActionTooltip": "Pano içeriğini geçerli konuma ekle",
   "selectAllActionTooltip": "Tüm içeriği seç",
+  "undoActionTooltip": "Son eylemi geri al",
   "hour": "saat",
   "minute": "dakika",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "ay",
   "day": "gün",
   "year": "yıl",
+  "pickADate": "Tarih seç",
+  "seeMore": "Daha fazla göster",
+  "seeLess": "Daha az göster",
   "redLabel": "Kırmızı",
   "greenLabel": "Yeşil",
   "blueLabel": "Mavi",
@@ -41,7 +46,24 @@
   "moreText": "Daha Fazla",
   "lessText": "Daha Az",
   "valueSliderTooltip": "Değer {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opaklık",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Siyah",
   "colorNavy": "Koyu mavi",
   "colorDarkBlue": "Koyu mavi",

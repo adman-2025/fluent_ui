@@ -15,6 +15,7 @@
   "copyActionLabel": "複製",
   "pasteActionLabel": "貼上",
   "selectAllActionLabel": "全選",
+  "undoActionLabel": "復原",
   "newTabLabel": "新增標籤",
   "closeTabLabelSuffix": "關閉標籤",
   "scrollTabBackwardLabel": "向後滾動標籤列表",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "將選中的內容剪下至剪貼簿",
   "pasteActionTooltip": "在當前位置插入剪貼簿內容",
   "selectAllActionTooltip": "選擇所有內容",
+  "undoActionTooltip": "復原上一個動作",
   "hour": "時",
   "minute": "分",
   "am": "上午",
@@ -31,6 +33,9 @@
   "month": "月",
   "day": "日",
   "year": "年",
+  "pickADate": "選擇日期",
+  "seeMore": "顯示更多",
+  "seeLess": "顯示較少",
   "redLabel": "紅色",
   "greenLabel": "綠色",
   "blueLabel": "藍色",
@@ -41,7 +46,24 @@
   "moreText": "更多",
   "lessText": "更少",
   "valueSliderTooltip": "値 {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% 不透明度",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "黑色",
   "colorNavy": "深藍",
   "colorDarkBlue": "深藍",

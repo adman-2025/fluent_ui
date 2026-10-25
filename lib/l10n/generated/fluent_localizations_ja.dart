@@ -54,7 +54,7 @@ class FluentLocalizationsJa extends FluentLocalizations {
   String get selectAllActionLabel => '全て選択';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => '元に戻す';
 
   @override
   String get newTabLabel => '新しいタブを追加';
@@ -84,7 +84,7 @@ class FluentLocalizationsJa extends FluentLocalizations {
   String get selectAllActionTooltip => '全て選択';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => '直前の操作を元に戻す';
 
   @override
   String get hour => '時';
@@ -108,13 +108,13 @@ class FluentLocalizationsJa extends FluentLocalizations {
   String get year => '年';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => '日付を選択';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'もっと見る';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => '表示を減らす';
 
   @override
   String get redLabel => '赤';

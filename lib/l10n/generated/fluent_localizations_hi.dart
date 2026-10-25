@@ -54,7 +54,7 @@ class FluentLocalizationsHi extends FluentLocalizations {
   String get selectAllActionLabel => 'सब-कुछ सेलेक्ट करें';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'पूर्ववत करें';
 
   @override
   String get newTabLabel => 'नया टैब ऐड करें';
@@ -86,7 +86,7 @@ class FluentLocalizationsHi extends FluentLocalizations {
   String get selectAllActionTooltip => 'सारा कंटेंट सेलेक्ट करें';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'पिछली कार्रवाई को पूर्ववत करें';
 
   @override
   String get hour => 'घंटा';
@@ -110,13 +110,13 @@ class FluentLocalizationsHi extends FluentLocalizations {
   String get year => 'साल';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'तारीख चुनें';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'और देखें';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'कम देखें';
 
   @override
   String get redLabel => 'लाल';

@@ -157,13 +157,13 @@ class FluentLocalizationsZh extends FluentLocalizations {
   String get colorBlack => '黑色';
 
   @override
-  String get colorNavy => '深蓝';
+  String get colorNavy => '藏青色';
 
   @override
-  String get colorDarkBlue => '深蓝';
+  String get colorDarkBlue => '深蓝色';
 
   @override
-  String get colorMediumBlue => '蓝色';
+  String get colorMediumBlue => '中蓝色';
 
   @override
   String get colorBlue => '蓝色';
@@ -172,388 +172,388 @@ class FluentLocalizationsZh extends FluentLocalizations {
   String get colorDarkGreen => '深绿色';
 
   @override
-  String get colorGreen => '深绿色';
+  String get colorGreen => '绿色';
 
   @override
-  String get colorTeal => '深青';
+  String get colorTeal => '蓝绿色';
 
   @override
-  String get colorDarkCyan => '深青';
+  String get colorDarkCyan => '深青色';
 
   @override
-  String get colorDeepSkyBlue => '青绿';
+  String get colorDeepSkyBlue => '深天蓝色';
 
   @override
-  String get colorDarkTurquoise => '浅绿';
+  String get colorDarkTurquoise => '深绿松石色';
 
   @override
-  String get colorMediumSpringGreen => '绿色';
+  String get colorMediumSpringGreen => '中春绿';
 
   @override
-  String get colorLime => '绿色';
+  String get colorLime => '酸橙色';
 
   @override
-  String get colorSpringGreen => '绿色';
+  String get colorSpringGreen => '春绿';
 
   @override
-  String get colorCyan => '浅绿';
+  String get colorCyan => '青色';
 
   @override
-  String get colorMidnightBlue => '深蓝';
+  String get colorMidnightBlue => '午夜蓝';
 
   @override
-  String get colorDodgerBlue => '蓝色';
+  String get colorDodgerBlue => '道奇蓝';
 
   @override
-  String get colorLightSeaGreen => '青色';
+  String get colorLightSeaGreen => '浅海绿';
 
   @override
-  String get colorForestGreen => '深绿色';
+  String get colorForestGreen => '森林绿';
 
   @override
-  String get colorSeaGreen => '深绿色';
+  String get colorSeaGreen => '海绿色';
 
   @override
-  String get colorDarkSlateGray => '深青';
+  String get colorDarkSlateGray => '深板岩灰';
 
   @override
-  String get colorLimeGreen => '绿色';
+  String get colorLimeGreen => '酸橙绿';
 
   @override
-  String get colorMediumSeaGreen => '绿色';
+  String get colorMediumSeaGreen => '中海绿';
 
   @override
-  String get colorTurquoise => '青色';
+  String get colorTurquoise => '绿松石色';
 
   @override
-  String get colorRoyalBlue => '蓝色';
+  String get colorRoyalBlue => '皇家蓝';
 
   @override
-  String get colorSteelBlue => '蓝灰色';
+  String get colorSteelBlue => '钢蓝色';
 
   @override
-  String get colorDarkSlateBlue => '紫色';
+  String get colorDarkSlateBlue => '深板岩蓝';
 
   @override
-  String get colorMediumTurquoise => '青色';
+  String get colorMediumTurquoise => '中绿松石色';
 
   @override
-  String get colorIndigo => '深紫色';
+  String get colorIndigo => '靛蓝色';
 
   @override
-  String get colorDarkOliveGreen => '深绿色';
+  String get colorDarkOliveGreen => '深橄榄绿';
 
   @override
-  String get colorCadetBlue => '青色';
+  String get colorCadetBlue => '军校蓝';
 
   @override
-  String get colorCornflowerBlue => '蓝色';
+  String get colorCornflowerBlue => '矢车菊蓝';
 
   @override
-  String get colorMediumAquamarine => '绿色';
+  String get colorMediumAquamarine => '时尚蓝绿色';
 
   @override
-  String get colorDimGray => '灰色';
+  String get colorDimGray => '暗灰色';
 
   @override
-  String get colorSlateBlue => '靛蓝色';
+  String get colorSlateBlue => '板岩蓝';
 
   @override
-  String get colorOliveDrab => '深绿色';
+  String get colorOliveDrab => '橄榄褐色';
 
   @override
-  String get colorSlateGray => '蓝灰色';
+  String get colorSlateGray => '板岩灰';
 
   @override
-  String get colorLightSlateGray => '蓝灰色';
+  String get colorLightSlateGray => '浅板岩灰';
 
   @override
-  String get colorMediumSlateBlue => '浅蓝色';
+  String get colorMediumSlateBlue => '中板岩蓝';
 
   @override
-  String get colorLawnGreen => '绿色';
+  String get colorLawnGreen => '草坪绿';
 
   @override
-  String get colorChartreuse => '绿色';
+  String get colorChartreuse => '黄绿色';
 
   @override
-  String get colorAquamarine => '浅绿';
+  String get colorAquamarine => '时尚蓝绿色';
 
   @override
-  String get colorMaroon => '深红色';
+  String get colorMaroon => '栗色';
 
   @override
-  String get colorPurple => '深紫色';
+  String get colorPurple => '紫色';
 
   @override
-  String get colorOlive => '深黄色';
+  String get colorOlive => '橄榄色';
 
   @override
   String get colorGray => '灰色';
 
   @override
-  String get colorSkyBlue => '淡青绿色';
+  String get colorSkyBlue => '天蓝';
 
   @override
-  String get colorLightSkyBlue => '浅蓝色';
+  String get colorLightSkyBlue => '浅蓝';
 
   @override
-  String get colorBlueViolet => '紫色';
+  String get colorBlueViolet => '蓝紫色';
 
   @override
   String get colorDarkRed => '深红色';
 
   @override
-  String get colorDarkMagenta => '深紫色';
+  String get colorDarkMagenta => '深洋红';
 
   @override
-  String get colorSaddleBrown => '褐色';
+  String get colorSaddleBrown => '马鞍棕';
 
   @override
-  String get colorDarkSeaGreen => '绿色';
+  String get colorDarkSeaGreen => '深海绿';
 
   @override
   String get colorLightGreen => '浅绿';
 
   @override
-  String get colorMediumPurple => '淡紫色';
+  String get colorMediumPurple => '中紫色';
 
   @override
-  String get colorDarkViolet => '紫色';
+  String get colorDarkViolet => '深紫色';
 
   @override
-  String get colorPaleGreen => '浅绿';
+  String get colorPaleGreen => '淡绿';
 
   @override
-  String get colorDarkOrchid => '紫色';
+  String get colorDarkOrchid => '深兰花色';
 
   @override
-  String get colorYellowGreen => '绿色';
+  String get colorYellowGreen => '黄绿色';
 
   @override
-  String get colorSienna => '棕褐色';
+  String get colorSienna => '赭石色';
 
   @override
-  String get colorBrown => '红色';
+  String get colorBrown => '棕色';
 
   @override
-  String get colorDarkGray => '灰色';
+  String get colorDarkGray => '深灰色';
 
   @override
-  String get colorLightBlue => '天蓝';
+  String get colorLightBlue => '浅蓝色';
 
   @override
-  String get colorGreenYellow => '绿色';
+  String get colorGreenYellow => '绿黄色';
 
   @override
-  String get colorPaleTurquoise => '浅绿';
+  String get colorPaleTurquoise => '淡绿松石色';
 
   @override
-  String get colorLightSteelBlue => '冰蓝';
+  String get colorLightSteelBlue => '轻钢蓝色';
 
   @override
-  String get colorPowderBlue => '天蓝';
+  String get colorPowderBlue => '粉末蓝';
 
   @override
-  String get colorFirebrick => '红色';
+  String get colorFirebrick => '火砖红';
 
   @override
-  String get colorDarkGoldenrod => '深黄色';
+  String get colorDarkGoldenrod => '深金黄色';
 
   @override
-  String get colorMediumOrchid => '紫色';
+  String get colorMediumOrchid => '中兰花色';
 
   @override
-  String get colorRosyBrown => '珊瑚色';
+  String get colorRosyBrown => '玫瑰棕';
 
   @override
-  String get colorDarkKhaki => '棕褐色';
+  String get colorDarkKhaki => '深卡其色';
 
   @override
-  String get colorSilver => '浅灰';
+  String get colorSilver => '银色';
 
   @override
-  String get colorMediumVioletRed => '粉色';
+  String get colorMediumVioletRed => '中紫红色';
 
   @override
-  String get colorIndianRed => '红色';
+  String get colorIndianRed => '印度红';
 
   @override
-  String get colorPeru => '棕褐色';
+  String get colorPeru => '秘鲁色';
 
   @override
-  String get colorChocolate => '橙色';
+  String get colorChocolate => '巧克力色';
 
   @override
   String get colorTan => '棕褐色';
 
   @override
-  String get colorLightGray => '浅灰';
+  String get colorLightGray => '浅灰色';
 
   @override
-  String get colorThistle => '淡紫色';
+  String get colorThistle => '蓟色';
 
   @override
-  String get colorOrchid => '淡紫色';
+  String get colorOrchid => '兰花色';
 
   @override
-  String get colorGoldenrod => '金色';
+  String get colorGoldenrod => '金黄色';
 
   @override
-  String get colorPaleVioletRed => '玫瑰红';
+  String get colorPaleVioletRed => '淡紫红色';
 
   @override
-  String get colorCrimson => '红色';
+  String get colorCrimson => '深红色';
 
   @override
-  String get colorGainsboro => '浅灰';
+  String get colorGainsboro => '庚斯博罗灰';
 
   @override
-  String get colorPlum => '粉色';
+  String get colorPlum => '李子色';
 
   @override
-  String get colorBurlyWood => '棕褐色';
+  String get colorBurlyWood => '结实木色';
 
   @override
-  String get colorLightCyan => '天蓝';
+  String get colorLightCyan => '浅青色';
 
   @override
-  String get colorLavender => '浅蓝色';
+  String get colorLavender => '薰衣草色';
 
   @override
-  String get colorDarkSalmon => '玫瑰红';
+  String get colorDarkSalmon => '深橙红色';
 
   @override
-  String get colorViolet => '淡紫色';
+  String get colorViolet => '紫色';
 
   @override
-  String get colorPaleGoldenrod => '浅黄色';
+  String get colorPaleGoldenrod => '淡金黄色';
 
   @override
-  String get colorLightCoral => '玫瑰红';
+  String get colorLightCoral => '浅珊瑚色';
 
   @override
-  String get colorKhaki => '浅黄色';
+  String get colorKhaki => '卡其色';
 
   @override
-  String get colorAliceBlue => '白色';
+  String get colorAliceBlue => '爱丽丝蓝';
 
   @override
-  String get colorHoneydew => '白色';
+  String get colorHoneydew => '蜜瓜色';
 
   @override
-  String get colorAzure => '白色';
+  String get colorAzure => '天蓝色';
 
   @override
-  String get colorSandyBrown => '浅橙色';
+  String get colorSandyBrown => '沙棕色';
 
   @override
-  String get colorWheat => '浅黄色';
+  String get colorWheat => '小麦色';
 
   @override
-  String get colorBeige => '浅黄色';
+  String get colorBeige => '米色';
 
   @override
-  String get colorWhiteSmoke => '白色';
+  String get colorWhiteSmoke => '白烟色';
 
   @override
-  String get colorMintCream => '白色';
+  String get colorMintCream => '薄荷奶油色';
 
   @override
-  String get colorGhostWhite => '白色';
+  String get colorGhostWhite => '幽灵白';
 
   @override
-  String get colorSalmon => '玫瑰红';
+  String get colorSalmon => '橙红色';
 
   @override
-  String get colorAntiqueWhite => '浅橙色';
+  String get colorAntiqueWhite => '古董白';
 
   @override
-  String get colorLinen => '浅橙色';
+  String get colorLinen => '亚麻色';
 
   @override
-  String get colorLightGoldenrodYellow => '浅黄色';
+  String get colorLightGoldenrodYellow => '浅金黄';
 
   @override
-  String get colorOldLace => '白色';
+  String get colorOldLace => '老蕾丝色';
 
   @override
   String get colorRed => '红色';
 
   @override
-  String get colorMagenta => '紫色';
+  String get colorMagenta => '洋红色';
 
   @override
-  String get colorDeepPink => '粉色';
+  String get colorDeepPink => '深粉色';
 
   @override
-  String get colorOrangeRed => '红色';
+  String get colorOrangeRed => '橙红';
 
   @override
-  String get colorTomato => '红色';
+  String get colorTomato => '番茄红';
 
   @override
-  String get colorHotPink => '粉色';
+  String get colorHotPink => '热粉色';
 
   @override
-  String get colorCoral => '红色';
+  String get colorCoral => '珊瑚色';
 
   @override
-  String get colorDarkOrange => '橙色';
+  String get colorDarkOrange => '深橙色';
 
   @override
-  String get colorLightSalmon => '玫瑰红';
+  String get colorLightSalmon => '浅橙色';
 
   @override
-  String get colorOrange => '金色';
+  String get colorOrange => '橙色';
 
   @override
-  String get colorLightPink => '玫瑰红';
+  String get colorLightPink => '浅粉色';
 
   @override
-  String get colorPink => '玫瑰红';
+  String get colorPink => '粉色';
 
   @override
   String get colorGold => '金色';
 
   @override
-  String get colorPeachPuff => '浅橙色';
+  String get colorPeachPuff => '桃色粉扑';
 
   @override
-  String get colorNavajoWhite => '浅橙色';
+  String get colorNavajoWhite => '纳瓦霍白';
 
   @override
-  String get colorMoccasin => '浅橙色';
+  String get colorMoccasin => '鹿皮鞋色';
 
   @override
-  String get colorBisque => '浅橙色';
+  String get colorBisque => '浓汤色';
 
   @override
-  String get colorMistyRose => '玫瑰红';
+  String get colorMistyRose => '迷雾玫瑰色';
 
   @override
-  String get colorBlanchedAlmond => '浅橙色';
+  String get colorBlanchedAlmond => '漂白杏仁色';
 
   @override
-  String get colorPapayaWhip => '浅橙色';
+  String get colorPapayaWhip => '番木瓜鞭色';
 
   @override
-  String get colorLavenderBlush => '白色';
+  String get colorLavenderBlush => '薰衣草腮红';
 
   @override
-  String get colorSeaShell => '白色';
+  String get colorSeaShell => '海贝壳色';
 
   @override
-  String get colorCornsilk => '浅黄色';
+  String get colorCornsilk => '玉米丝色';
 
   @override
-  String get colorLemonChiffon => '浅黄色';
+  String get colorLemonChiffon => '柠檬雪纺色';
 
   @override
-  String get colorFloralWhite => '白色';
+  String get colorFloralWhite => '花白色';
 
   @override
-  String get colorSnow => '白色';
+  String get colorSnow => '雪白色';
 
   @override
   String get colorYellow => '黄色';
@@ -562,7 +562,7 @@ class FluentLocalizationsZh extends FluentLocalizations {
   String get colorLightYellow => '浅黄色';
 
   @override
-  String get colorIvory => '白色';
+  String get colorIvory => '象牙色';
 
   @override
   String get colorWhite => '白色';
@@ -618,6 +618,9 @@ class FluentLocalizationsZhHant extends FluentLocalizationsZh {
   String get selectAllActionLabel => '全選';
 
   @override
+  String get undoActionLabel => '復原';
+
+  @override
   String get newTabLabel => '新增標籤';
 
   @override
@@ -645,6 +648,9 @@ class FluentLocalizationsZhHant extends FluentLocalizationsZh {
   String get selectAllActionTooltip => '選擇所有內容';
 
   @override
+  String get undoActionTooltip => '復原上一個動作';
+
+  @override
   String get hour => '時';
 
   @override
@@ -664,6 +670,15 @@ class FluentLocalizationsZhHant extends FluentLocalizationsZh {
 
   @override
   String get year => '年';
+
+  @override
+  String get pickADate => '選擇日期';
+
+  @override
+  String get seeMore => '顯示更多';
+
+  @override
+  String get seeLess => '顯示較少';
 
   @override
   String get redLabel => '紅色';

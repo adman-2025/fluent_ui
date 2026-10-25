@@ -15,6 +15,7 @@
   "copyActionLabel": "Kopiera",
   "pasteActionLabel": "Klistra in",
   "selectAllActionLabel": "Markera allt",
+  "undoActionLabel": "Ångra",
   "newTabLabel": "Ny flik",
   "closeTabLabelSuffix": "Stäng flik",
   "scrollTabBackwardLabel": "Rulla fliklistan bakåt",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Klipp ut det markerade till urklipp",
   "pasteActionTooltip": "Klistra in från urklipp",
   "selectAllActionTooltip": "Markera allt",
+  "undoActionTooltip": "Ångra den senaste åtgärden",
   "hour": "timme",
   "minute": "minut",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "månad",
   "day": "dag",
   "year": "år",
+  "pickADate": "Välj ett datum",
+  "seeMore": "Visa mer",
+  "seeLess": "Visa mindre",
   "redLabel": "Röd",
   "greenLabel": "Grön",
   "blueLabel": "Blå",
@@ -41,7 +46,24 @@
   "moreText": "Mer",
   "lessText": "Mindre",
   "valueSliderTooltip": "Värde {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opacitet",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Svart",
   "colorNavy": "Mörkblå",
   "colorDarkBlue": "Mörkblå",

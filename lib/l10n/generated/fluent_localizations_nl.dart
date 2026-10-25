@@ -54,7 +54,7 @@ class FluentLocalizationsNl extends FluentLocalizations {
   String get selectAllActionLabel => 'Selecteer alles';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Ongedaan maken';
 
   @override
   String get newTabLabel => 'Open nieuw tabblad';
@@ -86,7 +86,7 @@ class FluentLocalizationsNl extends FluentLocalizations {
   String get selectAllActionTooltip => 'Selecteer alle inhoud';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Laatste actie ongedaan maken';
 
   @override
   String get hour => 'uur';
@@ -110,13 +110,13 @@ class FluentLocalizationsNl extends FluentLocalizations {
   String get year => 'jaar';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Kies een datum';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Meer weergeven';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Minder weergeven';
 
   @override
   String get redLabel => 'Rood';

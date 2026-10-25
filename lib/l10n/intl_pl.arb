@@ -15,6 +15,7 @@
   "copyActionLabel": "Kopiuj",
   "pasteActionLabel": "Wklej",
   "selectAllActionLabel": "Zaznacz wszystko",
+  "undoActionLabel": "Cofnij",
   "newTabLabel": "Nowa zakładka",
   "closeTabLabelSuffix": "Zamknij zakładkę",
   "scrollTabBackwardLabel": "Przewiń listę kart do tyłu",
@@ -24,6 +25,17 @@
   "cutActionTooltip": "Usuń zaznaczenie i umieść je w schowku",
   "pasteActionTooltip": "Wklej zawartość schowka",
   "selectAllActionTooltip": "Zaznacz wszystko",
+  "undoActionTooltip": "Cofnij ostatnią akcję",
+  "hour": "godzina",
+  "minute": "minuta",
+  "am": "AM",
+  "pm": "PM",
+  "month": "miesiąc",
+  "day": "dzień",
+  "year": "rok",
+  "pickADate": "Wybierz datę",
+  "seeMore": "Pokaż więcej",
+  "seeLess": "Pokaż mniej",
   "redLabel": "Czerwony",
   "greenLabel": "Zielony",
   "blueLabel": "Niebieski",
@@ -34,7 +46,24 @@
   "moreText": "Więcej",
   "lessText": "Mniej",
   "valueSliderTooltip": "Wartość {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Nieprzezroczystość",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Czarny",
   "colorNavy": "Ciemnoniebieski",
   "colorDarkBlue": "Ciemnoniebieski",

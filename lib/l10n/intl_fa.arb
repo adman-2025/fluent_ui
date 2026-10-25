@@ -15,6 +15,7 @@
   "copyActionLabel": "کپی کردن",
   "pasteActionLabel": "چسباندن",
   "selectAllActionLabel": "انتخاب همه",
+  "undoActionLabel": "بازگردانی",
   "newTabLabel": "ایجاد تب جدید",
   "closeTabLabelSuffix": "بستن تب",
   "scrollTabBackwardLabel": "اسکرول لیست تب‌ها به عقب",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "برداشتن محتوای انتخاب شده و قراردادن آن در بریده‌دان",
   "pasteActionTooltip": "درج کردن محتوای بریده‌دان در موقعیت فعلی",
   "selectAllActionTooltip": "انتخاب تمام محتوا",
+  "undoActionTooltip": "بازگردانی آخرین عمل",
   "hour": "ساعت",
   "minute": "دقیقه",
   "am": "ق.ظ.",
@@ -31,6 +33,9 @@
   "month": "ماه",
   "day": "روز",
   "year": "سال",
+  "pickADate": "انتخاب تاریخ",
+  "seeMore": "نمایش بیشتر",
+  "seeLess": "نمایش کمتر",
   "redLabel": "قرمز",
   "greenLabel": "سبز",
   "blueLabel": "آبی",
@@ -41,7 +46,24 @@
   "moreText": "بیشتر",
   "lessText": "کمتر",
   "valueSliderTooltip": "({colorName}) {value} مقدار",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "%{value} تاری",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "مشکی",
   "colorNavy": "آبی تیره",
   "colorDarkBlue": "آبی تیره",

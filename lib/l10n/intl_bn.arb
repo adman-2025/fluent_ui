@@ -15,6 +15,7 @@
   "copyActionLabel": "কপি",
   "pasteActionLabel": "পেস্ট",
   "selectAllActionLabel": "সব সিলেক্ট করুন",
+  "undoActionLabel": "পূর্বাবস্থায়",
   "newTabLabel": "নতুন ট্যাব যোগ করুন",
   "closeTabLabelSuffix": "ট্যাব বন্ধ করুন",
   "scrollTabBackwardLabel": "ট্যাব তালিকার পিছনে স্ক্রোল করুন",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "সিলেক্টেড কন্টেন্ট এখান থেকে রিমুভ করে ক্লিপবোর্ড এ কপি করুন",
   "pasteActionTooltip": "ক্লিপবোর্ড এর কন্টেন্ট এখানে পেস্ট করুন",
   "selectAllActionTooltip": "সব সিলেক্ট করুন",
+  "undoActionTooltip": "সর্বশেষ কাজটি পূর্বাবস্থায় ফিরিয়ে আনুন",
   "hour": "ঘন্টা",
   "minute": "মিনিট",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "মাস",
   "day": "দিন",
   "year": "বছর",
+  "pickADate": "একটি তারিখ বাছুন",
+  "seeMore": "আরও দেখুন",
+  "seeLess": "কম দেখুন",
   "redLabel": "লাল",
   "greenLabel": "সবুজ",
   "blueLabel": "নীল",
@@ -41,7 +46,24 @@
   "moreText": "আরও",
   "lessText": "কম",
   "valueSliderTooltip": "মান {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% অস্বচ্ছতা",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "কালো",
   "colorNavy": "গাঢ় নীল",
   "colorDarkBlue": "গাঢ় নীল",

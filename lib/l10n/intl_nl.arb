@@ -15,6 +15,7 @@
   "copyActionLabel": "Kopieer",
   "pasteActionLabel": "Plak",
   "selectAllActionLabel": "Selecteer alles",
+  "undoActionLabel": "Ongedaan maken",
   "newTabLabel": "Open nieuw tabblad",
   "closeTabLabelSuffix": "Sluit tabblad",
   "scrollTabBackwardLabel": "Scrol tabbladlijst terug",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Wis de selectie en plaats deze op het klembord",
   "pasteActionTooltip": "Plaats de inhoud van het klembord op de huidige plek",
   "selectAllActionTooltip": "Selecteer alle inhoud",
+  "undoActionTooltip": "Laatste actie ongedaan maken",
   "hour": "uur",
   "minute": "minuut",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "maand",
   "day": "dag",
   "year": "jaar",
+  "pickADate": "Kies een datum",
+  "seeMore": "Meer weergeven",
+  "seeLess": "Minder weergeven",
   "redLabel": "Rood",
   "greenLabel": "Groen",
   "blueLabel": "Blauw",
@@ -41,7 +46,24 @@
   "moreText": "Meer",
   "lessText": "Minder",
   "valueSliderTooltip": "Waarde {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Ondoorzichtigheid",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Zwart",
   "colorNavy": "Donkerblauw",
   "colorDarkBlue": "Donkerblauw",

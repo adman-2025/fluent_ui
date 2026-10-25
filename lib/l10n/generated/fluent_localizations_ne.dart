@@ -111,7 +111,7 @@ class FluentLocalizationsNe extends FluentLocalizations {
   String get year => 'वर्ष';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'मिति छान्नुहोस्';
 
   @override
   String get seeMore => 'थप हेर्नुहोस्';

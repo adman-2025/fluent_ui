@@ -54,7 +54,7 @@ class FluentLocalizationsEl extends FluentLocalizations {
   String get selectAllActionLabel => 'Επιλογή όλων';
 
   @override
-  String get undoActionLabel => 'Undo';
+  String get undoActionLabel => 'Αναίρεση';
 
   @override
   String get newTabLabel => 'Προσθήκη νέας καρτέλας';
@@ -87,7 +87,7 @@ class FluentLocalizationsEl extends FluentLocalizations {
   String get selectAllActionTooltip => 'Επιλογή όλων';
 
   @override
-  String get undoActionTooltip => 'Undo the last action';
+  String get undoActionTooltip => 'Αναίρεση της τελευταίας ενέργειας';
 
   @override
   String get hour => 'ώρα';
@@ -111,13 +111,13 @@ class FluentLocalizationsEl extends FluentLocalizations {
   String get year => 'έτος';
 
   @override
-  String get pickADate => 'Pick a date';
+  String get pickADate => 'Επιλέξτε ημερομηνία';
 
   @override
-  String get seeMore => 'See more';
+  String get seeMore => 'Εμφάνιση περισσότερων';
 
   @override
-  String get seeLess => 'See less';
+  String get seeLess => 'Εμφάνιση λιγότερων';
 
   @override
   String get redLabel => 'Κόκκινο';

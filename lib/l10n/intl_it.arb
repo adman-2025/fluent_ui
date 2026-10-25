@@ -15,6 +15,7 @@
   "copyActionLabel": "Copia",
   "pasteActionLabel": "Incolla",
   "selectAllActionLabel": "Seleziona tutto",
+  "undoActionLabel": "Annulla",
   "newTabLabel": "Aggiungi una nuova scheda",
   "closeTabLabelSuffix": "Chiudi scheda",
   "scrollTabBackwardLabel": "Scorri indietro",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "Taglia il contenuto selezionato",
   "pasteActionTooltip": "Incolla il contenuto dalla clipboard",
   "selectAllActionTooltip": "Selziona tutto il contenuto",
+  "undoActionTooltip": "Annulla l'ultima azione",
   "hour": "ore",
   "minute": "minuti",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "mese",
   "day": "giorno",
   "year": "anno",
+  "pickADate": "Scegli una data",
+  "seeMore": "Mostra altro",
+  "seeLess": "Mostra meno",
   "redLabel": "Rosso",
   "greenLabel": "Verde",
   "blueLabel": "Blu",
@@ -41,7 +46,24 @@
   "moreText": "Più",
   "lessText": "Meno",
   "valueSliderTooltip": "Valore {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% Opacità",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "Nero",
   "colorNavy": "Blu scuro",
   "colorDarkBlue": "Blu scuro",

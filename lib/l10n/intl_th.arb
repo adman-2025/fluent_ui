@@ -15,6 +15,7 @@
   "copyActionLabel": "คัดลอก",
   "pasteActionLabel": "วาง",
   "selectAllActionLabel": "เลือกทั้งหมด",
+  "undoActionLabel": "เลิกทำ",
   "newTabLabel": "เพิ่มแท็บใหม่",
   "closeTabLabelSuffix": "ปิดแท็บ",
   "scrollTabBackwardLabel": "เลื่อนรายการย้อนกลับ",
@@ -24,6 +25,7 @@
   "cutActionTooltip": "ลบข้อความที่เลือกแล้วนำไปยังคลิปบอร์ด",
   "pasteActionTooltip": "ใส่เนื้อหาจากคลิปบอร์ดที่ตำแหน่งปัจจุบัน",
   "selectAllActionTooltip": "เลือกเนื้อหาทั้งหมด",
+  "undoActionTooltip": "เลิกทำการดำเนินการล่าสุด",
   "hour": "ชั่วโมง",
   "minute": "นาที",
   "am": "AM",
@@ -31,6 +33,9 @@
   "month": "เดือน",
   "day": "วัน",
   "year": "ปี",
+  "pickADate": "เลือกวันที่",
+  "seeMore": "ดูเพิ่มเติม",
+  "seeLess": "ดูน้อยลง",
   "redLabel": "แดง",
   "greenLabel": "เขียว",
   "blueLabel": "น้ำเงิน",
@@ -41,7 +46,24 @@
   "moreText": "เพิ่มเติม",
   "lessText": "น้อยลง",
   "valueSliderTooltip": "ค่า {value} ({colorName})",
+  "@valueSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "colorName": {
+        "type": "String"
+      }
+    }
+  },
   "alphaSliderTooltip": "{value}% ความทึบ",
+  "@alphaSliderTooltip": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "colorBlack": "ดำ",
   "colorNavy": "น้ำเงินเข้ม",
   "colorDarkBlue": "น้ำเงินเข้ม",
