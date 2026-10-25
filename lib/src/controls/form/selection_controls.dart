@@ -683,10 +683,10 @@ class _WindowsTextSelectionToolbarButton extends StatelessWidget {
                   ],
                 ),
               );
-
-              if (tooltip != null) {
-                return Tooltip(message: tooltip, child: widget);
-              }
+              // This code throws an exception
+              // if (tooltip != null) {
+              //  return Tooltip(message: tooltip, child: widget);
+              // }
               return widget;
             },
           ),
