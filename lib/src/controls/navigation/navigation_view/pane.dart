@@ -708,10 +708,10 @@ class _TopNavigationPaneState extends State<_TopNavigationPane> {
 
   void _onPressed(PaneItem item) {
     if (widget.pane.canChangeTo(item)) {
-      widget.pane.changeTo(item);
       if (overflowController.isOpen) {
         Navigator.of(context).pop();
       }
+      widget.pane.changeTo(item);
     }
   }
 
