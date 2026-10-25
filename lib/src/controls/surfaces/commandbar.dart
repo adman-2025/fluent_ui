@@ -222,6 +222,29 @@ class CommandBarState extends State<CommandBar> {
   final secondaryFlyoutController = FlyoutController();
   List<int> _dynamicallyHiddenPrimaryItems = [];
 
+  @override
+  void didUpdateWidget(covariant CommandBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.primaryItems.length != widget.primaryItems.length ||
+        !_sameItems(oldWidget.primaryItems, widget.primaryItems)) {
+      _dynamicallyHiddenPrimaryItems = [];
+    }
+  }
+
+  bool _sameItems(
+    List<CommandBarItem> oldItems,
+    List<CommandBarItem> newItems,
+  ) {
+    if (oldItems.length != newItems.length) return false;
+
+    for (var i = 0; i < oldItems.length; i++) {
+      if (!identical(oldItems[i], newItems[i])) return false;
+    }
+
+    return true;
+  }
+
   /// The list of all secondary items, including the dynamically hidden primary
   /// items.
   List<CommandBarItem> get allSecondaryItems {
