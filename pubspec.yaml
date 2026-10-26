@@ -1,6 +1,6 @@
 name: fluent_ui
 description: Implements Microsoft's Windows User Interface in Flutter.
-version: 4.16.1
+version: 1.0.0 # based 4.16.1
 homepage: https://bdlukaa.github.io/fluent_ui/#/
 repository: https://github.com/bdlukaa/fluent_ui
 issue_tracker: https://github.com/bdlukaa/fluent_ui/issues
@@ -14,6 +14,8 @@ topics:
   - desktop
   - ui
   - widgets
+
+resolution: workspace
 
 dependencies:
   flutter:
