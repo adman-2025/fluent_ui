@@ -219,6 +219,7 @@ class CommandBar extends StatefulWidget {
 
 class CommandBarState extends State<CommandBar> {
   /// The controller for the secondary menu popup.
+  final FocusNode _overflowFocusNode = FocusNode();
   final secondaryFlyoutController = FlyoutController();
   List<int> _dynamicallyHiddenPrimaryItems = [];
 
@@ -309,6 +310,7 @@ class CommandBarState extends State<CommandBar> {
 
   @override
   void dispose() {
+    _overflowFocusNode.dispose();
     secondaryFlyoutController.dispose();
     super.dispose();
   }
@@ -362,13 +364,14 @@ class CommandBarState extends State<CommandBar> {
       if (widget.overflowItemBuilder != null) {
         overflowItem = widget.overflowItemBuilder!(toggleSecondaryMenu);
       } else {
+        _overflowFocusNode.skipTraversal = allSecondaryItems.isEmpty;
         overflowItem = CommandBarButton(
           onPressed: toggleSecondaryMenu,
+          focusNode: _overflowFocusNode,
           tooltip: secondaryFlyoutController.isOpen
               ? FluentLocalizations.of(context).seeLess
               : FluentLocalizations.of(context).seeMore,
           icon: const WindowsIcon(WindowsIcons.more),
-          focusNode: FocusNode(skipTraversal: allSecondaryItems.isEmpty),
         );
       }
 
