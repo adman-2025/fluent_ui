@@ -797,6 +797,7 @@ class FluentIcons {
     0xe72b,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true,
   );
 
   static const IconData back_to_window = IconData(
@@ -2333,6 +2334,7 @@ class FluentIcons {
     0xe76c,
     fontFamily: 'FluentIcons',
     fontPackage: 'fluent_ui',
+    matchTextDirection: true,
   );
 
   static const IconData chevron_right_end6 = IconData(
